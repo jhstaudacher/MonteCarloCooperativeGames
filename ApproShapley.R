@@ -1,7 +1,7 @@
 set.seed(0)
 
 
-n <- 100
+n <- 10
 N <- 1:n
 
 v <- function (S) {
@@ -20,7 +20,7 @@ pre <- function(O, i) {
   return(O[1:i])
 }
 
-m <- 10000
+m <- 1000000
 Sh <- rep(0, n)
 
 for (x in 1:m) {
@@ -35,6 +35,22 @@ for (x in 1:m) {
 }
 
 Sh
-Sh/m
+Sh <- Sh/m
+
 # the estimate Sh is efficient in allocation
-sum(Sh/m)
+sum(Sh)
+
+print("Shapley-values (estimates):")
+print(Sh)
+print("------------------")
+
+# we know that the shapley value for the glove game is 0.5 for every player
+errors <- abs(rep(0.5, n)-Sh)
+error_total <- sum(errors)
+print("Errors:")
+print(errors)
+print("------------------")
+print("Total error:")
+print(error_total)
+print("------------------")
+
