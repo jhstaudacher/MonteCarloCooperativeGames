@@ -1,4 +1,5 @@
-set.seed(0)
+#set.seed(0)
+#set.seed(NULL)
 
 n <- 100
 N <- 1:n
@@ -27,10 +28,11 @@ pre <- function(O, i) {
   return(O[1:i])
 }
 
-m <- 1000
+m <- 150000
 Sh <- rep(0, n)
+cnt <- m/n
 
-for (x in 1:m) {
+for (x in 1:cnt) {
   O <- sample(N)
   
   # i is not the player (like in the paper) but the idx of the player in the current order O
@@ -41,7 +43,25 @@ for (x in 1:m) {
   }
 }
 
-print(Sh)
-print(Sh/m)
+Sh <- Sh/cnt
+
 # the estimate Sh is efficient in allocation
-print(sum(Sh/m))
+print(sum(Sh))
+
+print("Shapley-values (estimates):")
+print(Sh)
+print("------------------")
+
+real_shapley <- read.csv(file = 'Airport_Game_Shapley_Values.csv')$Shapley
+
+errors <- abs(real_shapley-Sh)
+error_total <- sum(errors)
+print("Errors:")
+print(errors)
+print("------------------")
+print("Total error:")
+print(error_total)
+print("------------------")
+print("Average error:")
+print(error_total/n)
+print("------------------")
