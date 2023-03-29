@@ -20,7 +20,7 @@ pre <- function(O, i) {
   return(O[1:i])
 }
 
-m <- 1000000
+m <- 10000
 Sh <- rep(0, n)
 
 for (x in 1:m) {
