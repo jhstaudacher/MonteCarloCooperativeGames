@@ -2,7 +2,7 @@
 
 n <- 3
 
-N <- 1:n
+N <- 1:6
 
 # glove game: left 1, 2; right 3
 v <- function (S) {
@@ -12,10 +12,10 @@ v <- function (S) {
   return(min(c(left_in_S, right_in_S)))
 }
 
-# P <- list(c(1, 2), c(3,4,5), c(6)) 
+P <- list(c(1, 2), c(3,4,5), c(6)) 
 
 #P <- list(c(1, 2, 3))       #expected result O = (1/6, 1/6, 2/3)    BzO = (0.25, 0.25, 0.75)
-P <- list(c(1), c(2), c(3)) #expected result O = (1/6, 1/6, 2/3)   BzO = (0.25, 0.25, 0.75)
+#P <- list(c(1), c(2), c(3)) #expected result O = (1/6, 1/6, 2/3)   BzO = (0.25, 0.25, 0.75)
 #P <- list(c(1, 2), c(3))    #expected result O = (1/4, 1/4, 1/2)  
 #P <- list(c(1, 3), c(2))    #expected result O = (1/4, 0, 3,4)
 #P <- list(c(1), c(2, 3))    #expected result O = (0  , 1/4, 3/4)
@@ -23,6 +23,7 @@ P <- list(c(1), c(2), c(3)) #expected result O = (1/6, 1/6, 2/3)   BzO = (0.25, 
 
 #extract the P(i) Partition
 #extract R Partitions
+# player i
 i <- 1
 R <- list()   #contains all coalitions without Pi
 idx <- 1
@@ -37,7 +38,7 @@ for(x in P){
 }
 #cnt <- 0
 # set total sample size
-l <- 100000
+l <- 50000
 # initialize Owen Value
 O <- 0
 # initialize Banzhaf Owen Value
@@ -50,6 +51,7 @@ for(k in 0:(length(P)-1)){
     #print(cat('K: ', k, ', H: ', h))
     # strata weight calculation, needed for proportional distribution of samples lkh and Banzhaf–Owen
     W <- (choose(length(P)-1, k)*choose(length(Pi), h))/((2^(length(P)-1))*(2^(length(Pi))))
+    #print(W)
     ekh <- 0
     # proportional allocation procedure for sample site lkh
     for(sampleidx in 1:(l*W)){
@@ -66,11 +68,13 @@ for(k in 0:(length(P)-1)){
       sample <- unlist(append(first, sec))
       #print(append(sample, i))
       xi <- v(append(sample, i)) - v(sample)
+      #print(xi)
       ekh <- ekh + (1/(l*W))*xi
       #cnt <- cnt +1 
     }
     # Owen calculation
     O <- O + ekh
+    #print(O)
     #print(W)
     # Banzhaf–Owen calculation
     BzO <- BzO + W*ekh
