@@ -119,31 +119,67 @@ void without_threads(const std::vector<int>& population, int sample_count) {
     print_vector(shapley_values);
 }
 
+std::vector<int> sample_from_partition(std::vector<std::vector<int>> partition) {
+    std::random_device rd;
+    std::mt19937 g(rd());
+
+	// partition is copied into this method, so we are free to mutate it
+	
+	// first shuffle each component in the partition
+	// e.g. { { 1, 3, 4 }, { 2, 5 } } -> { { 3, 1, 4 }, { 5, 2 } } 
+	for (auto& component : partition) {
+        std::shuffle(component.begin(), component.end(), g);
+	}
+
+	// then shuffle the components itself inside partition
+	// e.g. { { 3, 1, 4 }, { 5, 2 } } -> { { 5, 2 }, { 3, 1, 4 } } 
+	std::shuffle(partition.begin(), partition.end(), g);
+
+	// flatten partition
+    std::vector<int> result;
+	for (auto& component : partition) {
+		for (auto player : component) {
+			result.push_back(player);
+		}
+	}
+
+    return result;
+}
+
 int main(int argc, char** argv)
 {
     assert(n % 2 == 0);
 
-    const int sample_count = 10'000'000; // m
+	std::vector<std::vector<int>> partition = { { 1, 3 }, { 2 } };
 
-    std::vector<int> population;
-    for (int player = 1; player <= n; player++)
-        population.push_back(player);
+	auto order = sample_from_partition(partition);
+	print_vector(order);
 
-    std::cout << "With threads:" << std::endl;
-    auto start = std::chrono::high_resolution_clock::now();
-    with_threads(population, sample_count);
-    auto stop = std::chrono::high_resolution_clock::now();
+	// for (auto& component : partition) {
+	// 	print_vector(component);
+	// }
 
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    std::cout << duration.count() << "ms" << std::endl;
+    // const int sample_count = 10'000'000; // m
 
-    std::cout << "Without threads:" << std::endl;
-    start = std::chrono::high_resolution_clock::now();
-    without_threads(population, sample_count);
-    stop = std::chrono::high_resolution_clock::now();
+    // std::vector<int> population;
+    // for (int player = 1; player <= n; player++)
+    //     population.push_back(player);
 
-    duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    std::cout << duration.count() << "ms" << std::endl;
+    // std::cout << "With threads:" << std::endl;
+    // auto start = std::chrono::high_resolution_clock::now();
+    // with_threads(population, sample_count);
+    // auto stop = std::chrono::high_resolution_clock::now();
+
+    // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    // std::cout << duration.count() << "ms" << std::endl;
+
+    // std::cout << "Without threads:" << std::endl;
+    // start = std::chrono::high_resolution_clock::now();
+    // without_threads(population, sample_count);
+    // stop = std::chrono::high_resolution_clock::now();
+
+    // duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    // std::cout << duration.count() << "ms" << std::endl;
 
     return 0;
 }
