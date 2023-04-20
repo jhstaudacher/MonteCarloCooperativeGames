@@ -48,7 +48,7 @@ files, so they display on GitHub and CRAN.
 Install devtools
 
 ``` r
-package.install ("devtools")
+install.packages ("devtools")
 ```
 
 ## While working

@@ -51,7 +51,7 @@ In that case, don't forget to commit and push the resulting figure files, so the
 
 Install devtools
 ``` r
-package.install ("devtools")
+install.packages ("devtools")
 ```
 
 ## While working
