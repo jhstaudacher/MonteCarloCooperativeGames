@@ -18,5 +18,5 @@ numeric binary vector, of dimension n, which each component i indicates the belo
 Access possible coalitions of players through index; based on paper: "Statistics and game theory: Estimating coalitional values in R software" (Alejandro Saavedra-Nieves, 2020)
 }
 \examples{
-print (fromICoalitionToCoalition (5, 27))
+print(fromICoalitionToCoalition(5, 27))
 }

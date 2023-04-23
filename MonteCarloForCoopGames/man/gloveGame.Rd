@@ -18,6 +18,6 @@ The characteristic function configured with the provided left and right glove li
 Returns the characteristic function of a glove game with the specified sets of left and right gloves.
 }
 \examples{
-v <- gloveGame(L=1:50,R=51:100)
-v(c(10,90,99,70,20))
+v <- gloveGame(L = 1:50, R = 51:100)
+v(c(10, 90, 99, 70, 20))
 }

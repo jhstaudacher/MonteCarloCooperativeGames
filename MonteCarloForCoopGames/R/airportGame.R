@@ -11,7 +11,7 @@
 #' v(c(1, 3, 6)) # returns 5
 airportGame <- function(costs) {
   v <- function(S) {
-    if(length(S) == 0) 0 else max(costs[c(S)])
+    if (length(S) == 0) 0 else max(costs[c(S)])
   }
 
   v

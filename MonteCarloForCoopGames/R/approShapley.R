@@ -8,9 +8,8 @@
 #' @export
 #'
 #' @examples
-#' print (approShapley (10, 10000, gloveGame(1:5,6:10)))
-approShapley <- function (n, m, v) {
-
+#' print(approShapley(10, 10000, gloveGame(1:5, 6:10)))
+approShapley <- function(n, m, v) {
   # N is a list of players with the specified length according to the number of players (n)
   N <- 1:n
 
@@ -20,17 +19,15 @@ approShapley <- function (n, m, v) {
 
   # Loop for all samples
   # The number m (number of samples) is divided by the player count because in the inner loop each player is sampled
-  for (x in 1:(m/n)) {
-
+  for (x in 1:(m / n)) {
     # Get a random permutation of the player list for sampling
     O <- sample(N)
 
     # Loop though every player in the sample
     # i is not the player (like in the paper) but the idx of the player in the current order O
     for (i in 1:n) {
-
       # Calculate the marginal contribution with the current player and without the current player
-      sh_i <- v(take(O, i)) - v(take(O, i-1))
+      sh_i <- v(take(O, i)) - v(take(O, i - 1))
       # Get the index of the current player
       player_i <- O[i]
       # Add the marginal contribution to the Shapley value of the current player
@@ -39,7 +36,7 @@ approShapley <- function (n, m, v) {
   }
 
   # Divide the Shapley list by the number of samples.
-  Sh <- Sh/(m/n)
+  Sh <- Sh / (m / n)
 
   Sh
 }

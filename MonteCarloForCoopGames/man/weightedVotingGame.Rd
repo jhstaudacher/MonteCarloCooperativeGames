@@ -18,6 +18,6 @@ A sub-list
 Returns the characteristic function of a weighted voting game with the specified weights and quota
 }
 \examples{
-v <- weightedVotingGame(c(1, 2, 3, 4, 5, 4, 3, 2, 1, 10), 1/2)
+v <- weightedVotingGame(c(1, 2, 3, 4, 5, 4, 3, 2, 1, 10), 1 / 2)
 v(c(1:10))
 }

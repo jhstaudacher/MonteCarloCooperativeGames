@@ -7,8 +7,8 @@
 #' @export
 #'
 #' @examples
-#' v <- gloveGame(L=1:50,R=51:100)
-#' v(c(10,90,99,70,20))
+#' v <- gloveGame(L = 1:50, R = 51:100)
+#' v(c(10, 90, 99, 70, 20))
 gloveGame <- function(L, R) {
   # TODO: check if L and R are disjoint
   v <- function(S) {

@@ -20,5 +20,5 @@ List of Shapley values
 Monte Carlo Simulation based on the 2009 paper by Javier Castro
 }
 \examples{
-print (approShapley (10, 10000, gloveGame(1:5,6:10)))
+print(approShapley(10, 10000, gloveGame(1:5, 6:10)))
 }

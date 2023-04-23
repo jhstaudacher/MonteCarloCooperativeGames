@@ -22,6 +22,6 @@ approximation of the Banzaf-Owen value and Owen value based on stratified sampli
 A two-stage procedure to estimate the Banzhaf–Owen value based on paper: "On stratified sampling for estimating coalitional values" (A. Saavedra-Nieves, 2022)
 }
 \examples{
-print (stApproOwenAndBanzhafOwen (1, 10000, list(c(1,2),(3)), gloveGame(1:2,3:3)))
-print (stApproOwenAndBanzhafOwen (3, 10000, list(c(1), c(2, 3)), gloveGame(1:2,3:3))$Owen)
+print(stApproOwenAndBanzhafOwen(1, 10000, list(c(1, 2), (3)), gloveGame(1:2, 3:3)))
+print(stApproOwenAndBanzhafOwen(3, 10000, list(c(1), c(2, 3)), gloveGame(1:2, 3:3))$Owen)
 }

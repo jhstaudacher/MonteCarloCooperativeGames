@@ -10,13 +10,13 @@
 #' @export
 #'
 #' @examples
-#' print (twoStageApproBanzhafOwen (1, 2, 2, list(c(1,2),(3)), gloveGame(1:2,3:3)))
-twoStageApproBanzhafOwen <- function(i, lr, ls, P, v){
-  withoutPi <- list()   #contains all coalitions without Pi
+#' print(twoStageApproBanzhafOwen(1, 2, 2, list(c(1, 2), (3)), gloveGame(1:2, 3:3)))
+twoStageApproBanzhafOwen <- function(i, lr, ls, P, v) {
+  withoutPi <- list() # contains all coalitions without Pi
   idx <- 1
-  for(x in P){
+  for (x in P) {
     # if x contains i it is P(i)
-    if(i %in% x){
+    if (i %in% x) {
       Pi <- x[x != i]
     } else {
       withoutPi[[idx]] <- x
@@ -27,38 +27,36 @@ twoStageApproBanzhafOwen <- function(i, lr, ls, P, v){
   # prepare the list R that contains lists of different permutations of P\Pi
   R <- createRandomSamples(withoutPi, lr)
   BzO <- 0
-  for(j in 1:lr){
+  for (j in 1:lr) {
     # Take SR j = {S j1 to S js } where S jk ⊆ P(i)\{i} is obtained without replacement for all k = 1 to s .
     S <- createRandomSamples(Pi, ls)
-    for(k in 1:ls){
-      xRS <- v(unlist(c(R[j], S[k], i)))-v(unlist(c(R[j], S[k])))
-      #print(unlist(c(R[j], S[k], i)))
-      #print(xRS)
+    for (k in 1:ls) {
+      xRS <- v(unlist(c(R[j], S[k], i))) - v(unlist(c(R[j], S[k])))
+      # print(unlist(c(R[j], S[k], i)))
+      # print(xRS)
       BzO <- BzO + xRS
     }
   }
-  BzO <- BzO/(lr*ls)
+  BzO <- BzO / (lr * ls)
   return(BzO)
 }
 
-createRandomSamples <- function(input, samplesize){
+createRandomSamples <- function(input, samplesize) {
   iCoalition <- sample(2^(length(input)), samplesize, replace = FALSE)
   R <- list()
-  for(idx in 1:length(iCoalition)){
-    if(length(input) == 0){
+  for (idx in 1:length(iCoalition)) {
+    if (length(input) == 0) {
       bincoalations <- 0
-    } else{
+    } else {
       bincoalations <- fromICoalitionToCoalition(length(input), iCoalition[idx])
     }
-    #print(bincoalations)
+    # print(bincoalations)
     R[[idx]] <- list()
-    for(ele in 1:length(bincoalations)){
-      if(bincoalations[ele] == 1){
+    for (ele in 1:length(bincoalations)) {
+      if (bincoalations[ele] == 1) {
         R[[idx]] <- unlist(append(R[[idx]], input[ele]))
       }
     }
   }
   return(R)
 }
-
-

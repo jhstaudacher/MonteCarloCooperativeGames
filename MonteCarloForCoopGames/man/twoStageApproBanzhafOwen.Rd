@@ -24,5 +24,5 @@ approximation of the Banzaf-Owen value based on two-stage sampling
 A two-stage procedure to estimate the Banzhaf–Owen value based on paper: "Sampling methods to estimate the Banzhaf–Owen value" (A. Saavedra-Nieves & M. G. Fiestras-Janeiro, 2020)
 }
 \examples{
-print (twoStageApproBanzhafOwen (1, 2, 2, list(c(1,2),(3)), gloveGame(1:2,3:3)))
+print(twoStageApproBanzhafOwen(1, 2, 2, list(c(1, 2), (3)), gloveGame(1:2, 3:3)))
 }

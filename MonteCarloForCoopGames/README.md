@@ -1,105 +1,171 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# MonteCarloForCoopGames
+# Monte Carlo For Coop Games
 
-<!-- badges: start -->
-<!-- badges: end -->
+Monte Carlo For Coop Games is a R package for simulating arbitrary
+cooperative games and approximating the Shapley value of them.
 
-The goal of MonteCarloForCoopGames is to …
+## Getting started with development
 
-## Installation
-
-You can install the development version of MonteCarloForCoopGames like
-so:
+Install the devtools and other neccessary packages
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+install.packages(c("devtools", "roxygen2", "testthat", "knitr", "styler"))
 ```
 
-## Example
+R Studio: Tools/Install Packages or Build Pane: Install
 
-This is a basic example which shows you how to solve a common problem:
+### Rtools
+
+Install Rtools (required to build packages with C++ code) Windows:
+Download it from [here](https://cran.r-project.org/bin/windows/Rtools/)
+and run the installer. MacOs: Run xcode-select –install Ubuntu/Debian:
+sudo apt install r-base-dev
+
+Verify installation with:
 
 ``` r
-library(MonteCarloForCoopGames)
-## basic example code
+devtools::dev_sitrep()
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+## Development workflow
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+- Run check often and fix any errors, warnings and notes
+- Be extremly careful with top level code in a package. It is ONLY run
+  when the package is build, NEVER again. Mainly use them for static
+  variables. Any R code outside of a function is suspicious and should
+  be carefully reviewed.
+- Using library, source and require in a package is forbidden
+- Subfolders in the R directory are not supported.
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+### General workflow
 
-## Getting started
+![General dev
+workflow](https://r-pkgs.org/diagrams/workflow.png "General development workflow")
 
-Install devtools
-
-``` r
-install.packages ("devtools")
-```
-
-## While working
-
-Run the following command in each new R session to load the devtools
+Run the following command in each new R session to load the devtools.
 
 ``` r
 library(devtools)
 ```
 
+Alternativly a .Rprofile file can be used to automaticly load the
+library. Create the file manually at \~/.RProfile or use use_devtools()
+to create the file.
+
+``` r
+if (interactive()) {
+  suppressMessages(require(devtools))
+}
+```
+
+### Check
+
 Run the following command periodically to check the state of the package
-Address any issues as soon as possible
+Address any issues as soon as possible.
+
+Console:
 
 ``` r
 check()
 ```
 
-Do not run the code directly. Use the following command to load the code
+R Studio: Build/Check Package or Build Pane: Check
+
+### Loading the code
+
+Running code directly can cause problems, because R Studio just sends
+the code to the console and defines it in the global environment. This
+is not well suited for package development, because as the package gets
+more and more complicated, manually defining all required functions
+becomes unsustainable. Instead, use the following command to load the
+code.:
+
+Use this command to reload package Console:
 
 ``` r
 load_all()
 ```
 
-Generate the documentation files (man/\*\*.Rd) from the special comments
+R Studio: Build/Load All
 
-``` r
-document()
-```
+If you want to install the package like normal use the following
+command. For development it is better to use load_all() for faster
+iteration.
 
-Install the package
+Console:
 
 ``` r
 install()
 ```
 
+R Studio: Build/Install Package
+
 ## Testing
 
-Create new or open test
+Unit testing is handled by [testthat](https://testthat.r-lib.org/)
+
+Create a new test or open an existing one.
 
 ``` r
+# For the current active file
+use_test()
+# Or explicitly defined name
 use_test("FUNCTION_NAME_TO_TEST")
 ```
 
-Run tests
+Execute all tests:
+
+Console:
 
 ``` r
 test()
 ```
+
+R Studio: Build/Test Package or Build Pane: Test
+
+## Documentation
+
+Documentation for individual files is handled by
+[roxygen2](https://cran.r-project.org/package=roxygen2)
+
+### man
+
+Generate the documentation files (man/\*\*.Rd) from roxygen comments.
+Also regenerates the NAMESPACE file.
+
+``` r
+document()
+```
+
+Preview the documentation of any function by running:
+
+``` r
+?FUNCTION_NAME
+# For the documentation of function "take" run:
+?take
+```
+
+### Readme
 
 Build the readme file
 
 ``` r
 build_readme()
 ```
+
+## Style
+
+This project follows the tidyverse style guide.
+
+Use Linter from the Console:
+
+``` r
+styler:::style_active_pkg()
+```
+
+R Studio: Menu bar/Addins/Style active file or Style active package
+
+After using the linter, inspect the code again to avoid any unwanted
+changes.

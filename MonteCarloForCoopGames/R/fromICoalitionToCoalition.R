@@ -7,15 +7,17 @@
 #' @export
 #'
 #' @examples
-#' print (fromICoalitionToCoalition (5, 27))
-fromICoalitionToCoalition<-function(n,iCoalition){
+#' print(fromICoalitionToCoalition(5, 27))
+fromICoalitionToCoalition <- function(n, iCoalition) {
   Coalition <- array(0, dim = n)
-  a1 <- iCoalition-1
+  a1 <- iCoalition - 1
   ij <- 0
+
   while (ij < n) {
     ij <- ij + 1
-    Coalition[ij] <- a1 - as.integer(a1/2) * 2
-    a1 <- as.integer(a1/2)
+    Coalition[ij] <- a1 - as.integer(a1 / 2) * 2
+    a1 <- as.integer(a1 / 2)
   }
+
   return(Coalition)
 }
