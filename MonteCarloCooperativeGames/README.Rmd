@@ -10,7 +10,7 @@ Monte Carlo For Coop Games is a R package for simulating arbitrary cooperative g
 
 ## Getting started with development
 
-Install the devtools and other neccessary packages
+Install the devtools and other necessary packages
 
 ``` r
 install.packages(c("devtools", "roxygen2", "testthat", "knitr", "styler"))
@@ -34,9 +34,9 @@ devtools::dev_sitrep()
 ## Development workflow
 
  - Run check often and fix any errors, warnings and notes
- - Be extremly careful with top level code in a package. It is ONLY run when the package is build, NEVER again. Mainly use them for static variables. Any R code outside of a function is suspicious and should be carefully reviewed.
+ - Be extremely careful with top level code in a package. It is ONLY run when the package is build, NEVER again. Mainly use them for static variables. Any R code outside of a function is suspicious and should be carefully reviewed.
  - Using library, source and require in a package is forbidden
- - Subfolders in the R directory are not supported.
+ - Sub folders in the R directory are not supported.
 
 ### General workflow
 
@@ -48,7 +48,7 @@ Run the following command in each new R session to load the devtools.
 ``` r
 library(devtools)
 ```
-Alternativly a .Rprofile file can be used to automaticly load the library.
+Alternatively a .Rprofile file can be used to automatically load the library.
 Create the file manually at ~/.RProfile or use use_devtools() to create the file.
 ``` r
 if (interactive()) {

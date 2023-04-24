@@ -12,8 +12,8 @@ pre <- function(O, i) {
   i_idx <- match(i, O)
 
   if (i_idx == 1) {
-    return (c())
+    return(c())
   }
 
-  O[1:(i_idx-1)]
+  O[1:(i_idx - 1)]
 }

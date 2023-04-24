@@ -1,4 +1,4 @@
-Package: MonteCarloForCoopGames
+Package: MonteCarloCooperativeGames
 Type: Package
 Title: Monte Carlo Simulations For Coop Games
 Version: 0.1.0
@@ -6,7 +6,7 @@ Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: Monte Carlo For Coop Games is a R package for simulating arbitrary cooperative games and 
     approximating the Shapley value of them.
-License: What license is it under?
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3

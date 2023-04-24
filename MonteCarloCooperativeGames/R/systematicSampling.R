@@ -1,8 +1,8 @@
-getCoalition <- function(n, i_coalition){
+getCoalition <- function(n, i_coalition) {
   code <- fromICoalitionToCoalition(length(n), i_coalition)
   coaltion <- c()
-  for (i in 1:length(n)){
-    if (1 == code[i]){
+  for (i in 1:length(n)) {
+    if (1 == code[i]) {
       coaltion <- append(coaltion, n[i])
     }
   }
@@ -20,28 +20,28 @@ getCoalition <- function(n, i_coalition){
 #' @return Banzhaf value
 #' @export
 #'
-#' @examples 
-#' print(systematicSampling(1:10, 1, 200, gloveGame(1:5,6:10)))
-systematicSampling <- function(all_players_N, player_i, sampling_size_l, game_v){
+#' @examples
+#' print(systematicSampling(1:10, 1, 200, gloveGame(1:5, 6:10)))
+systematicSampling <- function(all_players_N, player_i, sampling_size_l, game_v) {
   stopifnot(1 < sampling_size_l)
-  stopifnot(sampling_size_l <= 2^(length(all_players_N)-1))
-  
+  stopifnot(sampling_size_l <= 2^(length(all_players_N) - 1))
+
   banzhaf_value <- 0
   player_i_value <- all_players_N[player_i]
   players_N_without_i <- all_players_N[-player_i]
-  increment_K <- floor( (2^(length(all_players_N)-1)) / sampling_size_l )
+  increment_K <- floor((2^(length(all_players_N) - 1)) / sampling_size_l)
   starting_point_k <- sample(1:increment_K, 1)
   indices_T <- c()
-  
-  for (j in seq(starting_point_k, 2^(length(all_players_N)-1), by=increment_K)){
+
+  for (j in seq(starting_point_k, 2^(length(all_players_N) - 1), by = increment_K)) {
     indices_T <- append(indices_T, j)
   }
-  
-  for (j in 1:sampling_size_l){
+
+  for (j in 1:sampling_size_l) {
     sample_T_j <- getCoalition(players_N_without_i, indices_T[j])
     banzhaf_value <- banzhaf_value + game_v(append(sample_T_j, player_i_value)) - game_v(sample_T_j)
   }
-  
+
   banzhaf_value <- banzhaf_value / sampling_size_l
   return(banzhaf_value)
 }

@@ -22,5 +22,5 @@ Banzhaf value
 Systematic sampling based on paper: "Statistics and game theory: Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020) Algorithm 3
 }
 \examples{
-print(systematicSampling(1:10, 1, 200, gloveGame(1:5,6:10)))
+print(systematicSampling(1:10, 1, 200, gloveGame(1:5, 6:10)))
 }

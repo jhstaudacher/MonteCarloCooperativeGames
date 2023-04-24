@@ -27,5 +27,5 @@ Banzhaf value
 Simple random sampling without replacement based on paper: "Statistics and game theory: Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020) Algorithm 2
 }
 \examples{
-print(simpleRandomSamplingWithoutReplacement(1:10, 1, 200, gloveGame(1:5,6:10)))
+print(simpleRandomSamplingWithoutReplacement(1:10, 1, 200, gloveGame(1:5, 6:10)))
 }

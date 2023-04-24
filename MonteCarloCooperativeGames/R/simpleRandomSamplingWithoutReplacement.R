@@ -1,8 +1,8 @@
-getCoalition <- function(n, i_coalition){
+getCoalition <- function(n, i_coalition) {
   code <- fromICoalitionToCoalition(length(n), i_coalition)
   coaltion <- c()
-  for (i in 1:length(n)){
-    if (1 == code[i]){
+  for (i in 1:length(n)) {
+    if (1 == code[i]) {
       coaltion <- append(coaltion, n[i])
     }
   }
@@ -21,21 +21,21 @@ getCoalition <- function(n, i_coalition){
 #' @export
 #'
 #' @examples
-#' print(simpleRandomSamplingWithoutReplacement(1:10, 1, 200, gloveGame(1:5,6:10)))
-simpleRandomSamplingWithoutReplacement <- function(all_players_N, player_i, sampling_size_l, game_v){
+#' print(simpleRandomSamplingWithoutReplacement(1:10, 1, 200, gloveGame(1:5, 6:10)))
+simpleRandomSamplingWithoutReplacement <- function(all_players_N, player_i, sampling_size_l, game_v) {
   stopifnot(1 < sampling_size_l)
-  stopifnot(sampling_size_l <= 2^(length(all_players_N)-1))
-  
+  stopifnot(sampling_size_l <= 2^(length(all_players_N) - 1))
+
   banzhaf_value <- 0
   player_i_value <- all_players_N[player_i]
   players_N_without_i <- all_players_N[-player_i]
-  random_numbers <- sample(1:2^(length(all_players_N)-1), sampling_size_l, replace=FALSE)
-  
-  for (j in 1:sampling_size_l){
+  random_numbers <- sample(1:2^(length(all_players_N) - 1), sampling_size_l, replace = FALSE)
+
+  for (j in 1:sampling_size_l) {
     sample_T_j <- getCoalition(players_N_without_i, random_numbers[j])
     banzhaf_value <- banzhaf_value + game_v(append(sample_T_j, player_i_value)) - game_v(sample_T_j)
   }
-  
+
   banzhaf_value <- banzhaf_value / sampling_size_l
   return(banzhaf_value)
 }

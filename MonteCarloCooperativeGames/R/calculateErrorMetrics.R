@@ -33,11 +33,13 @@ calculateErrorMetrics <- function(estimated_shapley_values, actual_shapley_value
   max_error <- max(abs_errors)
   min_error <- min(abs_errors)
 
-  list("total_error" = total_error,
-       "mean_error" = mean_error,
-       "mean_squared_error" = mean_squared_error,
-       "root_mean_squared_error" = root_mean_squared_error,
-       "max_error" = max_error,
-       "min_error" = min_error,
-       "std_of_errors" = std)
+  list(
+    "total_error" = total_error,
+    "mean_error" = mean_error,
+    "mean_squared_error" = mean_squared_error,
+    "root_mean_squared_error" = root_mean_squared_error,
+    "max_error" = max_error,
+    "min_error" = min_error,
+    "std_of_errors" = std
+  )
 }
