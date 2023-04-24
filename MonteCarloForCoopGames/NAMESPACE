@@ -3,6 +3,7 @@
 export(airportGame)
 export(approShapley)
 export(buildAirportCostVector)
+export(calculateErrorMetrics)
 export(fromICoalitionToCoalition)
 export(gloveGame)
 export(simpleRandomSamplingWithReplacement)
