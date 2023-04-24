@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-#' confidenceBanzhaff(3, 4, weightedVotingGame(c(1, 1, 2, 3), 1/2), 0.95, 0.01))
+#' confidenceBanzhaff(3, 4, weightedVotingGame(c(1, 1, 2, 3), 1/2), 0.95, 0.01)
 
 confidenceBanzhaff <- function(i, n, v, conf, w) {
   # X is the critical count
