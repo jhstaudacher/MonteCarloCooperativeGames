@@ -3,6 +3,13 @@
 n <- 10
 N <- 1:n
 
+C_size_probs <- c()
+for (i in 0:(n-1)) {
+  C_size_probs <- append(C_size_probs, choose(n-1, i))
+}
+print(C_size_probs)
+
+
 v <- function (S) {
   weights = c(1, 2, 3, 4, 5, 4, 3, 2, 1, 10)
   quota = 2/3 * sum(weights)
@@ -13,7 +20,7 @@ v <- function (S) {
 
 get_random_coalition <- function(i) {
   N_without_i = N[!N %in% i]
-  C_size = sample(0:(n-1), 1)
+  C_size = sample(0:(n-1), 1, prob=C_size_probs)
   C_without_i <- sample(N_without_i, C_size)
   C = NULL
   if (length(C_without_i) == 0) {
@@ -42,15 +49,16 @@ ConfidenceBanzhaff <- function(i, conf, w) {
   e <- w / 2
   delta <- 1 - conf
   k_required <- log(2/delta) / (2 * e^2)
-  
+
   while (k < k_required) {
     k <- k + 1
     C <- get_random_coalition(i)
     if (is_critical(C, i)) {
+      # print('critical')
       X <- X + 1
     }
   }
-  
+  print(X)
   b_i <- X / k
   conf_intervall = calc_conf_intervall(b_i, k, delta)
   return(conf_intervall)
@@ -58,7 +66,7 @@ ConfidenceBanzhaff <- function(i, conf, w) {
 
 b_sum <- 0.0
 for (i in N) {
-  conf_intervall <- ConfidenceBanzhaff(i, 0.99, 0.01)
+  conf_intervall <- ConfidenceBanzhaff(i, 0.95, 0.02)
   b_i <- (conf_intervall[1] + conf_intervall[2]) / 2
   print(conf_intervall)
   b_sum <- b_sum + b_i
