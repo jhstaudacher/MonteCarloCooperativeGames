@@ -9,7 +9,7 @@ fromICoalitionToCoalition(n, iCoalition)
 \arguments{
 \item{n}{indicates the cardinality of the set of players N}
 
-\item{iCoalition}{indicates the index of the coalition. This value should be greater than or equal than 1 and lesser than or equal than 2n}
+\item{iCoalition}{indicates the index of the coalition. This value should be greater than or equal to 1 and less than or equal to 2^n}
 }
 \value{
 numeric binary vector, of dimension n, which each component i indicates the belonging of player i to the coalition
