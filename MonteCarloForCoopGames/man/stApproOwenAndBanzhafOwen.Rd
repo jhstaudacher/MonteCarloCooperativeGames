@@ -2,9 +2,9 @@
 % Please edit documentation in R/stApproOwenAndBanzhafOwen.R
 \name{stApproOwenAndBanzhafOwen}
 \alias{stApproOwenAndBanzhafOwen}
-\title{A two-stage procedure to estimate the Banzhaf–Owen value based on paper: "On stratified sampling for estimating coalitional values" (A. Saavedra-Nieves, 2022)}
+\title{A stratified sampling procedure to estimate coalitional values}
 \usage{
-stApproOwenAndBanzhafOwen(i, l, P, v)
+stApproOwenAndBanzhafOwen(i, l, P, v, proportional = TRUE)
 }
 \arguments{
 \item{i}{indicates player}
@@ -14,14 +14,20 @@ stApproOwenAndBanzhafOwen(i, l, P, v)
 \item{P}{A priori unions}
 
 \item{v}{TU-game with a system of a priori unions}
+
+\item{proportional}{boolean with true = propotional allocation and false = simple allocation procedure of samples}
 }
 \value{
 approximation of the Banzaf-Owen value and Owen value based on stratified sampling
 }
 \description{
-A two-stage procedure to estimate the Banzhaf–Owen value based on paper: "On stratified sampling for estimating coalitional values" (A. Saavedra-Nieves, 2022)
+stApproOwenAndBanzhafOwen is a sampling methodology to estimate coalitional values, in particular the
+Owen value and the Banzhaf–Owen value for a specified TU game with a system of a priori unions, based on stratified sampling.
+Offering two allocation procedures for the samples.
+Based on: "On stratified sampling for estimating coalitional values" (A. Saavedra-Nieves, 2022)
 }
 \examples{
-print(stApproOwenAndBanzhafOwen(1, 10000, list(c(1, 2), (3)), gloveGame(1:2, 3:3)))
-print(stApproOwenAndBanzhafOwen(3, 10000, list(c(1), c(2, 3)), gloveGame(1:2, 3:3))$Owen)
+print(stApproOwenAndBanzhafOwen(1, 10000, list(c(1, 2), c(3)), gloveGame(1:2, 3:3)))
+print(stApproOwenAndBanzhafOwen(1, 10000, list(c(1, 2), c(3)), gloveGame(1:2, 3:3), FALSE)$Owen)
+
 }

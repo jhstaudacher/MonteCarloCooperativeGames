@@ -2,7 +2,7 @@
 % Please edit documentation in R/twoStageApproBanzhafOwen.R
 \name{twoStageApproBanzhafOwen}
 \alias{twoStageApproBanzhafOwen}
-\title{A two-stage procedure to estimate the Banzhaf–Owen value based on paper: "Sampling methods to estimate the Banzhaf–Owen value" (A. Saavedra-Nieves & M. G. Fiestras-Janeiro, 2020)}
+\title{A two-stage procedure to estimate the Banzhaf–Owen value}
 \usage{
 twoStageApproBanzhafOwen(i, lr, ls, P, v)
 }
@@ -21,8 +21,11 @@ twoStageApproBanzhafOwen(i, lr, ls, P, v)
 approximation of the Banzaf-Owen value based on two-stage sampling
 }
 \description{
-A two-stage procedure to estimate the Banzhaf–Owen value based on paper: "Sampling methods to estimate the Banzhaf–Owen value" (A. Saavedra-Nieves & M. G. Fiestras-Janeiro, 2020)
+twoStageApproBanzhafOwen is a sampling method to approximate the Banzhaf-Owen value for
+a specified TU game with a system of a priori unions, based on two-stage sampling.
+Based on: "Sampling methods to estimate the Banzhaf–Owen value" (A. Saavedra-Nieves & M. G. Fiestras-Janeiro, 2020)
 }
 \examples{
 print(twoStageApproBanzhafOwen(1, 2, 2, list(c(1, 2), (3)), gloveGame(1:2, 3:3)))
+
 }
