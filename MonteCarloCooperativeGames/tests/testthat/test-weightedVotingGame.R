@@ -16,7 +16,7 @@ test_that("WeightedVotingGame Tie", {
   v <- weightedVotingGame(c(1, 1, 2, 2), 1 / 2)
   v_result <- v(c(2, 4))
 
-  expect_equal(v_result, 0)
+  expect_equal(v_result, 1)
 })
 
 

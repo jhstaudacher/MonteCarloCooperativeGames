@@ -9,10 +9,10 @@ weightedVotingGame(weights, quota)
 \arguments{
 \item{weights}{The weights of the players}
 
-\item{quota}{The required quota}
+\item{quota}{The required relative quota}
 }
 \value{
-A sub-list
+1 if sum of weighted votes >= quota; 0 otherwise
 }
 \description{
 Returns the characteristic function of a weighted voting game with the specified weights and quota
