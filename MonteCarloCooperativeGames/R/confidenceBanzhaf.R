@@ -1,17 +1,17 @@
-#' Monte Carlo Simulation for calculating the Banzhaff value in a simple game based on the paper "Approximating power indices: theoretical and empirical analysis" by Bachrach et al. from 2010
+#' Monte Carlo Simulation for calculating the Banzhaf value in a simple game based on the paper "Approximating power indices: theoretical and empirical analysis" by Bachrach et al. from 2010
 #'
 #' @param i Player
 #' @param n Number of players
 #' @param v Characteristic function
-#' @param conf Confidence of the true Banzhaff value being in the confidence interval
+#' @param conf Confidence of the true Banzhaf value being in the confidence interval
 #' @param w Width of the confidence interval
 #'
 #' @return Confidence interval as a vector of size 2
 #' @export
 #'
 #' @examples
-#' confidenceBanzhaff(3, 4, weightedVotingGame(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
-confidenceBanzhaff <- function(i, n, v, conf, w) {
+#' confidenceBanzhaf(3, 4, weightedVotingGame(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
+confidenceBanzhaf <- function(i, n, v, conf, w) {
   # X is the critical count
   X <- 0
   # k is the sample count
@@ -43,7 +43,7 @@ confidenceBanzhaff <- function(i, n, v, conf, w) {
     }
   }
 
-  # calculate Banzhaff value of player i
+  # calculate Banzhaf value of player i
   b_i <- X / k
   # update e based on used samples
   # => e should be a little smaller since k > k_required
