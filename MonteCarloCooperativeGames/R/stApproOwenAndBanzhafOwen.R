@@ -49,7 +49,7 @@ stApproOwenAndBanzhafOwen <- function(i, l, P, v, proportional = TRUE) {
       ekh <- 0
       # calculates lkh evaluating variable proportional
       lkh <- ceiling(l / (length(P) * (length(Pi) + 1)))
-      if (proportional) lkh <- l * W
+      if (proportional) lkh <- ceiling(l * W)
       for (sampleidx in 1:(lkh)) {
         if (length(R) <= 1) { # prevent sample behavior for x
           first <- rep(R, k)
