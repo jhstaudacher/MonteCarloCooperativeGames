@@ -2,6 +2,28 @@
 
 "Monte Carlo Simulation for Large Cooperative Games with applications to biomedical networks and machine learning": DV-Projektarbeit in den Bachelorstudiengängen Informatik und Wirtschaftsinformatik unter gemeinsamer Betreuung mit Prof. Dr. Moretti.
 
+
+
+
+# Projektstatus
+
+| Name des Algorithmus                                              | Bücher                                                                                                                                                  | Funktionen                                                                                       | Verantwortlich                                                                                     |   |
+|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|---|
+| The algorithm based on simple random sampling without replacement | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 2 <br> Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 3.1" | "Prototyp: Simple_random_sampling_without_replacement.R                                          | Paket: simpleRandomSamplingWithoutReplacement.R Funktion: simpleRandomSamplingWithoutReplacement() |   |
+| The algorithm based on simple random sampling with replacement    | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 1                                                                           | Prototyp: Simple_random_sampling_with_replacement.R Paket: simpleRandomSamplingWithReplacement.R |                                                                                                    |   |
+| The algorithm based on two-stage sampling                         | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 4                                                                           | Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 4.1                         | Prototyp: ? Paket: twoStageApproBanzhafOwen.R                                                      |   |
+| Systematic sampling                                               | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 3                                                                           | Paket: systematicSampling.R                                                                      |                                                                                                    |   |
+| Estimation in parallel                                            | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 5                                                                           | Nicht implementiert! Könnte beim Parallelisieren gemacht werden                                  |                                                                                                    |   |
+| A stratified sampling procedure to estimate coalitional values    | "On stratified sampling for estimating coalitional values Procedure 3.1"                                                                                | ?                                                                                                |                                                                                                    |   |
+| Approximating power indices by sampling (ConfidenceBanzhaf)       | "Approximating power indices: theoretical and empirical analysis" Algorithm 1                                                                           | Paket: ConfidenceBanzhaff                                                                        |                                                                                                    |   |
+| Two-Stage-St-ApproShapley-opt                                     | "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" Its described on page 182                  | Paket: twoStageStApproShapleyOpt.R                                                               |                                                                                                    |   |
+| Two-Stage-St-ApproShapley-eff                                     | "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" Its described on page 183                  | Paket: twoStageStApproShapleyEff.R                                                               |                                                                                                    |   |
+| Appro the Shapley value                                           | "Polynomial calculation of the Shapley value based on sampling Algorithm" ApproShapley                                                                  | Paket: approShapley.R                                                                            |                                                                                                    |   |
+
+
+
+
+
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
