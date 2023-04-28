@@ -6,19 +6,86 @@
 
 
 # Projektstatus
+<table>
+    <tr>
+        <td>Name des Algorithmus</td>
+        <td>Bücher</td>
+        <td>Funktionen</td>
+        <td>Verantwortlich</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>The algorithm based on simple random sampling without replacement</td>
+        <td>&quot;Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves&quot; Algorithm 2 Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 3.1&quot;</td>
+        <td>&quot;Prototyp: Simple_random_sampling_without_replacement.R</td>
+        <td>Paket: simpleRandomSamplingWithoutReplacement.R Funktion: simpleRandomSamplingWithoutReplacement()</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>The algorithm based on simple random sampling with replacement</td>
+        <td>&quot;Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves&quot; Algorithm 1</td>
+        <td>Prototyp: Simple_random_sampling_with_replacement.R Paket: simpleRandomSamplingWithReplacement.R</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>The algorithm based on two-stage sampling</td>
+        <td>&quot;Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves&quot; Algorithm 4</td>
+        <td>Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 4.1</td>
+        <td>Prototyp: ? Paket: twoStageApproBanzhafOwen.R</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Systematic sampling</td>
+        <td>&quot;Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves&quot; Algorithm 3</td>
+        <td>Paket: systematicSampling.R</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Estimation in parallel</td>
+        <td>&quot;Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves&quot; Algorithm 5</td>
+        <td>Nicht implementiert! Könnte beim Parallelisieren gemacht werden</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>A stratified sampling procedure to estimate coalitional values</td>
+        <td>&quot;On stratified sampling for estimating coalitional values Procedure 3.1&quot;</td>
+        <td>?</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Approximating power indices by sampling (ConfidenceBanzhaf)</td>
+        <td>&quot;Approximating power indices: theoretical and empirical analysis&quot; Algorithm 1</td>
+        <td>Paket: ConfidenceBanzhaff</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Two-Stage-St-ApproShapley-opt</td>
+        <td>&quot;Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation&quot; Its described on page 182</td>
+        <td>Paket: twoStageStApproShapleyOpt.R</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Two-Stage-St-ApproShapley-eff</td>
+        <td>&quot;Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation&quot; Its described on page 183</td>
+        <td>Paket: twoStageStApproShapleyEff.R</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Appro the Shapley value</td>
+        <td>&quot;Polynomial calculation of the Shapley value based on sampling Algorithm&quot; ApproShapley</td>
+        <td>Paket: approShapley.R</td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
 
-| Name des Algorithmus                                              | Bücher                                                                                                                                                  | Funktionen                                                                                       | Verantwortlich                                                                                     |   |
-|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|---|
-| The algorithm based on simple random sampling without replacement | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 2 <br> Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 3.1" | "Prototyp: Simple_random_sampling_without_replacement.R                                          | Paket: simpleRandomSamplingWithoutReplacement.R Funktion: simpleRandomSamplingWithoutReplacement() |   |
-| The algorithm based on simple random sampling with replacement    | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 1                                                                           | Prototyp: Simple_random_sampling_with_replacement.R Paket: simpleRandomSamplingWithReplacement.R |                                                                                                    |   |
-| The algorithm based on two-stage sampling                         | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 4                                                                           | Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 4.1                         | Prototyp: ? Paket: twoStageApproBanzhafOwen.R                                                      |   |
-| Systematic sampling                                               | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 3                                                                           | Paket: systematicSampling.R                                                                      |                                                                                                    |   |
-| Estimation in parallel                                            | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 5                                                                           | Nicht implementiert! Könnte beim Parallelisieren gemacht werden                                  |                                                                                                    |   |
-| A stratified sampling procedure to estimate coalitional values    | "On stratified sampling for estimating coalitional values Procedure 3.1"                                                                                | ?                                                                                                |                                                                                                    |   |
-| Approximating power indices by sampling (ConfidenceBanzhaf)       | "Approximating power indices: theoretical and empirical analysis" Algorithm 1                                                                           | Paket: ConfidenceBanzhaff                                                                        |                                                                                                    |   |
-| Two-Stage-St-ApproShapley-opt                                     | "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" Its described on page 182                  | Paket: twoStageStApproShapleyOpt.R                                                               |                                                                                                    |   |
-| Two-Stage-St-ApproShapley-eff                                     | "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" Its described on page 183                  | Paket: twoStageStApproShapleyEff.R                                                               |                                                                                                    |   |
-| Appro the Shapley value                                           | "Polynomial calculation of the Shapley value based on sampling Algorithm" ApproShapley                                                                  | Paket: approShapley.R                                                                            |                                                                                                    |   |
 
 
 
