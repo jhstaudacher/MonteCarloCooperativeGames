@@ -15,38 +15,32 @@
     </tr>
     <tr>
         <td>The algorithm based on simple random sampling without replacement</td>
-        <td>&quot;Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves&quot; Algorithm 2 Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 3.1&quot;</td>
-        <td>&quot;Prototyp: Simple_random_sampling_without_replacement.R</td>
-        <td>Paket: simpleRandomSamplingWithoutReplacement.R Funktion: simpleRandomSamplingWithoutReplacement()</td>
-        <td></td>
+        <td>&quot;Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves&quot; <br/> Algorithm 2 <br/> Sampling methods to estimate the Banzhaf–Owen value (2021) <br/> Algorithm 3.1&quot;</td>
+        <td>&quot;Prototyp: Simple_random_sampling_without_replacement.R <br/> Paket: simpleRandomSamplingWithoutReplacement.R Funktion: simpleRandomSamplingWithoutReplacement()</td>
     </tr>
     <tr>
         <td>The algorithm based on simple random sampling with replacement</td>
         <td>&quot;Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves&quot; Algorithm 1</td>
         <td>Prototyp: Simple_random_sampling_with_replacement.R Paket: simpleRandomSamplingWithReplacement.R</td>
-        <td></td>
-        <td></td>
+        <td/>
     </tr>
     <tr>
         <td>The algorithm based on two-stage sampling</td>
         <td>&quot;Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves&quot; Algorithm 4</td>
         <td>Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 4.1</td>
         <td>Prototyp: ? Paket: twoStageApproBanzhafOwen.R</td>
-        <td></td>
     </tr>
     <tr>
         <td>Systematic sampling</td>
         <td>&quot;Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves&quot; Algorithm 3</td>
         <td>Paket: systematicSampling.R</td>
-        <td></td>
-        <td></td>
+        <td/>
     </tr>
     <tr>
         <td>Estimation in parallel</td>
         <td>&quot;Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves&quot; Algorithm 5</td>
         <td>Nicht implementiert! Könnte beim Parallelisieren gemacht werden</td>
-        <td></td>
-        <td></td>
+        <td/>
     </tr>
     <tr>
         <td>A stratified sampling procedure to estimate coalitional values</td>
