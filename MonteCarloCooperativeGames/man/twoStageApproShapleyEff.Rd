@@ -18,7 +18,7 @@ twoStageApproShapleyEff(n, v, sample_size_eff, sample_size_opt)
 \item{sample_size_opt}{The amount of samples for the twoStageStApproShapleyOpt algorithm}
 }
 \value{
-The efficient shapley value of each player
+The shapley value of each player with the addition, that sum(sh_i) = v(N) (efficient)
 }
 \description{
 Described in "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" on page 183
@@ -26,11 +26,8 @@ Calculates the shapley value based on the twoStageStApproShapleyOpt algorithm an
 with the extension, that the algorithm calculates the value Efficient
 }
 \examples{
-# sample a airport game with 100 players
-costs <- buildAirportCostVector(list(
-  c(1, 8), c(2, 12), c(3, 6), c(4, 14), c(5, 8), c(6, 9),
-  c(7, 13), c(8, 10), c(9, 10), c(10, 10)
-))
-v <- airportGame(costs)
-Sh <- twoStageStApproShapleOpt(length(costs), v, 100000)
+# sample a glove Game with 100 players (|L|=50 => |R|=50)
+L = 1:50
+R = 51:100
+Sh <- twoStageApproShapleyEff(100, gloveGame(L, R), 10000, 100000)
 }

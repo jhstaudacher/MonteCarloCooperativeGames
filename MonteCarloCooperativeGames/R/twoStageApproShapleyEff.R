@@ -17,13 +17,13 @@
 #' L = 1:50
 #' R = 51:100
 #' Sh <- twoStageApproShapleyEff(100, gloveGame(L, R), 10000, 100000)
-#'
-#' to check if it is really efficient execute sum(Sh). The result should be 50
 twoStageApproShapleyEff <- function(n, v, sample_size_eff, sample_size_opt) {
+  # to check if it is really efficient execute sum(Sh). The result should be 50
+
   # calculate the common shapley value
   sh_eff <- approShapley(n, sample_size_eff, v)
 
-  # calcluate the shapley value with stratified sampling
+  # calculate the shapley value with stratified sampling
   sh_opt <- twoStageStApproShapleyOpt(n, v, sample_size_opt)
 
   # Because the common shaplay value is efficient, the sum is equal to v_N

@@ -20,8 +20,8 @@
 #'   c(7, 13), c(8, 10), c(9, 10), c(10, 10)
 #' ))
 #' v <- airportGame(costs)
-#' Sh <- twoStageStApproShapleOpt(length(costs), v, 100000)
-twoStageStApproShapleOpt <- function(n, v, min_sample_size, first_stage_size = 0.5) {
+#' Sh <- twoStageStApproShapleyOpt(length(costs), v, 100000)
+twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 0.5) {
   N <- 1:n
 
   # function to get a random permutation from N with the
