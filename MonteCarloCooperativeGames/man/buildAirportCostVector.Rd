@@ -2,7 +2,7 @@
 % Please edit documentation in R/buildAirportCostVector.R
 \name{buildAirportCostVector}
 \alias{buildAirportCostVector}
-\title{Returns the cost vector for an airport game}
+\title{Build Airport Cost Vector}
 \usage{
 buildAirportCostVector(cost_info)
 }

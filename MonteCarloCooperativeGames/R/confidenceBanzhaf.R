@@ -1,14 +1,16 @@
+#' @name confidenceBanzhaf
+#' @title Confidence Banzhaf
+#' @description
 #' Monte Carlo Simulation for calculating the Banzhaf value in a simple game based on the paper "Approximating power indices: theoretical and empirical analysis" by Bachrach et al. from 2010
-#'
-#' @param i Player
-#' @param n Number of players
-#' @param v Characteristic function
+#' @template param/i
+#' @template param/n
+#' @template param/v
 #' @param conf Confidence of the true Banzhaf value being in the confidence interval
 #' @param w Width of the confidence interval
-#'
 #' @return Confidence interval as a vector of size 2
 #' @export
-#'
+#' @template cites/BACHRACH_ET_AL_2010
+#' @templateVar BACHRACH_ET_AL_2010_P pp. 105-122
 #' @examples
 #' confidenceBanzhaf(3, 4, weightedVotingGame(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
 confidenceBanzhaf <- function(i, n, v, conf, w) {

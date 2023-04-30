@@ -2,15 +2,7 @@
 % Please edit documentation in R/calculateErrorMetrics.R
 \name{calculateErrorMetrics}
 \alias{calculateErrorMetrics}
-\title{Calculates the following error metrics given the estimated shapley values
-and the actual shapley values:
-  - total_error (sum of absolute errors)
-  - mean_error (the mean of absolute errors)
-  - mean_squared_error (the mean of squared errors)
-  - root_mean_squared_error (the root of mean_squared_error)
-  - max_error (the absolute value of the maximum error)
-  - min_error (the absolute value of the minimal error)
-  - std_of_errors (the standard deviation of absolute errors)}
+\title{Calculate Error Metrics}
 \usage{
 calculateErrorMetrics(estimated_shapley_values, actual_shapley_values)
 }

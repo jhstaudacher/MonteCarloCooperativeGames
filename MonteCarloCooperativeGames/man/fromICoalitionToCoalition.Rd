@@ -2,7 +2,7 @@
 % Please edit documentation in R/fromICoalitionToCoalition.R
 \name{fromICoalitionToCoalition}
 \alias{fromICoalitionToCoalition}
-\title{Access possible coalitions of players through index}
+\title{from ICoalition To Coalition}
 \usage{
 fromICoalitionToCoalition(cardinality_n, iCoalition)
 }
@@ -15,5 +15,12 @@ fromICoalitionToCoalition(cardinality_n, iCoalition)
 numeric binary vector, of dimension n, which each component i indicates the belonging of player i to the coalition
 }
 \description{
+Access possible coalitions of players through index
+}
+\details{
 Based on: "Statistics and game theory: Estimating coalitional values in R software" (Alejandro Saavedra-Nieves, 2020)
+}
+\examples{
+# example code
+# TODO: create example
 }

@@ -1,25 +1,15 @@
-getCoalition <- function(n, i_coalition) {
-  code <- fromICoalitionToCoalition(length(n), i_coalition)
-  coaltion <- c()
-  for (i in 1:length(n)) {
-    if (1 == code[i]) {
-      coaltion <- append(coaltion, n[i])
-    }
-  }
-  return(coaltion)
-}
-
-
+#' @name systematicSampling
+#' @title Systematic Sampling
+#' @description
 #' Systematic sampling based on paper: "Statistics and game theory: Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020) Algorithm 3
-#'
 #' @param all_players_N List of all players
 #' @param player_i Index of the player
 #' @param sampling_size_l Amount of samples with replacement
 #' @param game_v Function of the TU-game
-#'
-#' @return Banzhaf value
+#' @template return/Banzhaf
+#' @template cites/SAAVEDRA_NIEVES_ET_AL_2020
+#' @templateVar SAAVEDRA_NIEVES_ET_AL_2020_P pp. 3
 #' @export
-#'
 #' @examples
 #' print(systematicSampling(1:10, 1, 200, gloveGame(1:5, 6:10)))
 systematicSampling <- function(all_players_N, player_i, sampling_size_l, game_v) {

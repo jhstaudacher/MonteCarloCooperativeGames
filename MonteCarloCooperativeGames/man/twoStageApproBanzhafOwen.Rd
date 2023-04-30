@@ -29,3 +29,6 @@ Based on: "Sampling methods to estimate the Banzhaf–Owen value" (A. Saavedra-N
 print(twoStageApproBanzhafOwen(1, 2, 2, list(c(1, 2), (3)), gloveGame(1:2, 3:3)))
 
 }
+\references{
+Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 TODO
+}

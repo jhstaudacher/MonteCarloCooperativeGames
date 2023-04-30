@@ -2,7 +2,7 @@
 % Please edit documentation in R/airportGame.R
 \name{airportGame}
 \alias{airportGame}
-\title{Returns the characteristic function of an airport game with the specified cost vector}
+\title{Airport Game}
 \usage{
 airportGame(costs)
 }

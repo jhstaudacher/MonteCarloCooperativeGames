@@ -2,16 +2,16 @@
 % Please edit documentation in R/confidenceShapleyShubik.R
 \name{confidenceShapleyShubik}
 \alias{confidenceShapleyShubik}
-\title{Monte Carlo Simulation for calculating the Shapley-Shubik power index in a simple game based on the paper "Approximating power indices: theoretical and empirical analysis" by Bachrach et al. from 2010}
+\title{Confidence Shapley Shubik}
 \usage{
 confidenceShapleyShubik(i, n, v, conf, w)
 }
 \arguments{
-\item{i}{Player}
+\item{i}{The player i}
 
-\item{n}{Number of players}
+\item{n}{The number of players.}
 
-\item{v}{Characteristic function}
+\item{v}{The characteristic function.}
 
 \item{conf}{Confidence of the true Shapley-Shubik power index being in the confidence interval}
 
@@ -25,4 +25,7 @@ Monte Carlo Simulation for calculating the Shapley-Shubik power index in a simpl
 }
 \examples{
 confidenceShapleyShubik(3, 4, weightedVotingGame(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
+}
+\references{
+Bachrach, Y. et al. (2010) "Approximating power indices: theoretical and empirical analysis", Auton Agent Multi-Agent Syst 20, pp. 105-122
 }

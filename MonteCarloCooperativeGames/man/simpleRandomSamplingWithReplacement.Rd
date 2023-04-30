@@ -2,7 +2,7 @@
 % Please edit documentation in R/simpleRandomSamplingWithReplacement.R
 \name{simpleRandomSamplingWithReplacement}
 \alias{simpleRandomSamplingWithReplacement}
-\title{Simple random sampling with replacement based on paper: "Statistics and game theory: Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020) Algorithm 1}
+\title{Simple Random Sampling With Replacement}
 \usage{
 simpleRandomSamplingWithReplacement(
   all_players_N,
@@ -21,7 +21,7 @@ simpleRandomSamplingWithReplacement(
 \item{game_v}{Function of the TU-game}
 }
 \value{
-Banzhaf value
+The Banzhaf value of the specified player
 }
 \description{
 Simple random sampling with replacement based on paper: "Statistics and game theory: Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020) Algorithm 1

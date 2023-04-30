@@ -139,7 +139,8 @@ Preview the documentation of any function by running:
 - Use ``` \code{CODE_HERE} ``` for inline code
 - Use ``` \link{function_name}``` to link to other function documentation.
 - Required and Optional tags in this order: (These are very opinionated rules to keep the documentation tidy and consistent):
-  - ``` @title ``` (Required): Function name with all abbreviations expanded and with spaces.
+  - ``` @name ``` (Required): The function name
+  - ``` @title ``` (Required): Explain the function in as few words as possible. Avoid any non necessary words. If sufficiend use: Function name with all abbreviations expanded and with spaces.
   - ``` @description ``` (Required): Explain what the function does from a user perspective.
   - ``` @details ``` (Optional): Explain how the algorithm works internally and any other useful information. Anything that is not required to use the function but still useful. If required, this can be organized with the ```@section Section_Name: ``` tag
   - Arguments (Required): Document **all** arguments the function uses. Look through the ```man-roxygen/params``` folder to check if there is already a param in the package with the same usage. If so add ```@template param/ARGUMENT_NAME```. If there is none, create a new file in the ```man-roxygen/params``` folder. Explain thoroughly what the argument does and what it is used for. Use the following syntax in the file: ``` #' @params PARAMETER_NAME Here is a very detailed explanation of what this argument does.```

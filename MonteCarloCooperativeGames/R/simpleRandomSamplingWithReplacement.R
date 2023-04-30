@@ -1,27 +1,15 @@
-getCoalition <- function(n, i_coalition) {
-  code <- fromICoalitionToCoalition(length(n), i_coalition)
-  coaltion <- c()
-  for (i in 1:length(n)) {
-    if (1 == code[i]) {
-      coaltion <- append(coaltion, n[i])
-    }
-  }
-  return(coaltion)
-}
-
-
+#' @name simpleRandomSamplingWithReplacement
+#' @title Simple Random Sampling With Replacement
+#' @description
 #' Simple random sampling with replacement based on paper: "Statistics and game theory: Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020) Algorithm 1
-#'
 #' @param all_players_N List of all players
 #' @param player_i Index of the player
 #' @param sampling_size_l Amount of samples with replacement
 #' @param game_v Function of the TU-game
-#'
 #' @template cites/SAAVEDRA_NIEVES_ET_AL_2020
 #' @templateVar SAAVEDRA_NIEVES_ET_AL_2020_P pp. 5
-#' @return Banzhaf value
+#' @template return/Banzhaf
 #' @export
-#'
 #' @examples
 #' print(simpleRandomSamplingWithReplacement(1:10, 1, 200, gloveGame(1:5, 6:10)))
 simpleRandomSamplingWithReplacement <- function(all_players_N, player_i, sampling_size_l, game_v) {
@@ -39,4 +27,15 @@ simpleRandomSamplingWithReplacement <- function(all_players_N, player_i, samplin
 
   banzhaf_value <- banzhaf_value / sampling_size_l
   return(banzhaf_value)
+}
+
+getCoalition <- function(n, i_coalition) {
+  code <- fromICoalitionToCoalition(length(n), i_coalition)
+  coaltion <- c()
+  for (i in 1:length(n)) {
+    if (1 == code[i]) {
+      coaltion <- append(coaltion, n[i])
+    }
+  }
+  return(coaltion)
 }

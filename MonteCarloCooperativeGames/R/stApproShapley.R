@@ -1,13 +1,15 @@
+#' @name stApproShapley
+#' @title Stratified Appro Shapley
+#' @description
 #' Monte Carlo Simulation for calculating the Shapley value based on the paper "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" by Castro et al. from 2017
-#'
-#' @param i Player
-#' @param n Number of players
-#' @param v Characteristic function
-#' @param m Sample size
-#'
+#' @template param/i
+#' @template param/n
+#' @template param/v
+#' @template param/m
 #' @return Estimated Shapley value of player i
+#' @template cites/CASTRO_ET_AL_2017
+#' @templateVar CASTRO_ET_AL_2017_P pp. 5
 #' @export
-#'
 #' @examples
 #' stApproShapley(1, 10, gloveGame(1:5, 6:10), 1000)
 stApproShapley <- function(i, n, v, m) {

@@ -2,7 +2,7 @@
 % Please edit documentation in R/weightedVotingGame.R
 \name{weightedVotingGame}
 \alias{weightedVotingGame}
-\title{Returns the characteristic function of a weighted voting game with the specified weights and quota}
+\title{Weighted Voting Game}
 \usage{
 weightedVotingGame(weights, quota)
 }

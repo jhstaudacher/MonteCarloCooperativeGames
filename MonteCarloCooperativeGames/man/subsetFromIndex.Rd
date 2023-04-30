@@ -2,7 +2,7 @@
 % Please edit documentation in R/subsetFromIndex.R
 \name{subsetFromIndex}
 \alias{subsetFromIndex}
-\title{Gets the subset of players N (1:n) described by an index.}
+\title{Get Subset From Index}
 \usage{
 subsetFromIndex(n, index)
 }

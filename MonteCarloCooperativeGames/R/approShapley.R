@@ -1,3 +1,4 @@
+#' @name approShapley
 #' @title Appro Shapley
 #' @description
 #' Approximates the Shapley value by using a simple Monte Carlo simulation.

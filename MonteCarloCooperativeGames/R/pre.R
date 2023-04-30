@@ -1,11 +1,11 @@
+#' @name pre
+#' @title Pre
+#' @description Get predecessors of i in O
 #' Returns a vector of all predecessors of player i in order O
-#'
 #' @param O Order
 #' @param i Player
-#'
 #' @return Vector of all predecessors of player i in order O
 #' @export
-#'
 #' @examples
 #' pre(c(1, 4, 2, 3), 2)
 pre <- function(O, i) {

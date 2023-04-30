@@ -31,3 +31,6 @@ print(stApproOwenAndBanzhafOwen(1, 10000, list(c(1, 2), c(3)), gloveGame(1:2, 3:
 print(stApproOwenAndBanzhafOwen(1, 10000, list(c(1, 2), c(3)), gloveGame(1:2, 3:3), FALSE)$Owen)
 
 }
+\references{
+Saavedra-Nieves, A. et al. (2022) "On stratified sampling for estimating coalitional values", Annals of Operations Research 320 pp. 5
+}

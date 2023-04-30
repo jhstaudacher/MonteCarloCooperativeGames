@@ -2,7 +2,7 @@
 % Please edit documentation in R/take.R
 \name{take}
 \alias{take}
-\title{Returns a sub-list of the provided source with the elements from the start up-to the specified index}
+\title{Take}
 \usage{
 take(source, index)
 }

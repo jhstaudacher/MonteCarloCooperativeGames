@@ -1,3 +1,6 @@
+#' @name calculateErrorMetrics
+#' @title Calculate Error Metrics
+#' @description
 #' Calculates the following error metrics given the estimated shapley values
 #' and the actual shapley values:
 #'   - total_error (sum of absolute errors)
@@ -7,16 +10,13 @@
 #'   - max_error (the absolute value of the maximum error)
 #'   - min_error (the absolute value of the minimal error)
 #'   - std_of_errors (the standard deviation of absolute errors)
-#'
 #' @param estimated_shapley_values The estimated shapley values for each player
 #' in form of a vector
 #' @param actual_shapley_values The actual shapley values for each player in
 #' form of a vector
-#'
 #' @return The error metrics in a list
 #' @export
 #' @importFrom stats sd
-#'
 #' @examples
 #' calculateErrorMetrics(c(0.4, 0.6, 0.55), c(0.5, 0.5, 0.5))
 calculateErrorMetrics <- function(estimated_shapley_values, actual_shapley_values) {

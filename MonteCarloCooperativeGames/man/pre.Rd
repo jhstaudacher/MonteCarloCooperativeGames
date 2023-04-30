@@ -2,7 +2,7 @@
 % Please edit documentation in R/pre.R
 \name{pre}
 \alias{pre}
-\title{Returns a vector of all predecessors of player i in order O}
+\title{Pre}
 \usage{
 pre(O, i)
 }
@@ -15,6 +15,7 @@ pre(O, i)
 Vector of all predecessors of player i in order O
 }
 \description{
+Get predecessors of i in O
 Returns a vector of all predecessors of player i in order O
 }
 \examples{

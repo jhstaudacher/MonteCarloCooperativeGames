@@ -2,7 +2,7 @@
 % Please edit documentation in R/gloveGame.R
 \name{gloveGame}
 \alias{gloveGame}
-\title{Returns the characteristic function of a glove game with the specified sets of left and right gloves.}
+\title{Glove Game}
 \usage{
 gloveGame(L, R)
 }

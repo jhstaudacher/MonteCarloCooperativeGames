@@ -2,16 +2,16 @@
 % Please edit documentation in R/confidenceBanzhaf.R
 \name{confidenceBanzhaf}
 \alias{confidenceBanzhaf}
-\title{Monte Carlo Simulation for calculating the Banzhaf value in a simple game based on the paper "Approximating power indices: theoretical and empirical analysis" by Bachrach et al. from 2010}
+\title{Confidence Banzhaf}
 \usage{
 confidenceBanzhaf(i, n, v, conf, w)
 }
 \arguments{
-\item{i}{Player}
+\item{i}{The player i}
 
-\item{n}{Number of players}
+\item{n}{The number of players.}
 
-\item{v}{Characteristic function}
+\item{v}{The characteristic function.}
 
 \item{conf}{Confidence of the true Banzhaf value being in the confidence interval}
 
@@ -25,4 +25,7 @@ Monte Carlo Simulation for calculating the Banzhaf value in a simple game based 
 }
 \examples{
 confidenceBanzhaf(3, 4, weightedVotingGame(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
+}
+\references{
+Bachrach, Y. et al. (2010) "Approximating power indices: theoretical and empirical analysis", Auton Agent Multi-Agent Syst 20, pp. 105-122
 }

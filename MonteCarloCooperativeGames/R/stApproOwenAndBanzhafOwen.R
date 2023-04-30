@@ -9,10 +9,10 @@
 #' @param P A priori unions
 #' @param v TU-game with a system of a priori unions
 #' @param proportional boolean with true = propotional allocation and false = simple allocation procedure of samples
-#'
+#' @template cites/SAAVEDRA_NIEVES_ET_AL_2022
+#' @templateVar SAAVEDRA_NIEVES_ET_AL_2022_P pp. 5
 #' @return approximation of the Banzaf-Owen value and Owen value based on stratified sampling
 #' @export
-#'
 #' @examples
 #' print(stApproOwenAndBanzhafOwen(1, 10000, list(c(1, 2), c(3)), gloveGame(1:2, 3:3)))
 #' print(stApproOwenAndBanzhafOwen(1, 10000, list(c(1, 2), c(3)), gloveGame(1:2, 3:3), FALSE)$Owen)

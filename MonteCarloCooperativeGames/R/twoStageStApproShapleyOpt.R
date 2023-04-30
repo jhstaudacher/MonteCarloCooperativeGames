@@ -1,18 +1,20 @@
+#' @name twoStageStApproShapleyOpt
+#' @title Two Stage St Appro Shapley Opt
+#' @description
 #' Calculates the shapley value for each player with stratification and
 #' sample size per strata based on each stratums variance
-#'
-#' @param n The number of players
-#' @param v The characteristic function
+#' @template param/n
+#' @template param/v
 #' @param min_sample_size The amount of samples that should be taken.
 #' Based on the variances of each stratum it is likely to happen, that more
 #' samples are used than specified in min_sample_size. The actual sample size
 #' depends on the problem.
 #' @param first_stage_size The amount of samples to use for the first stage as
 #' a ratio. Usually 0.5 (half of all samples).
-#'
-#' @return The shapley value of each player
+#' @template return/Sh
+#' @template cites/CASTRO_ET_AL_2017
+#' @templateVar CASTRO_ET_AL_2017_P pp. 182
 #' @export
-#'
 #' @examples
 #' # sample a airport game with 100 players
 #' costs <- buildAirportCostVector(list(

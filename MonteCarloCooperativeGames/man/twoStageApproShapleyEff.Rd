@@ -2,16 +2,14 @@
 % Please edit documentation in R/twoStageApproShapleyEff.R
 \name{twoStageApproShapleyEff}
 \alias{twoStageApproShapleyEff}
-\title{Described in "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" on page 183
-Calculates the shapley value based on the twoStageStApproShapleyOpt algorithm and the common approShapley
-with the extension, that the algorithm calculates the value Efficient}
+\title{Two Stage Appro Shapley Eff}
 \usage{
 twoStageApproShapleyEff(n, v, sample_size_eff, sample_size_opt)
 }
 \arguments{
-\item{n}{The number of players}
+\item{n}{The number of players.}
 
-\item{v}{The characteristic function}
+\item{v}{The characteristic function.}
 
 \item{sample_size_eff}{The amount of samples for the common approShapley algorithm.}
 
@@ -27,7 +25,10 @@ with the extension, that the algorithm calculates the value Efficient
 }
 \examples{
 # sample a glove Game with 100 players (|L|=50 => |R|=50)
-L = 1:50
-R = 51:100
+L <- 1:50
+R <- 51:100
 Sh <- twoStageApproShapleyEff(100, gloveGame(L, R), 10000, 100000)
+}
+\references{
+CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, TODOe
 }

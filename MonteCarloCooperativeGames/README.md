@@ -154,8 +154,10 @@ Preview the documentation of any function by running:
 - Use `\link{function_name}` to link to other function documentation.
 - Required and Optional tags in this order: (These are very opinionated
   rules to keep the documentation tidy and consistent):
-  - `@title` (Required): Function name with all abbreviations expanded
-    and with spaces.
+  - `@name` (Required): The function name
+  - `@title` (Required): Explain the function in as few words as
+    possible. Avoid any non necessary words. If sufficiend use: Function
+    name with all abbreviations expanded and with spaces.
   - `@description` (Required): Explain what the function does from a
     user perspective.
   - `@details` (Optional): Explain how the algorithm works internally

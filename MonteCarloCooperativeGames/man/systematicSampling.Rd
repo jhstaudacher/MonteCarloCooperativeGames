@@ -2,7 +2,7 @@
 % Please edit documentation in R/systematicSampling.R
 \name{systematicSampling}
 \alias{systematicSampling}
-\title{Systematic sampling based on paper: "Statistics and game theory: Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020) Algorithm 3}
+\title{Systematic Sampling}
 \usage{
 systematicSampling(all_players_N, player_i, sampling_size_l, game_v)
 }
@@ -16,11 +16,14 @@ systematicSampling(all_players_N, player_i, sampling_size_l, game_v)
 \item{game_v}{Function of the TU-game}
 }
 \value{
-Banzhaf value
+The Banzhaf value of the specified player
 }
 \description{
 Systematic sampling based on paper: "Statistics and game theory: Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020) Algorithm 3
 }
 \examples{
 print(systematicSampling(1:10, 1, 200, gloveGame(1:5, 6:10)))
+}
+\references{
+Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 3
 }

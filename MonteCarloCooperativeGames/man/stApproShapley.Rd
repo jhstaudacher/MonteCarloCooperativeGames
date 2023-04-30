@@ -2,18 +2,18 @@
 % Please edit documentation in R/stApproShapley.R
 \name{stApproShapley}
 \alias{stApproShapley}
-\title{Monte Carlo Simulation for calculating the Shapley value based on the paper "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" by Castro et al. from 2017}
+\title{Stratified Appro Shapley}
 \usage{
 stApproShapley(i, n, v, m)
 }
 \arguments{
-\item{i}{Player}
+\item{i}{The player i}
 
-\item{n}{Number of players}
+\item{n}{The number of players.}
 
-\item{v}{Characteristic function}
+\item{v}{The characteristic function.}
 
-\item{m}{Sample size}
+\item{m}{The number of samples}
 }
 \value{
 Estimated Shapley value of player i
@@ -23,4 +23,7 @@ Monte Carlo Simulation for calculating the Shapley value based on the paper "Imp
 }
 \examples{
 stApproShapley(1, 10, gloveGame(1:5, 6:10), 1000)
+}
+\references{
+CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 5
 }
