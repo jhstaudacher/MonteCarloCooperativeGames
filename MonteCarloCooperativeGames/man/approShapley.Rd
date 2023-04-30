@@ -2,23 +2,29 @@
 % Please edit documentation in R/approShapley.R
 \name{approShapley}
 \alias{approShapley}
-\title{Monte Carlo Simulation based on the 2009 paper by Javier Castro}
+\title{Appro Shapley}
 \usage{
 approShapley(n, m, v)
 }
 \arguments{
-\item{n}{The number of players}
+\item{n}{The number of players.}
 
 \item{m}{The number of samples}
 
-\item{v}{characteristic function}
+\item{v}{The characteristic function.}
 }
 \value{
-List of Shapley values
+A list of Shapley values of every player
 }
 \description{
-Monte Carlo Simulation based on the 2009 paper by Javier Castro
+Approximates the Shapley value by using a simple Monte Carlo simulation.
+}
+\details{
+Monte Carlo Simulation based on the 2008 paper by Javier Castro
 }
 \examples{
 print(approShapley(10, 10000, gloveGame(1:5, 6:10)))
+}
+\references{
+CASTRO, J. et al. (2008) "Polynomial calculation of the Shapley value based on sampling", Computers and Operations Research 36, pp. 1727
 }

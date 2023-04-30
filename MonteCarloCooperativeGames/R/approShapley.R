@@ -1,12 +1,15 @@
-#' Monte Carlo Simulation based on the 2009 paper by Javier Castro
-#'
-#' @param n The number of players
-#' @param m The number of samples
-#' @param v characteristic function
-#'
-#' @return List of Shapley values
+#' @title Appro Shapley
+#' @description
+#' Approximates the Shapley value by using a simple Monte Carlo simulation.
+#' @details
+#' Monte Carlo Simulation based on the 2008 paper by Javier Castro
+#' @template param/n
+#' @template param/m
+#' @template param/v
+#' @template return/Sh
 #' @export
-#'
+#' @template cites/CASTRO_ET_AL_2008
+#' @templateVar CASTRO_ET_AL_2008_P pp. 1727
 #' @examples
 #' print(approShapley(10, 10000, gloveGame(1:5, 6:10)))
 approShapley <- function(n, m, v) {

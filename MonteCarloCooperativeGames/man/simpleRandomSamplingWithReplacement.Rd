@@ -29,3 +29,6 @@ Simple random sampling with replacement based on paper: "Statistics and game the
 \examples{
 print(simpleRandomSamplingWithReplacement(1:10, 1, 200, gloveGame(1:5, 6:10)))
 }
+\references{
+Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 5
+}

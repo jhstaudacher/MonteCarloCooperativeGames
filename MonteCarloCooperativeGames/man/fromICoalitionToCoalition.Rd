@@ -4,10 +4,10 @@
 \alias{fromICoalitionToCoalition}
 \title{Access possible coalitions of players through index}
 \usage{
-fromICoalitionToCoalition(n, iCoalition)
+fromICoalitionToCoalition(cardinality_n, iCoalition)
 }
 \arguments{
-\item{n}{indicates the cardinality of the set of players N}
+\item{cardinality_n}{indicates the cardinality of the set of players N}
 
 \item{iCoalition}{indicates the index of the coalition. This value should be greater than or equal to 1 and less than or equal to 2^n}
 }

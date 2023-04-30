@@ -15,6 +15,7 @@
 #'
 #' @return The error metrics in a list
 #' @export
+#' @importFrom stats sd
 #'
 #' @examples
 #' calculateErrorMetrics(c(0.4, 0.6, 0.55), c(0.5, 0.5, 0.5))

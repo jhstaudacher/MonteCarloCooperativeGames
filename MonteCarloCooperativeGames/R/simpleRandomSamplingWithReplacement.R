@@ -17,6 +17,8 @@ getCoalition <- function(n, i_coalition) {
 #' @param sampling_size_l Amount of samples with replacement
 #' @param game_v Function of the TU-game
 #'
+#' @template cites/SAAVEDRA_NIEVES_ET_AL_2020
+#' @templateVar SAAVEDRA_NIEVES_ET_AL_2020_P pp. 5
 #' @return Banzhaf value
 #' @export
 #'

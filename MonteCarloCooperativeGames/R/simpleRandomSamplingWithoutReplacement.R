@@ -10,14 +10,17 @@ getCoalition <- function(n, i_coalition) {
 }
 
 
-#' Simple random sampling without replacement based on paper: "Statistics and game theory: Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020) Algorithm 2
+#' @title Simple random sampling without replacement
+#' @description Simple random sampling without replacement based on paper: "Statistics and game theory: Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020) Algorithm 2
 #'
 #' @param all_players_N List of all players
 #' @param player_i Index of the player
 #' @param sampling_size_l Amount of samples with replacement
 #' @param game_v Function of the TU-game
 #'
-#' @return Banzhaf value
+#' @template cites/SAAVEDRA_NIEVES_ET_AL_2020
+#' @templateVar SAAVEDRA_NIEVES_ET_AL_2020_P pp. 5
+#' @template return/Banzhaf
 #' @export
 #'
 #' @examples
