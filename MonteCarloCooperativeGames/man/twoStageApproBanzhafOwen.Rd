@@ -4,18 +4,18 @@
 \alias{twoStageApproBanzhafOwen}
 \title{A two-stage procedure to estimate the Banzhaf–Owen value}
 \usage{
-twoStageApproBanzhafOwen(i, lr, ls, P, v)
+twoStageApproBanzhafOwen(i, lr, ls, v, P)
 }
 \arguments{
-\item{i}{indicates player}
+\item{i}{The player i}
 
 \item{lr}{number of samples of coalitions of unions}
 
 \item{ls}{number of samples of coalitions in Pi for each element of sample}
 
-\item{P}{A priori unions}
+\item{v}{The characteristic function.}
 
-\item{v}{TU-game with a system of a priori unions}
+\item{P}{A priori unions}
 }
 \value{
 approximation of the Banzaf-Owen value based on two-stage sampling
@@ -26,9 +26,9 @@ a specified TU game with a system of a priori unions, based on two-stage samplin
 Based on: "Sampling methods to estimate the Banzhaf–Owen value" (A. Saavedra-Nieves & M. G. Fiestras-Janeiro, 2020)
 }
 \examples{
-print(twoStageApproBanzhafOwen(1, 2, 2, list(c(1, 2), (3)), gloveGame(1:2, 3:3)))
+print(twoStageApproBanzhafOwen(1, 2, 2, gloveGame(1:2, 3:3), list(c(1, 2), (3))))
 
 }
 \references{
-Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 TODO
+Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 208-221
 }

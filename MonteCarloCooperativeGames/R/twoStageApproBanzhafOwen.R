@@ -4,19 +4,19 @@
 #' twoStageApproBanzhafOwen is a sampling method to approximate the Banzhaf-Owen value for
 #' a specified TU game with a system of a priori unions, based on two-stage sampling.
 #' Based on: "Sampling methods to estimate the Banzhaf–Owen value" (A. Saavedra-Nieves & M. G. Fiestras-Janeiro, 2020)
-#' @param i indicates player
+#' @template param/i
+#' @template param/v
 #' @param lr number of samples of coalitions of unions
 #' @param ls number of samples of coalitions in Pi for each element of sample
-#' @param P A priori unions
-#' @param v TU-game with a system of a priori unions
+#' @template param/P
 #' @return approximation of the Banzaf-Owen value based on two-stage sampling
 #' @template cites/SAAVEDRA_NIEVES_ET_AL_2020
-#' @templateVar SAAVEDRA_NIEVES_ET_AL_2020_P TODO
+#' @templateVar SAAVEDRA_NIEVES_ET_AL_2020_P pp. 208-221
 #' @export
 #' @examples
-#' print(twoStageApproBanzhafOwen(1, 2, 2, list(c(1, 2), (3)), gloveGame(1:2, 3:3)))
+#' print(twoStageApproBanzhafOwen(1, 2, 2, gloveGame(1:2, 3:3), list(c(1, 2), (3))))
 #'
-twoStageApproBanzhafOwen <- function(i, lr, ls, P, v) {
+twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
   withoutPi <- list() # contains all coalitions without Pi
   idx <- 1
   for (x in P) {
@@ -50,17 +50,10 @@ createRandomSamples <- function(input, samplesize) {
   iCoalition <- sample(2^(length(input)), samplesize, replace = FALSE)
   R <- list()
   for (idx in 1:length(iCoalition)) {
-    if (length(input) == 0) {
-      bincoalations <- 0
-    } else {
-      bincoalations <- fromICoalitionToCoalition(length(input), iCoalition[idx])
-    }
-    # print(bincoalations)
     R[[idx]] <- list()
-    for (ele in 1:length(bincoalations)) {
-      if (bincoalations[ele] == 1) {
-        R[[idx]] <- unlist(append(R[[idx]], input[ele]))
-      }
+    indices <- fromNumberToBinaryIndices(iCoalition[idx] - 1)
+    for (ele in indices) {
+      R[[idx]] <- unlist(append(R[[idx]], input[ele]))
     }
   }
   return(R)

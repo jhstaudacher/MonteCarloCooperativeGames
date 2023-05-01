@@ -4,20 +4,20 @@
 #' Owen value and the Banzhaf–Owen value for a specified TU game with a system of a priori unions, based on stratified sampling.
 #' Offering two allocation procedures for the samples.
 #' Based on: "On stratified sampling for estimating coalitional values" (A. Saavedra-Nieves, 2022)
-#' @param i indicates player
-#' @param l set total sample size
-#' @param P A priori unions
-#' @param v TU-game with a system of a priori unions
+#' @template param/i
+#' @template param/m
+#' @template param/v
+#' @template param/P
 #' @param proportional boolean with true = propotional allocation and false = simple allocation procedure of samples
 #' @template cites/SAAVEDRA_NIEVES_ET_AL_2022
 #' @templateVar SAAVEDRA_NIEVES_ET_AL_2022_P pp. 5
 #' @return approximation of the Banzaf-Owen value and Owen value based on stratified sampling
 #' @export
 #' @examples
-#' print(stApproOwenAndBanzhafOwen(1, 10000, list(c(1, 2), c(3)), gloveGame(1:2, 3:3)))
-#' print(stApproOwenAndBanzhafOwen(1, 10000, list(c(1, 2), c(3)), gloveGame(1:2, 3:3), FALSE)$Owen)
+#' print(stApproOwenAndBanzhafOwen(1, 1000, gloveGame(1:2, 3:3), list(c(1, 2), c(3))))
+#' print(stApproOwenAndBanzhafOwen(1, 1000, gloveGame(1:2, 3:3), list(c(1, 2), c(3)), FALSE)$Owen)
 #'
-stApproOwenAndBanzhafOwen <- function(i, l, P, v, proportional = TRUE) {
+stApproOwenAndBanzhafOwen <- function(i, m, v, P, proportional = TRUE) {
   # extract the P(i) Partition
   # extract R Partitions
   # player i
@@ -48,8 +48,8 @@ stApproOwenAndBanzhafOwen <- function(i, l, P, v, proportional = TRUE) {
       # print(W)
       ekh <- 0
       # calculates lkh evaluating variable proportional
-      lkh <- ceiling(l / (length(P) * (length(Pi) + 1)))
-      if (proportional) lkh <- ceiling(l * W)
+      lkh <- ceiling(m / (length(P) * (length(Pi) + 1)))
+      if (proportional) lkh <- ceiling(m * W)
       for (sampleidx in 1:(lkh)) {
         if (length(R) <= 1) { # prevent sample behavior for x
           first <- rep(R, k)
