@@ -6,8 +6,8 @@
 #' @template param/n
 #' @template param/v
 #' @param conf Confidence of the true Shapley-Shubik power index being in the confidence interval
-#' @param w Width of the confidence interval
-#' @return Confidence interval as a vector of size 2
+#' @template param/w
+#' @template return/ConfInterval
 #' @export
 #' @template cites/BACHRACH_ET_AL_2010
 #' @templateVar BACHRACH_ET_AL_2010_P pp. 105-122

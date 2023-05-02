@@ -6,7 +6,7 @@
 #' @template param/n
 #' @template param/v
 #' @template param/m
-#' @return Estimated Shapley value of player i
+#' @template return/Sh_i
 #' @template cites/CASTRO_ET_AL_2017
 #' @templateVar CASTRO_ET_AL_2017_P pp. 5
 #' @export
