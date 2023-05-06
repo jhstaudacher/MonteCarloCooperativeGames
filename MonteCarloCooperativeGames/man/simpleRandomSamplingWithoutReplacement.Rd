@@ -4,32 +4,28 @@
 \alias{simpleRandomSamplingWithoutReplacement}
 \title{Simple random sampling without replacement}
 \usage{
-simpleRandomSamplingWithoutReplacement(
-  all_players_N,
-  player_i,
-  sampling_size_l,
-  game_v
-)
+simpleRandomSamplingWithoutReplacement(i, n, m, v)
 }
 \arguments{
-\item{all_players_N}{List of all players}
+\item{i}{The player i}
 
-\item{player_i}{Index of the player}
+\item{n}{The number of players.}
 
-\item{sampling_size_l}{Amount of samples with replacement}
+\item{m}{The number of samples}
 
-\item{game_v}{Function of the TU-game}
+\item{v}{The characteristic function.}
 }
 \value{
 The Banzhaf value of the specified player
 }
 \description{
-Simple random sampling without replacement based on paper: "Statistics and game theory: Estimating coalitional values
-in R software" (A. Saavedra-Nieves, 2020) Algorithm 2
+Simple random sampling without replacement based on paper:
+"Statistics and game theory: Estimating coalitional values in R software" (A.
+Saavedra-Nieves, 2020) Algorithm 2
 }
 \examples{
-print(simpleRandomSamplingWithoutReplacement(1:10, 1, 200, gloveGame(1:5, 6:10)))
+print(simpleRandomSamplingWithoutReplacement(1, 10, 200, gloveGame(1:5, 6:10)))
 }
 \references{
-Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 5
+Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 131
 }
