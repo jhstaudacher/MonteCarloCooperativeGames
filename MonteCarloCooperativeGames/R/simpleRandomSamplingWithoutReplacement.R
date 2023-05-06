@@ -23,7 +23,7 @@ simpleRandomSamplingWithoutReplacement <- function(all_players_N, player_i, samp
   random_numbers <- sample(1:2^(length(all_players_N) - 1), sampling_size_l, replace = FALSE)
 
   for (j in 1:sampling_size_l) {
-    sample_T_j <- getCoalition(players_N_without_i, random_numbers[j])
+    sample_T_j <- coalitionFromIndex(players_N_without_i, random_numbers[j])
     banzhaf_value <- banzhaf_value + game_v(append(sample_T_j, player_i_value)) - game_v(sample_T_j)
   }
 

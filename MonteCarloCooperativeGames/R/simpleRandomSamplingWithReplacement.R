@@ -21,21 +21,10 @@ simpleRandomSamplingWithReplacement <- function(all_players_N, player_i, samplin
   players_N_without_i <- all_players_N[-player_i]
 
   for (j in 1:sampling_size_l) {
-    sample_T_j <- getCoalition(players_N_without_i, sample(1:2^length(players_N_without_i), 1))
+    sample_T_j <- coalitionFromIndex(players_N_without_i, sample(1:2^length(players_N_without_i), 1))
     banzhaf_value <- banzhaf_value + game_v(append(sample_T_j, player_i_value)) - game_v(sample_T_j)
   }
 
   banzhaf_value <- banzhaf_value / sampling_size_l
   return(banzhaf_value)
-}
-
-getCoalition <- function(n, i_coalition) {
-  code <- fromICoalitionToCoalition(length(n), i_coalition)
-  coaltion <- c()
-  for (i in 1:length(n)) {
-    if (1 == code[i]) {
-      coaltion <- append(coaltion, n[i])
-    }
-  }
-  return(coaltion)
 }

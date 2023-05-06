@@ -28,7 +28,7 @@ systematicSampling <- function(all_players_N, player_i, sampling_size_l, game_v)
   }
 
   for (j in 1:sampling_size_l) {
-    sample_T_j <- getCoalition(players_N_without_i, indices_T[j])
+    sample_T_j <- coalitionFromIndex(players_N_without_i, indices_T[j])
     banzhaf_value <- banzhaf_value + game_v(append(sample_T_j, player_i_value)) - game_v(sample_T_j)
   }
 
