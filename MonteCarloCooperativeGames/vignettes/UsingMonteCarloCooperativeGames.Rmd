@@ -1,0 +1,19 @@
+---
+title: "Using the R package `MonteCarloCooperativeGames` for the simulation of large cooperative games."
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{UsingMonteCarloCooperativeGames}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MonteCarloCooperativeGames)
+```

@@ -18,10 +18,10 @@ R Studio: Tools/Install Packages or Build Pane: Install
 
 ### Rtools
 
-Install Rtools (required to build packages with C++ code) Windows:
+Install Rtools (required to build packages with C++ code) - Windows:
 Download it from [here](https://cran.r-project.org/bin/windows/Rtools/)
-and run the installer. MacOs: Run xcode-select –install Ubuntu/Debian:
-sudo apt install r-base-dev
+and run the installer. - MacOs: Run `xcode-select --install` -
+Ubuntu/Debian: Run `sudo apt install r-base-dev`
 
 Verify installation with:
 
@@ -31,12 +31,12 @@ devtools::dev_sitrep()
 
 ## Development workflow
 
-- Run check often and fix any errors, warnings and notes
+- Run `check()` often and fix any errors, warnings and notes.
 - Be extremely careful with top level code in a package. It is ONLY run
   when the package is build, NEVER again. Mainly use them for static
   variables. Any R code outside of a function is suspicious and should
   be carefully reviewed.
-- Using library, source and require in a package is forbidden
+- Using `library`, `source` and `require` in a package is **forbidden**.
 - Sub folders in the R directory are not supported.
 
 ### General workflow
@@ -50,9 +50,9 @@ Run the following command in each new R session to load the devtools.
 library(devtools)
 ```
 
-Alternatively a .Rprofile file can be used to automatically load the
-library. Create the file manually at \~/.RProfile or use use_devtools()
-to create the file.
+Alternatively a `.Rprofile` file can be used to automatically load the
+library. Create the file manually at `~/.RProfile` or run
+`use_devtools()` to create the file.
 
 ``` r
 if (interactive()) {
@@ -125,6 +125,25 @@ test()
 
 R Studio: Build/Test Package or Build Pane: Test
 
+### Writing tests
+
+- Each test file should be located in the `tests/testthat/`folder and
+  should be named `test-FILENAME_OF_FUNCIONS_TO_TEST`.
+- The actual result can be compared with the expected result with the
+  functions that start with `expect_`.
+- Write tests for input that is expected in typical use and for input
+  that represend edge cases and may throw errors.
+  - You can test for errors with \`\`\`expect_error\`\`\`\`
+  - You can test for equality, with some reasonable amount of numeric
+    tolerance with `expect_equal()`. Use `expect_identical()` for no
+    tolerance.
+
+### Test converage
+
+To see the test converage of the package run:
+
+    test_coverage()
+
 ## Documentation
 
 Documentation for individual files is handled by
@@ -186,7 +205,7 @@ Preview the documentation of any function by running:
   - `@importFrom` (Required): If you use functionality from another
     package (even the base package) declare them with `@importFrom`.
     Also do not forget to add the package in the `DESCRIPTION` file
-    under the `Imports` (or for development dependencies `Suggests`).
+    under the `Imports` (or for development dependencies `Suggests`)
     section. `check()` will also complain if you forget this.
   - References (Required): If the algorithm is based on a paper, you
     **must** cite all sources. To cite, check the
@@ -200,8 +219,8 @@ Preview the documentation of any function by running:
       `#' @references <Authors> <Published Year>, <Paper Title>, <Published in> <%=FILE_NAME_P%>,`.
       The last part is a placeholder for the page number.
     - **For the roxygen comment**:
-    - Use: `#' @template cites/FILE_NAME` and \#’
-      `@templateVar FILE_NAME_P pp. PAGE_NUMBER_OR_RANGE`
+    - Use: `#' @template cites/FILE_NAME` and
+      `#' @templateVar FILE_NAME_P pp. PAGE_NUMBER_OR_RANGE`
   - `@examples` (Required): Provide one or multiple examples of how the
     function can be used.
     - They should be as short as possible, while still using the
@@ -217,6 +236,22 @@ Preview the documentation of any function by running:
       almost instantaneous and can not take more than 3 seconds. If this
       is not possible add the `\dontrun` attribute.
     - `check()` also runs these examples.
+
+### Vignette - NOT DONE YET. DO NOT USE YET.
+
+The vignette should a provide a higher level overview of how the package
+should be used, compared to the function docuementation.
+
+#### Build the vignette
+
+The vignette is build from the installed version of the package. Not the
+loaded version. Therefor `load_all()` can not be used. It needs to be
+installed.
+
+The easiest way is to use the following command. This both installs the
+package and builds the vignette:
+
+    install(build_vignettes = TRUE)
 
 ### Readme
 

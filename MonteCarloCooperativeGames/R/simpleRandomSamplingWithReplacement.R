@@ -18,7 +18,7 @@ simpleRandomSamplingWithReplacement <- function(i, n, m, v) {
   all_players_N <- 1:n
   sampling_size_l <- m
   game_v <- v
-  
+
   stopifnot(1 < sampling_size_l)
   stopifnot(sampling_size_l <= 2^(length(all_players_N) - 1))
 

@@ -1,0 +1,15 @@
+citHeader("To cite MonteCarloCooperativeGames in publications use:")
+
+
+citEntry(
+ entry="Manual",
+ title= "Using the R package MontecarloCooperativeGames for the approximation of the Shapley value and other related values using Monte Carlo simulation of large cooperative games.",
+ note = "{R} Vignette",
+ url = "https://cran.r-project.org/package=MonteCarloCooperativeGames",
+ year="2023",
+ author = personList(as.person("J. Staudacher"),as.person("J. Anwander")),
+ textVersion="TODO ; {R} Vignette; 2019 .")
+
+
+citFooter("We have invested a lot of time and effort in creating the package MonteCarloCooperativeGames and its vignette,",
+          "please cite it when using it in research or teaching.")
