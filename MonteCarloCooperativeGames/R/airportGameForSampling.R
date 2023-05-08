@@ -1,7 +1,8 @@
 #' @name airportGameForSampling
-#' @title Airport Game
+#' @title Construct Airport Game
 #' @description
 #' Returns the characteristic function of an airport game with the specified cost vector
+#' @template author/DU
 #' @param costs The vector where costs[i] gives the cost for player i. N is 1..length(costs).
 #' cost[i] has to be smaller than or equal to cost[i+1].
 #' @return The characteristic function configured with the provided cost function that returns the cost the provided set of players (S) has to pay.

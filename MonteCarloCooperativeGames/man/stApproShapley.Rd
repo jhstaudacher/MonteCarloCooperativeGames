@@ -9,7 +9,7 @@ stApproShapley(i, n, v, m)
 \arguments{
 \item{i}{The player i}
 
-\item{n}{The number of players.}
+\item{n}{Indicates the cardinality of the set of players N (The number of players).}
 
 \item{v}{The characteristic function.}
 
@@ -26,4 +26,7 @@ stApproShapley(1, 10, gloveGame(1:5, 6:10), 1000)
 }
 \references{
 CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 5
+}
+\author{
+Tim Pollman
 }

@@ -4,6 +4,7 @@
 #' twoStageApproBanzhafOwen is a sampling method to approximate the Banzhaf-Owen value for
 #' a specified TU game with a system of a priori unions, based on two-stage sampling.
 #' Based on: "Sampling methods to estimate the Banzhaf–Owen value" (A. Saavedra-Nieves & M. G. Fiestras-Janeiro, 2020)
+#' @template author/MS
 #' @template param/i
 #' @template param/v
 #' @param lr number of samples of coalitions of unions
@@ -15,7 +16,6 @@
 #' @export
 #' @examples
 #' print(twoStageApproBanzhafOwen(1, 2, 2, gloveGame(1:2, 3:3), list(c(1, 2), (3))))
-#'
 twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
   withoutPi <- list() # contains all coalitions without Pi
   idx <- 1

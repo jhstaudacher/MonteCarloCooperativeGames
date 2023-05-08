@@ -7,7 +7,7 @@
 subsetFromIndex(n, index)
 }
 \arguments{
-\item{n}{Indicates the cardinality of the set of players N}
+\item{n}{Indicates the cardinality of the set of players N (The number of players).}
 
 \item{index}{A one based index describing the subset}
 }
@@ -20,4 +20,7 @@ Gets the subset of players N (1:n) described by an index.
 \examples{
 S <- subsetFromIndex(5, 1) # empty set
 S <- subsetFromIndex(5, 32) # all players
+}
+\author{
+David Ulrich
 }

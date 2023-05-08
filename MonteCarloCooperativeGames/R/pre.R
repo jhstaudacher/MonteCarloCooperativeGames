@@ -2,12 +2,10 @@
 #' @title Pre
 #' @description Get predecessors of i in O
 #' Returns a vector of all predecessors of player i in order O
+#' @template author/TP
 #' @param O Order
-#' @param i Player
+#' @template param/i
 #' @return Vector of all predecessors of player i in order O
-#' @export
-#' @examples
-#' pre(c(1, 4, 2, 3), 2)
 pre <- function(O, i) {
   i_idx <- match(i, O)
 

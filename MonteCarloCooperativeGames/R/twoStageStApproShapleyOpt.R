@@ -3,6 +3,7 @@
 #' @description
 #' Calculates the shapley value for each player with stratification and
 #' sample size per strata based on each stratums variance
+#' @template author/DU
 #' @template param/n
 #' @template param/v
 #' @param min_sample_size The amount of samples that should be taken.

@@ -4,6 +4,11 @@
 #' Approximates the Shapley value by using a simple Monte Carlo simulation.
 #' @details
 #' Monte Carlo Simulation based on the 2008 paper by Javier Castro
+#' @template author/JM
+#' @template author/DU
+#' @template author/TP
+#' @template author/EW
+#' @template author/MS
 #' @template param/n
 #' @template param/m
 #' @template param/v

@@ -2,7 +2,7 @@
 % Please edit documentation in R/airportGameForSampling.R
 \name{airportGameForSampling}
 \alias{airportGameForSampling}
-\title{Airport Game}
+\title{Construct Airport Game}
 \usage{
 airportGameForSampling(costs)
 }
@@ -19,4 +19,7 @@ Returns the characteristic function of an airport game with the specified cost v
 \examples{
 v <- airportGameForSampling(c(1, 1, 1, 3, 3, 5, 5, 5, 6, 6, 10, 10))
 v(c(1, 3, 6)) # returns 5
+}
+\author{
+David Ulrich
 }

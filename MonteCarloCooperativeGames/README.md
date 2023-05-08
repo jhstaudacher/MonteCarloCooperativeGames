@@ -11,7 +11,7 @@ cooperative games and approximating the Shapley value of them.
 Install the devtools and other necessary packages
 
 ``` r
-install.packages(c("devtools", "roxygen2", "testthat", "knitr", "styler"))
+install.packages(c("devtools", "roxygen2", "testthat", "knitr", "styler","covr"))
 ```
 
 R Studio: Tools/Install Packages or Build Pane: Install
@@ -133,7 +133,7 @@ R Studio: Build/Test Package or Build Pane: Test
   functions that start with `expect_`.
 - Write tests for input that is expected in typical use and for input
   that represend edge cases and may throw errors.
-  - You can test for errors with \`\`\`expect_error\`\`\`\`
+  - You can test for errors with `expect_error`
   - You can test for equality, with some reasonable amount of numeric
     tolerance with `expect_equal()`. Use `expect_identical()` for no
     tolerance.
@@ -183,6 +183,8 @@ Preview the documentation of any function by running:
     and any other useful information. Anything that is not required to
     use the function but still useful. If required, this can be
     organized with the `@section Section_Name:` tag
+  - Author (Required): The person/persons that wrote the functions. Use
+    `#' @template author/PERSON_FILENAME`.
   - Arguments (Required): Document **all** arguments the function uses.
     Look through the `man-roxygen/params` folder to check if there is
     already a param in the package with the same usage. If so add
@@ -200,7 +202,8 @@ Preview the documentation of any function by running:
       `#' @template return/RETURN_FILE_NAME` as the comment.
     - If you decide to use a standalone comment, describe the shape
       (scaler, vector, matrix, …), size and meaning of the output.
-    - If the functions returns nothing, use `@returns None`.
+    - If the functions returns nothing, use `@returns None`, but think
+      about if this function is well designed if it returns nothing.
   - `@export`: Add if the functions should be used from outside.
   - `@importFrom` (Required): If you use functionality from another
     package (even the base package) declare them with `@importFrom`.
@@ -221,8 +224,9 @@ Preview the documentation of any function by running:
     - **For the roxygen comment**:
     - Use: `#' @template cites/FILE_NAME` and
       `#' @templateVar FILE_NAME_P pp. PAGE_NUMBER_OR_RANGE`
-  - `@examples` (Required): Provide one or multiple examples of how the
-    function can be used.
+  - `@examples` (Required on exported functions): Provide one or
+    multiple examples of how the function can be used.
+    - On non exported functions, write tests instead.
     - They should be as short as possible, while still using the
       function in a realistic and authentic way. They must run
       **without** errors and sideeffects (change the environment,

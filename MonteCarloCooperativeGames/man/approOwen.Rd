@@ -7,7 +7,7 @@
 approOwen(n, m, v, P)
 }
 \arguments{
-\item{n}{The number of players.}
+\item{n}{Indicates the cardinality of the set of players N (The number of players).}
 
 \item{m}{The number of samples}
 
@@ -27,4 +27,7 @@ print(approOwen(3, 100, gloveGame(1:2, 3:3), list(c(1, 2), (3))))
 }
 \references{
 Alejandro Saavedra-Nieves, M. G.-J., Ignacio García-Jurado. (2018). Estimation of the Owen Value Basedon Sampling. In E. Gil, E. Gil, J. Gil, & M. Á. Gil (Eds.), The Mathematics of the Uncertain. doi:10.1007/978-3-319-73848-2
+}
+\author{
+Matthias Schöner
 }

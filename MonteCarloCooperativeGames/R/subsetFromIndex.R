@@ -2,7 +2,8 @@
 #' @title Get Subset From Index
 #' @description
 #' Gets the subset of players N (1:n) described by an index.
-#' @param n Indicates the cardinality of the set of players N
+#' @template author/DU
+#' @template param/n
 #' @param index A one based index describing the subset
 #' @return A subset from N described by index.
 #' @export

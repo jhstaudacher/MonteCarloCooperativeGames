@@ -9,7 +9,7 @@ confidenceBanzhaf(i, n, v, conf, w)
 \arguments{
 \item{i}{The player i}
 
-\item{n}{The number of players.}
+\item{n}{Indicates the cardinality of the set of players N (The number of players).}
 
 \item{v}{The characteristic function.}
 
@@ -28,4 +28,7 @@ confidenceBanzhaf(3, 4, weightedVotingGame(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
 }
 \references{
 Bachrach, Y. et al. (2010) "Approximating power indices: theoretical and empirical analysis", Auton Agent Multi-Agent Syst 20, pp. 105-122
+}
+\author{
+Tim Pollman
 }

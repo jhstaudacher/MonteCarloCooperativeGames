@@ -7,7 +7,7 @@
 twoStageApproShapleyEff(n, v, sample_size_eff, sample_size_opt)
 }
 \arguments{
-\item{n}{The number of players.}
+\item{n}{Indicates the cardinality of the set of players N (The number of players).}
 
 \item{v}{The characteristic function.}
 
@@ -31,4 +31,7 @@ Sh <- twoStageApproShapleyEff(100, gloveGame(L, R), 10000, 100000)
 }
 \references{
 CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, TODOe
+}
+\author{
+Elias Wucher
 }

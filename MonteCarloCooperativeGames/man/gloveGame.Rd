@@ -21,3 +21,14 @@ Returns the characteristic function of a glove game with the specified sets of l
 v <- gloveGame(L = 1:50, R = 51:100)
 v(c(10, 90, 99, 70, 20))
 }
+\author{
+Julian Musch
+
+David Ulrich
+
+Matthias Schöner
+
+Tim Pollman
+
+Elias Wucher
+}

@@ -4,6 +4,7 @@
 #' Described in "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" on page 183
 #' Calculates the shapley value based on the twoStageStApproShapleyOpt algorithm and the common approShapley
 #' with the extension, that the algorithm calculates the value Efficient
+#' @template author/EW
 #' @template param/n
 #' @template param/v
 #' @param sample_size_eff The amount of samples for the common approShapley algorithm.

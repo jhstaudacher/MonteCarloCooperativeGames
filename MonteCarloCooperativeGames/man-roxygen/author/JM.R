@@ -1,2 +1,1 @@
-#' @author Test Author
-
+#' @author Julian Musch

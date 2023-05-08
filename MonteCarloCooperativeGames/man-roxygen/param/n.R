@@ -1,1 +1,1 @@
-#' @param n The number of players.
+#' @param n Indicates the cardinality of the set of players N (The number of players).

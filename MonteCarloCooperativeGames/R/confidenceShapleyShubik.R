@@ -2,6 +2,7 @@
 #' @title Confidence Shapley Shubik
 #' @description
 #' Monte Carlo Simulation for calculating the Shapley-Shubik power index in a simple game based on the paper "Approximating power indices: theoretical and empirical analysis" by Bachrach et al. from 2010
+#' @template author/TP
 #' @template param/i
 #' @template param/n
 #' @template param/v

@@ -2,6 +2,11 @@
 #' @title Glove Game
 #' @description
 #' Returns the characteristic function of a glove game with the specified sets of left and right gloves.
+#' @template author/JM
+#' @template author/DU
+#' @template author/MS
+#' @template author/TP
+#' @template author/EW
 #' @param L Set of players with a left glove
 #' @param R Set of players with a right glove
 #' @return The characteristic function configured with the provided left and right glove lists that returns the number of matching  glove pairs according to the provided set of players (S)

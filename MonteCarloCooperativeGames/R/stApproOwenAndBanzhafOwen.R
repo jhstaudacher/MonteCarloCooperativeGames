@@ -4,6 +4,7 @@
 #' Owen value and the Banzhaf–Owen value for a specified TU game with a system of a priori unions, based on stratified sampling.
 #' Offering two allocation procedures for the samples.
 #' Based on: "On stratified sampling for estimating coalitional values" (A. Saavedra-Nieves, 2022)
+#' @template author/MS
 #' @template param/i
 #' @template param/m
 #' @template param/v

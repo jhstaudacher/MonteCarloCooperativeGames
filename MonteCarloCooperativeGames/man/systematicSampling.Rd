@@ -9,7 +9,7 @@ systematicSampling(i, n, m, v)
 \arguments{
 \item{i}{The player i}
 
-\item{n}{The number of players.}
+\item{n}{Indicates the cardinality of the set of players N (The number of players).}
 
 \item{m}{The number of samples}
 
@@ -28,4 +28,7 @@ print(systematicSampling(1, 10, 200, gloveGame(1:5, 6:10)))
 }
 \references{
 Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 132
+}
+\author{
+Alexander Rießbeck
 }

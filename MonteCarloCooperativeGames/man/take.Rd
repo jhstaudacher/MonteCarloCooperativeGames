@@ -17,7 +17,6 @@ A sub-list
 \description{
 Returns a sub-list of the provided source with the elements from the start up-to the specified index
 }
-\examples{
-source <- "alfa,bravo,charlie,delta"
-take(source, 2)
+\author{
+Julian Musch
 }

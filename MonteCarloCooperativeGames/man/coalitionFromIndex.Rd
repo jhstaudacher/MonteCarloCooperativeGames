@@ -17,3 +17,6 @@ A coalition from n described by index
 \description{
 Gets the coalition of players in list n described by the index.
 }
+\author{
+Alexander Rießbeck
+}

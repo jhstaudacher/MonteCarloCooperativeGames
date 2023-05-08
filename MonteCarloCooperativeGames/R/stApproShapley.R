@@ -2,6 +2,7 @@
 #' @title Stratified Appro Shapley
 #' @description
 #' Monte Carlo Simulation for calculating the Shapley value based on the paper "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" by Castro et al. from 2017
+#' @template author/TP
 #' @template param/i
 #' @template param/n
 #' @template param/v

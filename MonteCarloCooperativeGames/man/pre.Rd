@@ -9,7 +9,7 @@ pre(O, i)
 \arguments{
 \item{O}{Order}
 
-\item{i}{Player}
+\item{i}{The player i}
 }
 \value{
 Vector of all predecessors of player i in order O
@@ -18,6 +18,6 @@ Vector of all predecessors of player i in order O
 Get predecessors of i in O
 Returns a vector of all predecessors of player i in order O
 }
-\examples{
-pre(c(1, 4, 2, 3), 2)
+\author{
+Tim Pollman
 }

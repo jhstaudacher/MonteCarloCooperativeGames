@@ -3,6 +3,7 @@
 #' @description Systematic sampling based on paper: "Statistics and game theory:
 #' Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020)
 #' Algorithm 3
+#' @template author/AR
 #' @template param/i
 #' @template param/n
 #' @template param/m

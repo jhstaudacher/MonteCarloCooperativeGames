@@ -7,7 +7,7 @@
 twoStageStApproShapleyOptCor(n, v, min_sample_size)
 }
 \arguments{
-\item{n}{The number of players.}
+\item{n}{Indicates the cardinality of the set of players N (The number of players).}
 
 \item{v}{The characteristic function.}
 
@@ -40,4 +40,7 @@ print(Sh)
 }
 \references{
 CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 182
+}
+\author{
+Matthias Schöner
 }

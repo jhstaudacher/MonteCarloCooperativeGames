@@ -7,7 +7,7 @@
 approShapley(n, m, v)
 }
 \arguments{
-\item{n}{The number of players.}
+\item{n}{Indicates the cardinality of the set of players N (The number of players).}
 
 \item{m}{The number of samples}
 
@@ -27,4 +27,15 @@ print(approShapley(10, 10000, gloveGame(1:5, 6:10)))
 }
 \references{
 CASTRO, J. et al. (2008) "Polynomial calculation of the Shapley value based on sampling", Computers and Operations Research 36, pp. 1727
+}
+\author{
+Julian Musch
+
+David Ulrich
+
+Tim Pollman
+
+Elias Wucher
+
+Matthias Schöner
 }

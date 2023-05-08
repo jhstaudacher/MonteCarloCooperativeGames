@@ -7,6 +7,7 @@
 #' twoStageStApproShapleyOptCor is a sampling procedure to estimate the Shapley value for cooperative games.
 #' Based on: "Improving polynomial estimation of the Shapley value by stratified
 #' random sampling with optimum allocation" (J. Castro Et al., 2017)
+#' @template author/MS
 #' @template param/n
 #' @template param/v
 #' @param min_sample_size The amount of samples that should be taken.

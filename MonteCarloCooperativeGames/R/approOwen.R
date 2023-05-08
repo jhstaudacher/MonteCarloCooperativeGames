@@ -3,6 +3,7 @@
 #' @description
 #' Approximates the owen value by using a simple Monte Carlo simulation.
 #' Based on: "Estimation of the Owen Value Based on Sampling" (Alejandro Saavedra-Nieve et al., 2018)
+#' @template author/MS
 #' @template param/n
 #' @template param/m
 #' @template param/v

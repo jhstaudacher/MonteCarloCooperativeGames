@@ -17,8 +17,14 @@ The cost vector described by cost_info.
 Returns the cost vector for an airport game
 }
 \examples{
+# TODO: Should this be a exported function. ?!
+# Currently it's used by the example in twoStageStApproShapleyOpt but maybe
+# it should be entirely removed.
 costs <- buildAirportCostVector(list(
   c(1, 8), c(2, 12), c(3, 6), c(4, 14), c(5, 8), c(6, 9),
   c(7, 13), c(8, 10), c(9, 10), c(10, 10)
 ))
+}
+\author{
+David Ulrich
 }

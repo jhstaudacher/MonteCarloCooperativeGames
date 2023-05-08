@@ -10,6 +10,7 @@
 #'   - max_error (the absolute value of the maximum error)
 #'   - min_error (the absolute value of the minimal error)
 #'   - std_of_errors (the standard deviation of absolute errors)
+#' @template author/DU
 #' @param estimated_shapley_values The estimated shapley values for each player
 #' in form of a vector
 #' @param actual_shapley_values The actual shapley values for each player in

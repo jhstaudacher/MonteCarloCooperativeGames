@@ -20,7 +20,6 @@ Access possible coalitions of players through index
 \details{
 Based on: "Statistics and game theory: Estimating coalitional values in R software" (Alejandro Saavedra-Nieves, 2020)
 }
-\examples{
-# example code
-# TODO: create example
+\author{
+Matthias Schöner
 }

@@ -21,3 +21,12 @@ Returns the characteristic function of a weighted voting game with the specified
 v <- weightedVotingGame(c(1, 2, 3, 4, 5, 4, 3, 2, 1, 10), 1 / 2)
 v(c(1:10))
 }
+\author{
+Julian Musch
+
+Matthias Schöner
+
+Tim Pollman
+
+David Ulrich
+}

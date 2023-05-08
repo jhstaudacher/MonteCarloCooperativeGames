@@ -34,3 +34,6 @@ print(stApproOwenAndBanzhafOwen(1, 1000, gloveGame(1:2, 3:3), list(c(1, 2), c(3)
 \references{
 Saavedra-Nieves, A. et al. (2022) "On stratified sampling for estimating coalitional values", Annals of Operations Research 320 pp. 5
 }
+\author{
+Matthias Schöner
+}
