@@ -21,7 +21,7 @@
 #'   c(1, 8), c(2, 12), c(3, 6), c(4, 14), c(5, 8), c(6, 9),
 #'   c(7, 13), c(8, 10), c(9, 10), c(10, 10)
 #' ))
-#' v <- airportGame(costs)
+#' v <- airportGameForSampling(costs)
 #' Sh <- twoStageStApproShapleyOpt(length(costs), v, 100000)
 twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 0.5) {
   N <- 1:n
