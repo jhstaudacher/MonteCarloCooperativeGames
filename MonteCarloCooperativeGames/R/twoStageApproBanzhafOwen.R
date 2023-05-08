@@ -50,11 +50,7 @@ createRandomSamples <- function(input, samplesize) {
   iCoalition <- sample(2^(length(input)), samplesize, replace = FALSE)
   R <- list()
   for (idx in 1:length(iCoalition)) {
-    R[[idx]] <- list()
-    indices <- fromNumberToBinaryIndices(iCoalition[idx] - 1)
-    for (ele in indices) {
-      R[[idx]] <- unlist(append(R[[idx]], input[ele]))
-    }
+    R[[idx]] <- unlist(coalitionFromIndex(input, iCoalition[idx]))
   }
   return(R)
 }
