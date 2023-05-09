@@ -41,7 +41,7 @@ twoStageStApproShapleyOptCor <- function(n, v, min_sample_size) {
       sum_cuad_l <- 0
       for (cont_l in 1:mExpIl) {
         order <- c(sampleP(i, l, N))
-        xOi <- v(toI(order, l)) - v(toI(order, l - 1))
+        xOi <- v(take(order, l)) - v(take(order, l - 1))
         Shes[l, i] <- Shes[l, i] + xOi
         sum_cuad_l <- sum_cuad_l + xOi^2
         totalSampleCount <- totalSampleCount + 1
@@ -64,7 +64,7 @@ twoStageStApproShapleyOptCor <- function(n, v, min_sample_size) {
       if (mstst[l, i] <= 1) next
       for (cont_l in 1:mstst[l, i]) {
         order <- c(sampleP(i, l, N))
-        xOi <- v(toI(order, l)) - v(toI(order, l - 1))
+        xOi <- v(take(order, l)) - v(take(order, l - 1))
         Shes[l, i] <- Shes[l, i] + xOi
         totalSampleCount <- totalSampleCount + 1
       }
@@ -73,13 +73,6 @@ twoStageStApproShapleyOptCor <- function(n, v, min_sample_size) {
 
   Shes <- Shes / (mstst + mExpIl)
   Sh <- colSums(Shes) / n
-}
-
-toI <- function(o, idx) {
-  if (idx == 0) {
-    return(c())
-  }
-  return(o[1:idx])
 }
 
 sampleP <- function(i, l, N) {
