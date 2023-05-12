@@ -15,8 +15,8 @@ fromICoalitionToCoalition <- function(cardinality_n, iCoalition) {
 
   while (ij < cardinality_n) {
     ij <- ij + 1
-    Coalition[ij] <- a1 - as.integer(a1 / 2) * 2
-    a1 <- as.integer(a1 / 2)
+    Coalition[ij] <- a1 - trunc(a1 / 2) * 2
+    a1 <- trunc(a1 / 2)
   }
 
   return(Coalition)

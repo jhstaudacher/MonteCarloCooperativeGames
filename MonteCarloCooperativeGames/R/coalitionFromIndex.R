@@ -1,21 +1,19 @@
-#' @title Get a coalition from a index
+#' @title Get a coalition from an index
 #' @description
-#' Gets the coalition of players in list n described by the index.
+#' Gets the coalition/subset of superset described by index.
 #' @template author/AR
-#' @param n List of players
-#' @param index Index describing the coalition
-#' @return A coalition from n described by index
-coalitionFromIndex <- function(n, index) {
-  code <- fromICoalitionToCoalition(length(n), index)
-  coaltion <- c()
-  for (i in 1:length(n)) {
-    if (1 == code[i]) {
-      coaltion <- append(coaltion, n[i])
-    }
+#' @template author/MS
+#' @template author/DU
+#' @param superset The superset from which to get a specific coalition described
+#' by the parameter index
+#' @param index Index describing the coalition/subset. Valid values are in the
+#' range from 1 to including 2^len(superset).
+#' @return A coalition/subset from superset described by index
+coalitionFromIndex <- function(superset, index) {
+  if (index == 1) {
+    return(c())
   }
-  return(coaltion)
+  bits <- fromICoalitionToCoalition(length(superset), index)
+  indices <- which(bits == 1)
+  superset[indices]
 }
-
-#' TODO add these to test
-#' S <- coalitionFromIndex(1:5, 1) # empty set
-#' S <- coalitionFromIndex(1:5, 32) # all players

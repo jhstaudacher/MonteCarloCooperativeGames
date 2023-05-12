@@ -2,21 +2,27 @@
 % Please edit documentation in R/coalitionFromIndex.R
 \name{coalitionFromIndex}
 \alias{coalitionFromIndex}
-\title{Get a coalition from a index}
+\title{Get a coalition from an index}
 \usage{
-coalitionFromIndex(n, index)
+coalitionFromIndex(superset, index)
 }
 \arguments{
-\item{n}{List of players}
+\item{superset}{The superset from which to get a specific coalition described
+by the parameter index}
 
-\item{index}{Index describing the coalition}
+\item{index}{Index describing the coalition/subset. Valid values are in the
+range from 1 to including 2^len(superset).}
 }
 \value{
-A coalition from n described by index
+A coalition/subset from superset described by index
 }
 \description{
-Gets the coalition of players in list n described by the index.
+Gets the coalition/subset of superset described by index.
 }
 \author{
 Alexander Rießbeck
+
+Matthias Schöner
+
+David Ulrich
 }
