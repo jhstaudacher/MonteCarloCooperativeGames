@@ -1,7 +1,8 @@
 #' @name approOwen
 #' @title Appro Owen
 #' @description
-#' Approximates the owen value by using a simple Monte Carlo simulation.
+#' Approximates the owen value by using a simple Monte Carlo simulation. It is an adaptation of an analogous procedure
+#' for the estimation of the Shapley value and it is particularly useful when dealing with games having large sets of players.
 #' Based on: "Estimation of the Owen Value Based on Sampling" (Alejandro Saavedra-Nieve et al., 2018)
 #' @template author/MS
 #' @template param/n
@@ -14,6 +15,9 @@
 #' @examples
 #' print(approOwen(3, 100, gloveGame(1:2, 3:3), list(c(1, 2), (3))))
 approOwen <- function(n, m, v, P) {
+  # paramCheckResult=getEmptyParamCheckResult()
+  # initialParamChecksApproOwen(paramCheckResult, n, m, v, P)
+
   Owen <- rep(0, n)
   # calculate shapley value only with permutations compatible with coalition structure P
   for (x in 1:m) {
@@ -48,3 +52,18 @@ sampleOrderP <- function(P) {
   # print(un)
   return(un)
 }
+
+# initialParamChecksApproOwen <- function(paramCheckResult, n, m, v, P) {
+#   # ToDo common parameter checks
+#   stopOnInvalidGameVector=function(paramCheckResult, v, n)
+#
+#   # ToDo custom parameter checks
+#   checkResult=getEmptyParamCheckResult()
+#   # Fitting P to n?
+#   if(length(unlist(P)) != n){
+#     checkResult$errMessage="Partitions don't fit to n"
+#     checkResult$errCode=2010
+#   }
+#   eval.parent(substitute(paramCheckResult<-checkResult))
+#   stopOnParamCheckError(paramCheckResult)
+# }
