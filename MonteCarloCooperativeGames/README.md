@@ -248,14 +248,20 @@ should be used, compared to the function docuementation.
 
 #### Build the vignette
 
+Setup:
+
+Run the following commands to install latex
+
+    install.packages('tinytex')
+    tinytex::install_tinytex()
+
 The vignette is build from the installed version of the package. Not the
 loaded version. Therefor `load_all()` can not be used. It needs to be
 installed.
 
-The easiest way is to use the following command. This both installs the
-package and builds the vignette:
-
-    install(build_vignettes = TRUE)
+The easiest way to build the vingnette is to use the `Knit`Button in R
+Studio (located at the top of the code view. Make sure to click it, when
+the correct document is open)
 
 ### Readme
 
