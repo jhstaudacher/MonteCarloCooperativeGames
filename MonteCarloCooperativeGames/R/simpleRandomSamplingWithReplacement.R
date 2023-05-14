@@ -16,22 +16,24 @@
 #' print(simpleRandomSamplingWithReplacement(1, 10, 200, gloveGame(1:5, 6:10)))
 simpleRandomSamplingWithReplacement <- function(i, n, m, v) {
   player_i <- i
-  all_players_N <- 1:n
-  sampling_size_l <- m
-  game_v <- v
+  all_players <- 1:n
+  sampling_size <- m
+  game <- v
 
-  stopifnot(1 < sampling_size_l)
-  stopifnot(sampling_size_l <= 2^(length(all_players_N) - 1))
+  stopifnot(1 < sampling_size)
+  stopifnot(sampling_size <= 2^(length(all_players) - 1))
+  
+  stopifnot(player_i < 0)
 
   banzhaf_value <- 0
-  player_i_value <- all_players_N[player_i]
-  players_N_without_i <- all_players_N[-player_i]
+  player_i_value <- all_players[player_i]
+  players_without_i <- all_players[-player_i]
 
-  for (j in 1:sampling_size_l) {
-    sample_T_j <- coalitionFromIndex(players_N_without_i, sample(1:2^length(players_N_without_i), 1))
-    banzhaf_value <- banzhaf_value + game_v(append(sample_T_j, player_i_value)) - game_v(sample_T_j)
+  for (j in 1:sampling_size) {
+    sample <- coalitionFromIndex(players_without_i, sample(1:2^length(players_without_i), 1))
+    banzhaf_value <- banzhaf_value + game(append(sample, player_i_value)) - game(sample)
   }
 
-  banzhaf_value <- banzhaf_value / sampling_size_l
+  banzhaf_value <- banzhaf_value / sampling_size
   return(banzhaf_value)
 }
