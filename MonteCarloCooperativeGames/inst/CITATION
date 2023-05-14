@@ -10,6 +10,5 @@ citEntry(
  author = personList(as.person("J. Staudacher"),as.person("J. Anwander")),
  textVersion="TODO ; {R} Vignette; 2019 .")
 
-
 citFooter("We have invested a lot of time and effort in creating the package MonteCarloCooperativeGames and its vignette,",
           "please cite it when using it in research or teaching.")

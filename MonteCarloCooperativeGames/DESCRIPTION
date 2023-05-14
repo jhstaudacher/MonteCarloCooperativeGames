@@ -1,11 +1,20 @@
 Package: MonteCarloCooperativeGames
 Type: Package
-Title: Monte Carlo Simulations For Coop Games
+Title: Monte Carlo Simulations For Cooperative Games
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: Monte Carlo For Coop Games is a R package for simulating arbitrary cooperative games and 
-    approximating the Shapley value of them.
+Authors@R: c(person("Jochen", "Staudacher", role = c("aut","cre", "cph"),
+                     email = "jochen.staudacher@hs-kempten.de"),
+			person("Alexander", "Rießbeck", role = c("aut", "cph")),
+			person("David", "Ulrich", role = c("aut", "cph")),
+			person("Elias", "Wucher", role = c("aut", "cph")),
+			person("Julian", "Musch", role = c("aut", "cph")),
+			person("Mithunan", "Mehanathan", role = c("aut", "cph")),
+			person("Matthias", "Schöner", role = c("aut", "cph")),
+			person("Robin", "Liebermann", role = c("aut", "cph")),
+			person("Tim", "Pollman", role = c("aut", "cph")))
+Maintainer: Jochen Staudacher <jochen.staudacher@hs-kempten.de>
+Description: Monte Carlo Cooperative Gamesis a R package for simulating arbitrary cooperative games and 
+    approximating the Shapley and related values of them.
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
