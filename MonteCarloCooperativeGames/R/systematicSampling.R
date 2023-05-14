@@ -1,8 +1,13 @@
 #' @name systematicSampling
 #' @title Systematic Sampling
-#' @description Systematic sampling based on paper: "Statistics and game theory:
-#' Estimating coalitional values in R software" (A. Saavedra-Nieves, 2020)
-#' Algorithm 3
+#' @description Systematic sampling is a method to estimate the Banzhaf-Owen
+#'   value for a specified TU game. First, the algorithm systematically creates
+#'   samples of players without the player i by incrementally taking samples out
+#'   of a sequence of all possible combinations of players. Then the algorithm
+#'   checks the value the player adds to all the samples.
+#'
+#'   Based on the paper: "Statistics and game theory: Estimating coalitional
+#'   values in R software" (A. Saavedra-Nieves, 2020) Algorithm 3
 #' @template author/AR
 #' @template author/RL
 #' @template author/MM
@@ -15,7 +20,7 @@
 #' @templateVar SAAVEDRA_NIEVES_ET_AL_2020_P pp. 132
 #' @export
 #' @examples
-#' print(systematicSampling(1, 10, 200, gloveGame(1:5, 6:10)))
+#' print(systematicSampling(1, 10, 200, gloveGameForSampling(1:5, 6:10)))
 systematicSampling <- function(i, n, m, v) {
   stopifnot(0 < i) # Player(-index) cannot be negative.
   stopifnot(i <= n) # Player has to be in the list of all players.
@@ -35,8 +40,8 @@ systematicSampling <- function(i, n, m, v) {
   players_without_i <- all_players[-player_i]
   increment <- floor((2^(length(all_players) - 1)) / sampling_size)
   starting_point <- sample(1:increment, 1)
+  
   indices <- c()
-
   for (j in seq(starting_point, 2^(length(all_players) - 1), by = increment)) {
     indices <- append(indices, j)
   }
