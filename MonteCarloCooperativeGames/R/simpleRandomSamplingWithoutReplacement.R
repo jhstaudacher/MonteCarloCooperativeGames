@@ -4,6 +4,8 @@
 #' "Statistics and game theory: Estimating coalitional values in R software" (A.
 #' Saavedra-Nieves, 2020) Algorithm 2
 #' @template author/AR
+#' @template author/RL
+#' @template author/MM
 #' @template param/i
 #' @template param/n
 #' @template param/m
