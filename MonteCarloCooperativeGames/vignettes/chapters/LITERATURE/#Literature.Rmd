@@ -1,8 +1,0 @@
----
-title: "Literature"
-author: "Julian Musch"
-date: "15 May 2023"
-output: pdf_document
----
-
-# Literature
