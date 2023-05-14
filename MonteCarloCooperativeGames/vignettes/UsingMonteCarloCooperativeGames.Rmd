@@ -1,19 +1,21 @@
 ---
 title: "Using the R package `MonteCarloCooperativeGames` for the simulation of large cooperative games."
-output: rmarkdown::html_vignette
+output: rmarkdown::pdf_document
+toc: true
+numbersections: true
+geometry: margin=3.8cm
+papersize: A4
 vignette: >
   %\VignetteIndexEntry{UsingMonteCarloCooperativeGames}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+abstract: "TODO: Describe the package"
+header-includes:
+- \usepackage{titling}
+- \preauthor{\begin{center}\large\includegraphics[width=15cm]{media/MonteCarloCooperativeGamesLogo.png}\\[\smallskipamount]}
+- \postauthor{\end{center}}
 ---
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+```{r eval=TRUE, echo=FALSE}
+child_docs <- list.files(path="chapters",recursive = TRUE, pattern=".Rmd", full.names = TRUE)
 ```
-
-```{r setup}
-library(MonteCarloCooperativeGames)
-```
+```{r, child = child_docs}

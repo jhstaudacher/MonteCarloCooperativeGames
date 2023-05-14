@@ -1,0 +1,23 @@
+---
+title: "GuidanceOnAlgorithmSelection"
+author: "Julian Musch"
+date: "15 May 2023"
+output: pdf_document
+---
+
+# Guidance on algorithm selection
+
+## Comparision between all different algorithms
+
+// TODO: Table of all algorithms ans their features (Name, Source, is Efficient, for all players or only one, resulting Value (shapley, Owen, Banzef))
+
+| Name                         | Source.       Description            | Efficent | Optimal | Result                         |
+| ---------------------------- | ----------- | ---------------------- | -------- | ------- | ------------------------------ |
+| ApproShapley                 | Castro 2009 | Simple random sampling |          |         | Shapley value for every player | 
+| TwoStage St ApproShapley Eff | Castro 2017 | Stratified sampling.   | Yes      |         | Shapley value for every player |
+
+
+
+## Speed comparisions
+
+// TODO: Graph with all the algorithms compared with regards to speed, with different sample sizes.
