@@ -3,6 +3,7 @@
 export(airportGameForSampling)
 export(approOwen)
 export(approShapley)
+export(bankruptcyGameForSampling)
 export(buildAirportCostVector)
 export(calculateErrorMetrics)
 export(confidenceBanzhaf)
