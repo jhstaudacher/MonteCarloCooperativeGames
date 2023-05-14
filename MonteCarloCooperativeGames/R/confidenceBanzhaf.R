@@ -13,7 +13,7 @@
 #' @template cites/BACHRACH_ET_AL_2010
 #' @templateVar BACHRACH_ET_AL_2010_P pp. 105-122
 #' @examples
-#' confidenceBanzhaf(3, 4, weightedVotingGame(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
+#' confidenceBanzhaf(3, 4, weightedVotingGameForSampling(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
 confidenceBanzhaf <- function(i, n, v, conf, w) {
   # X is the critical count
   X <- 0

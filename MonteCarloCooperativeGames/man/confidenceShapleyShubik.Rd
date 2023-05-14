@@ -24,7 +24,7 @@ Confidence interval as a vector of size 2
 Monte Carlo Simulation for calculating the Shapley-Shubik power index in a simple game based on the paper "Approximating power indices: theoretical and empirical analysis" by Bachrach et al. from 2010
 }
 \examples{
-confidenceShapleyShubik(3, 4, weightedVotingGame(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
+confidenceShapleyShubik(3, 4, weightedVotingGameForSampling(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
 }
 \references{
 Bachrach, Y. et al. (2010) "Approximating power indices: theoretical and empirical analysis", Auton Agent Multi-Agent Syst 20, pp. 105-122

@@ -17,7 +17,7 @@
 #' @templateVar SAAVEDRA_NIEVES_ET_AL_2020_P pp. 208-221
 #' @export
 #' @examples
-#' print(twoStageApproBanzhafOwen(1, 2, 2, gloveGame(1:2, 3:3), list(c(1, 2), (3))))
+#' print(twoStageApproBanzhafOwen(1, 2, 2, gloveGameForSampling(1:2, 3:3), list(c(1, 2), (3))))
 twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
   withoutPi <- list() # contains all coalitions without Pi
   idx <- 1

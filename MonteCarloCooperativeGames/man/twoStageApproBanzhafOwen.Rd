@@ -28,7 +28,7 @@ coalitions without replacement of the union to which player i belongs.
 Based on: "Sampling methods to estimate the Banzhaf–Owen value" (A. Saavedra-Nieves & M. G. Fiestras-Janeiro, 2020)
 }
 \examples{
-print(twoStageApproBanzhafOwen(1, 2, 2, gloveGame(1:2, 3:3), list(c(1, 2), (3))))
+print(twoStageApproBanzhafOwen(1, 2, 2, gloveGameForSampling(1:2, 3:3), list(c(1, 2), (3))))
 }
 \references{
 Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 208-221

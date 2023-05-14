@@ -15,8 +15,8 @@
 #' @return approximation of the Banzaf-Owen value and Owen value based on stratified sampling
 #' @export
 #' @examples
-#' print(stApproOwenAndBanzhafOwen(1, 1000, gloveGame(1:2, 3:3), list(c(1, 2), c(3))))
-#' print(stApproOwenAndBanzhafOwen(1, 1000, gloveGame(1:2, 3:3), list(c(1, 2), c(3)), FALSE)$Owen)
+#' print(stApproOwenAndBanzhafOwen(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3))))
+#' print(stApproOwenAndBanzhafOwen(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)), FALSE)$Owen)
 #'
 stApproOwenAndBanzhafOwen <- function(i, m, v, P, proportional = TRUE) {
   # extract the P(i) Partition

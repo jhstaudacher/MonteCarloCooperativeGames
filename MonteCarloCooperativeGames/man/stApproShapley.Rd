@@ -22,7 +22,7 @@ Estimated Shapley value of player i
 Monte Carlo Simulation for calculating the Shapley value based on the paper "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" by Castro et al. from 2017
 }
 \examples{
-stApproShapley(1, 10, gloveGame(1:5, 6:10), 1000)
+stApproShapley(1, 10, gloveGameForSampling(1:5, 6:10), 1000)
 }
 \references{
 CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 5

@@ -12,7 +12,7 @@
 #' @templateVar CASTRO_ET_AL_2017_P pp. 5
 #' @export
 #' @examples
-#' stApproShapley(1, 10, gloveGame(1:5, 6:10), 1000)
+#' stApproShapley(1, 10, gloveGameForSampling(1:5, 6:10), 1000)
 stApproShapley <- function(i, n, v, m) {
   # accumulated marginal contribution of player i over all positions l
   sh_sum <- 0

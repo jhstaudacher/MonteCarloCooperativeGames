@@ -17,7 +17,7 @@
 #' @template cites/CASTRO_ET_AL_2008
 #' @templateVar CASTRO_ET_AL_2008_P pp. 1727
 #' @examples
-#' print(approShapley(10, 10000, gloveGame(1:5, 6:10)))
+#' print(approShapley(10, 10000, gloveGameForSampling(1:5, 6:10)))
 approShapley <- function(n, m, v) {
   # N is a list of players with the specified length according to the number of players (n)
   N <- 1:n

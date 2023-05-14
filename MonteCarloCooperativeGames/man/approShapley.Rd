@@ -23,7 +23,7 @@ Approximates the Shapley value by using a simple Monte Carlo simulation.
 Monte Carlo Simulation based on the 2008 paper by Javier Castro
 }
 \examples{
-print(approShapley(10, 10000, gloveGame(1:5, 6:10)))
+print(approShapley(10, 10000, gloveGameForSampling(1:5, 6:10)))
 }
 \references{
 CASTRO, J. et al. (2008) "Polynomial calculation of the Shapley value based on sampling", Computers and Operations Research 36, pp. 1727

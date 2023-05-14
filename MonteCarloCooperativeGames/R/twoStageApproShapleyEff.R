@@ -17,7 +17,7 @@
 #' # sample a glove Game with 100 players (|L|=50 => |R|=50)
 #' L <- 1:50
 #' R <- 51:100
-#' Sh <- twoStageApproShapleyEff(100, gloveGame(L, R), 10000, 100000)
+#' Sh <- twoStageApproShapleyEff(100, gloveGameForSampling(L, R), 10000, 100000)
 twoStageApproShapleyEff <- function(n, v, sample_size_eff, sample_size_opt) {
   # to check if it is really efficient execute sum(Sh). The result should be 50
 

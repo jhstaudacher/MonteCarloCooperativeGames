@@ -27,8 +27,8 @@ Offering two allocation procedures for the samples.
 Based on: "On stratified sampling for estimating coalitional values" (A. Saavedra-Nieves, 2022)
 }
 \examples{
-print(stApproOwenAndBanzhafOwen(1, 1000, gloveGame(1:2, 3:3), list(c(1, 2), c(3))))
-print(stApproOwenAndBanzhafOwen(1, 1000, gloveGame(1:2, 3:3), list(c(1, 2), c(3)), FALSE)$Owen)
+print(stApproOwenAndBanzhafOwen(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3))))
+print(stApproOwenAndBanzhafOwen(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)), FALSE)$Owen)
 
 }
 \references{
