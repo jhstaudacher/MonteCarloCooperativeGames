@@ -24,9 +24,28 @@ A list of Shapley values of every player
 }
 \description{
 Calculates the shapley value for each player with stratification and
-sample size per strata based on each stratums variance
+sample size per strata based on each stratums variance.
+}
+\details{
+Stratified:
+This function uses strata to calculate the shapley value. A stratum is
+created for each player at each possible position. E.g. there is a stratum
+for player 1 at position 1, for player 1 at position 2..., for player 2
+at position 1, for player 2 at position 2...
+
+Two Stages:
+The computation is split into two stages. The first stage gets a fixed amount
+of samples (min_sample_size * first_stage_size) which are distributed to each
+stratum equally. While sampling for the first stage, the variance of each
+stratum is recorded next to the shapley value.
+In the second stage, the variances are used to calculate the amount of
+samples each stratum should get in total. If a stratum already got enough
+samples from stage one it is not sampled again in stage two, otherwise the
+remaining samples are taken for each stratum. This probably leads to more
+samples taken in total than specified by min_sample_size (hence the name).
 }
 \examples{
+\donttest{
 # sample a airport game with 100 players
 costs <- buildAirportCostVector(list(
   c(1, 8), c(2, 12), c(3, 6), c(4, 14), c(5, 8), c(6, 9),
@@ -34,6 +53,7 @@ costs <- buildAirportCostVector(list(
 ))
 v <- airportGameForSampling(costs)
 Sh <- twoStageStApproShapleyOpt(length(costs), v, 100000)
+}
 }
 \references{
 CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 182
