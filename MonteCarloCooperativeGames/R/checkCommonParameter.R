@@ -56,19 +56,19 @@ checkCommonParameter <- function(v, n=NULL, P=NULL, i=NULL, m=NULL, w=NULL) {
     }
     else {
       #Step 2: Here the respective unions are checked. if one isn't a vector, the next step will be skipped
-      if(all(sapply(unlist(P), is.vector)) == FALSE) {
-        resultTable = append(resultTable, createMessage(3, "There is a priori union in P that isn't a vector or alist"))
-      }
+      #if(all(sapply(unlist(P), is.vector)) == FALSE) {
+      #  resultTable = append(resultTable, createMessage(3, "There is a priori union in P that isn't a vector or alist"))
+      #}
 
-      # index <- 0
-      #mistake <- FALSE
-      # for(union in P) {
-      #   if(!is.vector(union)) {
-      #     resultTable = append(resultTable, createMessage(3, paste("Priori union with index", index, "is not a vector or a list")))
-      #     mistake <- TRUE
-      #   }
-      #   index <- index + 1
-      # }
+      index <- 1
+      mistake <- FALSE
+      for(union in P) {
+         if(!is.vector(union)) {
+           resultTable = append(resultTable, createMessage(3, paste("Priori union with index", index, "is not a vector or a list")))
+           mistake <- TRUE
+         }
+         index <- index + 1
+      }
 
       if(TRUE) {
 
@@ -189,7 +189,7 @@ createMessage <- function(tc, msg) {
 #' @description
 #' @export processParamCheckResultTable
 #' @template author/EW
-#' @template param/paramCheckResult
+#' @param paramCheckResultTable the table with the messages
 #' @examples
 #' Fehlt noch
 processParamCheckResultTable=function(paramCheckResultTable){
