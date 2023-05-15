@@ -2,7 +2,9 @@
 #' @title A two-stage procedure to estimate the Banzhaf–Owen value
 #' @description
 #' twoStageApproBanzhafOwen is a sampling method to approximate the Banzhaf-Owen value for
-#' a specified TU game with a system of a priori unions, based on two-stage sampling. First, the algorithm takes a sample of coalitions of unions
+#' a specified TU game with a system of a priori unions, based on two-stage sampling.
+#' @details
+#' First, the algorithm takes a sample of coalitions of unions
 #' other than the one to which player i belongs to, without replacement. Then, for each element, the algorithm takes a sample of
 #' coalitions without replacement of the union to which player i belongs.
 #' Based on: "Sampling methods to estimate the Banzhaf–Owen value" (A. Saavedra-Nieves & M. G. Fiestras-Janeiro, 2020)

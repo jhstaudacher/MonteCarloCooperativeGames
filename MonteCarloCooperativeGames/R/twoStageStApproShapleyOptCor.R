@@ -5,7 +5,10 @@
 #' sample size per strata based on each stratums variance samples size adjusted
 #' @details
 #' twoStageStApproShapleyOptCor is a sampling procedure to estimate the Shapley value for cooperative games.
-#' Based on: "Improving polynomial estimation of the Shapley value by stratified
+#' In the first stage, the optimal allocation is calculated and executed in the second stage. It may occur that
+#' more samples would be used than specified. If this is the case, the algorithm adjusts the samples proportionally
+#' to the given sample size. The Algorithm twoStageStApproShapleyOptCor does not correct the sample size.
+#' Modified according to: "Improving polynomial estimation of the Shapley value by stratified
 #' random sampling with optimum allocation" (J. Castro Et al., 2017)
 #' @template author/MS
 #' @template param/n
@@ -20,6 +23,7 @@
 #' @export
 #' @examples
 #' # sample a airport game with 100 players
+#' \donttest{
 #' costs <- buildAirportCostVector(list(
 #'   c(1, 8), c(2, 12), c(3, 6), c(4, 14), c(5, 8), c(6, 9),
 #'   c(7, 13), c(8, 10), c(9, 10), c(10, 10)
@@ -27,6 +31,8 @@
 #' v <- airportGameForSampling(costs)
 #' Sh <- twoStageStApproShapleyOptCor(length(costs), v, 100000)
 #' print(Sh)
+#' }
+#' print(twoStageStApproShapleyOptCor(3, gloveGameForSampling(1:2, 3:3), 1000))
 twoStageStApproShapleyOptCor <- function(n, v, min_sample_size) {
   N <- 1:n
   m <- min_sample_size

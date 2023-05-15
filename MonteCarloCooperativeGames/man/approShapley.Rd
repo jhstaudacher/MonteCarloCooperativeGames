@@ -20,7 +20,8 @@ A list of Shapley values of every player
 Approximates the Shapley value by using a simple Monte Carlo simulation.
 }
 \details{
-Monte Carlo Simulation based on the 2008 paper by Javier Castro
+Appro Shapley is a sampling method, which samples permutations of the players.
+Based on: "Polynomial calculation of the Shapley value based on sampling" (Javier Castro Et al., 2008)
 }
 \examples{
 print(approShapley(10, 10000, gloveGameForSampling(1:5, 6:10)))
