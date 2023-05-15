@@ -166,14 +166,15 @@ checkCommonParameter <- function(v, n=NULL, P=NULL, i=NULL, m=NULL, w=NULL) {
 #'  - info: 1
 #'  - warning: 2
 #'  - error: 3
-#' @export createMessage
+#' @export
+#' @param tc typeCode
+#' @param msg message
 #' @template author/EW
 #' @return list with 2 elements. First one is called typeCode which contains an integer
-#' representing the type of the message. Seconde one is the message
+#' representing the type of the message. Second one is the message
 #' @examples
-#' Fehlt noch
+#' #Fehlt noch
 createMessage <- function(tc, msg) {
-  paramCheckResult <- createParamCheckResult()
 
   paramCheckResult = list(typeCode=tc,message=msg)
 
@@ -186,12 +187,12 @@ createMessage <- function(tc, msg) {
 
 #' @name processParamCheckResultTable
 #' @title processParamCheckResultTable - creates logging on  stdout
-#' @description
-#' @export processParamCheckResultTable
+#' @description prints the messages
+#' @export
 #' @template author/EW
 #' @param paramCheckResultTable the table with the messages
 #' @examples
-#' Fehlt noch
+#' #Fehlt noch
 processParamCheckResultTable=function(paramCheckResultTable){
 
   for(paramCheckResult in paramCheckResultTable) {

@@ -4,30 +4,26 @@
 \alias{checkCommonParameter}
 \title{Checks the common parameters for their validity}
 \usage{
-checkCommonParameter(v, n = NULL, m = NULL, i = NULL, P = NULL, w = NULL)
+checkCommonParameter(v, n = NULL, P = NULL, i = NULL, m = NULL, w = NULL)
 }
 \arguments{
 \item{v}{The characteristic function.}
 
 \item{n}{Indicates the cardinality of the set of players N (The number of players).}
 
-\item{m}{The number of samples}
+\item{P}{A priori unions}
 
 \item{i}{The player i}
 
-\item{P}{A priori unions}
+\item{m}{The number of samples}
 
 \item{w}{Width of the confidence interval}
 }
 \value{
-Returns true if the parameters are valid and false if they aren't
+Returns
 }
 \description{
 Checks the common parameters for their validity.
-
-The parameters must have the following properties:
- - The number of players can't be negative oder zero
- -
 }
 \author{
 Elias Wucher
