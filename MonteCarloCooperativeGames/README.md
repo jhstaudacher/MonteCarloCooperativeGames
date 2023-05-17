@@ -285,3 +285,18 @@ R Studio: Menu bar/Addins/Style active file or Style active package
 
 After using the linter, inspect the code again to avoid any unwanted
 changes.
+
+
+
+
+# Usage check functions in checkCommonParameter
+
+For Parameters i, n, m, w use check_positive_numbers(), i only use one method, because they all have the same restrictions
+For the characteristic function use check_v(). Here i don't check if the function has just one parameter, because i havtn't found a way to do this.
+To check the parameters i und n use check_n_i(). Use it if you use both parameters.
+To check the priori unions use check_P(). 
+To check the parameters i and P use function check_P_i(). Use it if you use both parameters.
+
+
+
+
