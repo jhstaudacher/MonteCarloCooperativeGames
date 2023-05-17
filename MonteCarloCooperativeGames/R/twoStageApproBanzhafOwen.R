@@ -21,6 +21,13 @@
 #' @examples
 #' print(twoStageApproBanzhafOwen(1, 2, 2, gloveGameForSampling(1:2, 3:3), list(c(1, 2), (3))))
 twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
+
+  check_P_i(P, i)
+  check_v(v)
+  check_positive_number(lr)
+  check_positive_number(ls)
+
+
   withoutPi <- list() # contains all coalitions without Pi
   idx <- 1
   for (x in P) {
@@ -32,17 +39,16 @@ twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
       idx <- idx + 1
     }
   }
-  # Take R = {R1 to Rr } where each R j ⊆ P\P(i) is obtained without replacement for all j = 1 to r .
   # prepare the list R that contains lists of different permutations of P\Pi
-  R <- createRandomSamples(withoutPi, lr)
+
+  getPermutationIdxR <- sample(2^(length(withoutPi)), lr, replace = FALSE)
   BzO <- 0
   for (j in 1:lr) {
-    # Take SR j = {S j1 to S js } where S jk ⊆ P(i)\{i} is obtained without replacement for all k = 1 to s .
-    S <- createRandomSamples(Pi, ls)
+    getPermutationIdxS <- sample(2^(length(Pi)), ls, replace = FALSE)
     for (k in 1:ls) {
-      xRS <- v(unlist(c(R[j], S[k], i))) - v(unlist(c(R[j], S[k])))
-      # print(unlist(c(R[j], S[k], i)))
-      # print(xRS)
+      R <- unlist(coalitionFromIndex(withoutPi, getPermutationIdxR[j]))
+      S <- coalitionFromIndex(Pi, getPermutationIdxS[k])
+      xRS <- v(unlist(c(R, S, i))) - v(unlist(c(R, S)))
       BzO <- BzO + xRS
     }
   }

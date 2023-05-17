@@ -20,6 +20,14 @@ approOwen <- function(n, m, v, P) {
   # paramCheckResult=getEmptyParamCheckResult()
   # initialParamChecksApproOwen(paramCheckResult, n, m, v, P)
 
+  check_v(v)
+  check_positive_number(m)
+  check_P(P)
+  if(length(unlist(P)) != n){
+    stop("Partitions do not fit to n")
+  }
+
+
   Owen <- rep(0, n)
   # calculate shapley value only with permutations compatible with coalition structure P
   for (x in 1:(m/n)) {
