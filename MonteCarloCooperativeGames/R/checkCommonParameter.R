@@ -38,13 +38,13 @@ check_v <- function(v) {
 check_positive_number <- function(parameter) {
 
   if(is.null(parameter))
-    stop("n is NULL")
+    stop("number is NULL")
 
   if(!is.numeric(parameter))
-    stop("i must be a number")
+    stop("number must be a number")
 
   if(parameter <= 0)
-    stop("i must be greater than 0")
+    stop("number must be greater than 0")
 
 }
 
