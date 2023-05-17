@@ -56,11 +56,3 @@ twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
   return(BzO)
 }
 
-createRandomSamples <- function(input, samplesize) {
-  iCoalition <- sample(2^(length(input)), samplesize, replace = FALSE)
-  R <- list()
-  for (idx in 1:length(iCoalition)) {
-    R[[idx]] <- unlist(coalitionFromIndex(input, iCoalition[idx]))
-  }
-  return(R)
-}
