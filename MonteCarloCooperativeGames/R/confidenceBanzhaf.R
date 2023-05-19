@@ -6,7 +6,7 @@
 #' @template param/i
 #' @template param/n
 #' @template param/v
-#' @param conf Confidence of the true Banzhaf value being in the confidence interval
+#' @template param/conf
 #' @template param/w
 #' @template return/ConfInterval
 #' @export
