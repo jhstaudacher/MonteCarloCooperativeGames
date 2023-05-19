@@ -14,6 +14,10 @@
 #' @examples
 #' stApproShapley(1, 10, gloveGameForSampling(1:5, 6:10), 1000)
 stApproShapley <- function(i, n, v, m) {
+  check_n_i(n, i)
+  check_v(v)
+  check_positive_number(m)
+
   # accumulated marginal contribution of player i over all positions l
   sh_sum <- 0
   # player  set

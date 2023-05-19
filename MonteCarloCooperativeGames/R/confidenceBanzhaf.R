@@ -15,6 +15,11 @@
 #' @examples
 #' confidenceBanzhaf(3, 4, weightedVotingGameForSampling(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
 confidenceBanzhaf <- function(i, n, v, conf, w) {
+  check_n_i(n, i)
+  check_v(v)
+  check_conf(conf)
+  check_positive_number(w)
+
   # X is the critical count
   X <- 0
   # k is the sample count
