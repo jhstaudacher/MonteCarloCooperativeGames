@@ -1,1 +1,1 @@
-#' @author Tim Pollman
+#' @author Tim Pollmann
