@@ -28,7 +28,7 @@ David Ulrich
 
 Matthias Schöner
 
-Tim Pollman
+Tim Pollmann
 
 Elias Wucher
 

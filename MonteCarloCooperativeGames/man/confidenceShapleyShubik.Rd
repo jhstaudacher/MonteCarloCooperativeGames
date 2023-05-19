@@ -13,7 +13,7 @@ confidenceShapleyShubik(i, n, v, conf, w)
 
 \item{v}{The characteristic function.}
 
-\item{conf}{Confidence of the true Shapley-Shubik power index being in the confidence interval}
+\item{conf}{Confidence of the true (exact) value being in the confidence interval}
 
 \item{w}{Width of the confidence interval}
 }
@@ -30,5 +30,5 @@ confidenceShapleyShubik(3, 4, weightedVotingGameForSampling(c(1, 1, 2, 3), 1 / 2
 Bachrach, Y. et al. (2010) "Approximating power indices: theoretical and empirical analysis", Auton Agent Multi-Agent Syst 20, pp. 105-122
 }
 \author{
-Tim Pollman
+Tim Pollmann
 }

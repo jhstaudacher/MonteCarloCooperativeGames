@@ -19,5 +19,5 @@ Get predecessors of i in O
 Returns a vector of all predecessors of player i in order O
 }
 \author{
-Tim Pollman
+Tim Pollmann
 }

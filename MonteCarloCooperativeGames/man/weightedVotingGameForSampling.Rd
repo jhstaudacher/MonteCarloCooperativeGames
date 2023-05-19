@@ -26,7 +26,7 @@ Julian Musch
 
 Matthias Schöner
 
-Tim Pollman
+Tim Pollmann
 
 David Ulrich
 

@@ -28,5 +28,5 @@ stApproShapley(1, 10, gloveGameForSampling(1:5, 6:10), 1000)
 CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 5
 }
 \author{
-Tim Pollman
+Tim Pollmann
 }
