@@ -132,4 +132,17 @@ check_P_i <- function(P, i) {
 
 }
 
+#' @name check_conf
+#' @title Check parameter conf
+#' @description
+#' Check parameter conf for validity.
+#' @template author/TP
+#' @template param/conf
+#' @return Returns NULL
+check_conf <- function(conf) {
+  check_positive_number(conf)
 
+  if(conf >= 1.0) {
+    stop("conf cannot be greater or equal to 1.0")
+  }
+}
