@@ -4,7 +4,7 @@ test_that("m %% n == 0", {
 })
 
 test_that("m %% n != 0", {
-  result <- approShapley(5, 27, weightedVotingGameForSampling(c(1, 2, 1, 3, 1), 0.5))
+  expect_warning(result <- approShapley(5, 27, weightedVotingGameForSampling(c(1, 2, 1, 3, 1), 0.5)))
   expect_equal(sum(result), 1)
 })
 
