@@ -19,7 +19,17 @@ stApproShapley(i, n, v, m)
 Estimated Shapley value of player i
 }
 \description{
-Monte Carlo Simulation for calculating the Shapley value based on the paper "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" by Castro et al. from 2017
+Monte Carlo Simulation for calculating the Shapley value with stratification.
+}
+\details{
+This function uses stratification to calculate the Shapley value. A stratum is
+created for the given player at each possible position.
+Note that it is possible that the provided sample size is not divisible by
+the number of positions the player can occur in. In that case the remaining samples
+m %% n will be randomly distributed over the strata, so some strata will have the
+sample size m / n and others the size m / n + 1.
+Based on the paper "Improving polynomial estimation of the Shapley value by
+stratified random sampling with optimum allocation" by Castro et al. from 2017.
 }
 \examples{
 stApproShapley(1, 10, gloveGameForSampling(1:5, 6:10), 1000)

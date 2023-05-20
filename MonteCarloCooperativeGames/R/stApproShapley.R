@@ -1,7 +1,16 @@
 #' @name stApproShapley
 #' @title Stratified Appro Shapley
 #' @description
-#' Monte Carlo Simulation for calculating the Shapley value based on the paper "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" by Castro et al. from 2017
+#' Monte Carlo Simulation for calculating the Shapley value with stratification.
+#' @details
+#' This function uses stratification to calculate the Shapley value. A stratum is
+#' created for the given player at each possible position.
+#' Note that it is possible that the provided sample size is not divisible by
+#' the number of positions the player can occur in. In that case the remaining samples
+#' m %% n will be randomly distributed over the strata, so some strata will have the
+#' sample size m / n and others the size m / n + 1.
+#' Based on the paper "Improving polynomial estimation of the Shapley value by
+#' stratified random sampling with optimum allocation" by Castro et al. from 2017.
 #' @template author/TP
 #' @template param/i
 #' @template param/n
@@ -25,7 +34,7 @@ stApproShapley <- function(i, n, v, m) {
   N <- 1:n
   # sample size of player i in position l
   m_il <- m / n
-  m_il_rest <- as.vector(rmultinom(1, size=(m%%n), prob=rep(1, n)))
+  m_il_rest <- sample(c(rep(1, m%%n), rep(0, n - m%%n)))
 
   # for every position l in which player i occurs
   for (l in N) {

@@ -7,7 +7,7 @@
 check_conf(conf)
 }
 \arguments{
-\item{conf}{Confidence of the true (exact) value being in the confidence interval}
+\item{conf}{Confidence (probability) of the true (exact) value being in the interval}
 }
 \value{
 Returns NULL

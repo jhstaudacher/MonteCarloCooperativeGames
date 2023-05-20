@@ -1,1 +1,1 @@
-#' @param conf Confidence of the true (exact) value being in the confidence interval
+#' @param conf Confidence (probability) of the true (exact) value being in the interval
