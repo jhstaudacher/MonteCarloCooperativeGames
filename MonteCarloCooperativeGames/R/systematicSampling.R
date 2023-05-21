@@ -37,13 +37,8 @@ systematicSampling <- function(i, n, m, v) {
   increment <- floor((2^(length(all_players) - 1)) / sampling_size)
   starting_point <- sample(1:increment, 1)
   
-  indices <- c()
-  for (j in seq(starting_point, 2^(length(all_players) - 1), by = increment)) {
-    indices <- append(indices, j)
-  }
-
-  for (j in 1:sampling_size) {
-    sample <- coalitionFromIndex(players_without_i, indices[j])
+  for (index in seq(starting_point, 2^(length(all_players) - 1), by = increment)) {
+    sample <- coalitionFromIndex(players_without_i, index)
     banzhaf_value <- banzhaf_value + game(append(sample, player_i_value)) - game(sample)
   }
 
