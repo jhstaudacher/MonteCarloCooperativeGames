@@ -25,7 +25,6 @@
 #' print(stApproOwenAndBanzhafOwen(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)), FALSE)$Owen)
 #'
 stApproOwenAndBanzhafOwen <- function(i, m, v, P, proportional = TRUE) {
-
   check_P_i(P, i)
   check_v(v)
   check_positive_number(m)

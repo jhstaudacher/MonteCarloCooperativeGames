@@ -31,17 +31,17 @@ check_v <- function(v) {
 #' Check if the parameter is a number and positive. It can be used for the parameter
 #' n, i, m and w.
 #' @template author/EW
-#' @template param/i
+#' @param parameter Parameter to check
 #' @return Returns
 check_positive_number <- function(parameter) {
   if(is.null(parameter))
-    stop("number is NULL")
+    stop("parameter is NULL")
 
   if(!is.numeric(parameter))
-    stop("number must be a number")
+    stop("parameter must be a number")
 
   if(parameter <= 0)
-    stop("number must be greater than 0")
+    stop("parameter must be greater than 0")
 }
 
 
