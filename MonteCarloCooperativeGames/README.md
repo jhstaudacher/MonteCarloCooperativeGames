@@ -137,6 +137,16 @@ R Studio: Build/Test Package or Build Pane: Test
   - You can test for equality, with some reasonable amount of numeric
     tolerance with `expect_equal()`. Use `expect_identical()` for no
     tolerance.
+- Top-Level code is completly **forbidden** in tests.
+  - `library()`, `attach()` is forbidden.
+  - It is highly discouraged to write/read filed in tests. If so, make
+    absolutely sure to clean them up.
+  - `options()` and `par()`are also highly discouraged. If so, consider
+    using the `withr`package.
+- Each test should be entirly independant of all other tests. They
+  should not assume any preexisting environment.
+- Use `skip_if(today_is_a_monday())` and `skip_on_os("windows")` to
+  conditunally skip tests.
 
 ### Test converage
 
@@ -286,17 +296,13 @@ R Studio: Menu bar/Addins/Style active file or Style active package
 After using the linter, inspect the code again to avoid any unwanted
 changes.
 
+## Usage check functions in checkCommonParameter
 
-
-
-# Usage check functions in checkCommonParameter
-
-For Parameters i, n, m, w use check_positive_numbers(), i only use one method, because they all have the same restrictions
-For the characteristic function use check_v(). Here i don't check if the function has just one parameter, because i havtn't found a way to do this.
-To check the parameters i und n use check_n_i(). Use it if you use both parameters.
-To check the priori unions use check_P(). 
-To check the parameters i and P use function check_P_i(). Use it if you use both parameters.
-
-
-
-
+For Parameters i, n, m, w use check_positive_numbers(), i only use one
+method, because they all have the same restrictions For the
+characteristic function use check_v(). Here i don’t check if the
+function has just one parameter, because i havtn’t found a way to do
+this. To check the parameters i und n use check_n\_i(). Use it if you
+use both parameters. To check the priori unions use check_P(). To check
+the parameters i and P use function check_P\_i(). Use it if you use both
+parameters.

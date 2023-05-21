@@ -23,14 +23,14 @@ approOwen <- function(n, m, v, P) {
   check_v(v)
   check_positive_number(m)
   check_P(P)
-  if(length(unlist(P)) != n){
+  if (length(unlist(P)) != n) {
     stop("Partitions do not fit to n")
   }
 
 
   Owen <- rep(0, n)
   # calculate shapley value only with permutations compatible with coalition structure P
-  for (x in 1:(m/n)) {
+  for (x in 1:(m / n)) {
     order <- sampleOrderP(P)
     # i is not the player (like in the paper) but the idx of the player in the current order O
     for (i in 1:n) {
@@ -40,7 +40,7 @@ approOwen <- function(n, m, v, P) {
     }
   }
   Owen
-  Owen <- Owen / (m/n)
+  Owen <- Owen / (m / n)
   return(Owen)
 }
 

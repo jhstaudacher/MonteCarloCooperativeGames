@@ -24,17 +24,17 @@
 simpleRandomSamplingWithoutReplacement <- function(i, n, m, v) {
   stopifnot(0 < i) # Player(-index) cannot be negative.
   stopifnot(i <= n) # Player has to be in the list of all players.
-  
+
   stopifnot(0 < n) # At least one player is needed.
-  
+
   stopifnot(0 < m) # At least one sample must be taken.
   stopifnot(m <= 2^(n - 1)) # Number of samples too large.
-  
+
   player_i <- i
   all_players <- 1:n
   sampling_size <- m
   game <- v
-  
+
   banzhaf_value <- 0
   player_i_value <- all_players[player_i]
   players_without_i <- all_players[-player_i]

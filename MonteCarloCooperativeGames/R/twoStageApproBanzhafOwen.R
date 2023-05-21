@@ -21,7 +21,6 @@
 #' @examples
 #' print(twoStageApproBanzhafOwen(1, 2, 2, gloveGameForSampling(1:2, 3:3), list(c(1, 2), (3))))
 twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
-
   check_P_i(P, i)
   check_v(v)
   check_positive_number(lr)
@@ -55,4 +54,3 @@ twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
   BzO <- BzO / (lr * ls)
   return(BzO)
 }
-

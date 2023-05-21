@@ -7,7 +7,7 @@
 check_positive_number(parameter)
 }
 \arguments{
-\item{i}{The player i}
+\item{parameter}{Parameter to check}
 }
 \value{
 Returns

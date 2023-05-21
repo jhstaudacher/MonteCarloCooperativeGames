@@ -24,12 +24,12 @@
 systematicSampling <- function(i, n, m, v) {
   stopifnot(0 < i) # Player(-index) cannot be negative.
   stopifnot(i <= n) # Player has to be in the list of all players.
-  
+
   stopifnot(0 < n) # At least one player is needed.
-  
+
   stopifnot(0 < m) # At least one sample must be taken.
   stopifnot(m <= 2^(n - 1)) # Number of samples too large.
-  
+
   player_i <- i
   all_players <- 1:n
   sampling_size <- m
@@ -40,7 +40,7 @@ systematicSampling <- function(i, n, m, v) {
   players_without_i <- all_players[-player_i]
   increment <- floor((2^(length(all_players) - 1)) / sampling_size)
   starting_point <- sample(1:increment, 1)
-  
+
   indices <- c()
   for (j in seq(starting_point, 2^(length(all_players) - 1), by = increment)) {
     indices <- append(indices, j)
