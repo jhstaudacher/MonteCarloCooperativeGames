@@ -18,4 +18,6 @@ n, i, m and w.
 }
 \author{
 Elias Wucher
+
+Alexander Rießbeck
 }

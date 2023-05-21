@@ -20,4 +20,6 @@ Additionally it checks if player i is element of a priori union in P
 }
 \author{
 Elias Wucher
+
+Alexander Rießbeck
 }

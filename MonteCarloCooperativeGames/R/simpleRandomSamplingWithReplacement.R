@@ -22,13 +22,9 @@
 #' @examples
 #' print(simpleRandomSamplingWithReplacement(1, 10, 200, gloveGameForSampling(1:5, 6:10)))
 simpleRandomSamplingWithReplacement <- function(i, n, m, v) {
-  stopifnot(0 < i) # Player(-index) cannot be negative.
-  stopifnot(i <= n) # Player has to be in the list of all players.
-  
-  stopifnot(0 < n) # At least one player is needed.
-  
-  stopifnot(0 < m) # At least one sample must be taken.
-  stopifnot(m <= 2^(n - 1)) # Number of samples too large.
+  check_n_i(n, i)
+  check_m(m, max_value = 2^(n - 1))
+  check_v(v)
   
   player_i <- i
   all_players <- 1:n
