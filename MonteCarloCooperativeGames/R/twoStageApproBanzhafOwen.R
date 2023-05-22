@@ -28,6 +28,9 @@ twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
 
 
   withoutPi <- list() # contains all coalitions without Pi
+
+  if(length(withoutPi) > 50) stop("There must be less than 50 a priori unions")
+
   idx <- 1
   for (x in P) {
     # if x contains i it is P(i)
@@ -38,6 +41,9 @@ twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
       idx <- idx + 1
     }
   }
+
+  if(length(Pi) > 50) stop("There can be no more than 50 players in the union to which player i belongs")
+
   # prepare the list R that contains lists of different permutations of P\Pi
 
   getPermutationIdxR <- sample(2^(length(withoutPi)), lr, replace = FALSE)
