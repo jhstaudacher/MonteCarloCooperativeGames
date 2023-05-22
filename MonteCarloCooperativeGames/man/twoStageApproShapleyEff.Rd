@@ -21,7 +21,7 @@ The shapley value of each player with the addition, that sum(sh_i) = v(N) (effic
 \description{
 Described in "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" on page 183
 Calculates the shapley value based on the twoStageStApproShapleyOpt algorithm and the common approShapley
-with the extension, that the algorithm calculates the value Efficient
+with the extension, that the algorithm calculates the value efficient
 }
 \examples{
 # sample a glove Game with 100 players (|L|=50 => |R|=50)
