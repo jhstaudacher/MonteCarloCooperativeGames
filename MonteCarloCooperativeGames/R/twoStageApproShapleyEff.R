@@ -3,7 +3,7 @@
 #' @description
 #' Described in "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" on page 183
 #' Calculates the shapley value based on the twoStageStApproShapleyOpt algorithm and the common approShapley
-#' with the extension, that the algorithm calculates the value Efficient
+#' with the extension, that the algorithm calculates the value efficient
 #' @template author/EW
 #' @template param/n
 #' @template param/v
@@ -19,7 +19,10 @@
 #' R <- 51:100
 #' Sh <- twoStageApproShapleyEff(100, gloveGameForSampling(L, R), 10000, 100000)
 twoStageApproShapleyEff <- function(n, v, sample_size_eff, sample_size_opt) {
-  # to check if it is really efficient execute sum(Sh). The result should be 50
+  check_n(n)
+  check_n(v)
+  check_positive_number(sample_size_eff)
+  check_positive_number(sample_size_opt)
 
   # calculate the common shapley value
   sh_eff <- approShapley(n, sample_size_eff, v)
