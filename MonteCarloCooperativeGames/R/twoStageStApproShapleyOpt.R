@@ -44,6 +44,11 @@
 #' Sh <- twoStageStApproShapleyOpt(length(costs), v, 100000)
 #' }
 twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 0.5) {
+  check_m(min_sample_size)
+  check_positive_number(n)
+  check_v(v)
+  check_first_stage_size(first_stage_size)
+
   N <- 1:n
 
   # function to get a random permutation from N with the
@@ -56,9 +61,11 @@ twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 
   # for the first stage we take a portion
   # (usually half) of the available samples
   sample_size_first_half <- min_sample_size * first_stage_size
+  check_sample_size_first_half(sample_size_first_half)
 
   # there are n*n (n player and n positions) strata
   sample_size_per_strata_first_half <- sample_size_first_half / (n * n)
+  check_sample_size_per_strata_first_half(sample_size_per_strata_first_half)
 
   # Sh[player, position]
   Sh <- matrix(rep(0, n * n), nrow = n, ncol = n)
@@ -113,4 +120,22 @@ twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 
   # todo: maybe also return the variances and the actual sample count
   Sh <- rowSums(Sh) / n
   Sh
+}
+
+check_first_stage_size <- function(first_stage_size) {
+  if (first_stage_size <= 0.0 || first_stage_size >= 1.0) {
+    stop("first_stage_size has to be between 0.0 (excluding) and 1.0 (excluding)")
+  }
+}
+
+check_sample_size_first_half <- function(sample_size_first_half) {
+  if (sample_size_first_half < 1.0) {
+    stop("The combination of the provided min_sample_size and first_stage_size does not leave any samples for the first stage")
+  }
+}
+
+check_sample_size_per_strata_first_half <- function(sample_size_per_strata_first_half) {
+  if (sample_size_per_strata_first_half < 1.0) {
+    stop("The combination of the provided min_sample_size and first_stage_size results in a sample size per stratum that is smaller than one. Please increase one or both of the parameters.")
+  }
 }
