@@ -24,6 +24,7 @@ Approximates the Owen value by using a simple Monte Carlo simulation.
 \details{
 It is an adaptation of an analogous procedure
 for the estimation of the Shapley value and it is particularly useful when dealing with games having large sets of players.
+Using BigInt for m is possible.
 Based on: "Estimation of the Owen Value Based on Sampling" (Alejandro Saavedra-Nieve et al., 2018)
 }
 \examples{

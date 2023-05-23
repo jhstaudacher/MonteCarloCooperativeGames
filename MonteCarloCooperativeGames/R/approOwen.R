@@ -5,6 +5,7 @@
 #' @details
 #' It is an adaptation of an analogous procedure
 #' for the estimation of the Shapley value and it is particularly useful when dealing with games having large sets of players.
+#' Using BigInt for m is possible.
 #' Based on: "Estimation of the Owen Value Based on Sampling" (Alejandro Saavedra-Nieve et al., 2018)
 #' @template author/MS
 #' @template param/n
@@ -21,7 +22,7 @@ approOwen <- function(n, m, v, P) {
   # initialParamChecksApproOwen(paramCheckResult, n, m, v, P)
 
   check_v(v)
-  check_positive_number(m)
+  #check_positive_number(m)
   check_P(P)
   if (length(unlist(P)) != n) {
     stop("Partitions do not fit to n")
@@ -30,7 +31,8 @@ approOwen <- function(n, m, v, P) {
 
   Owen <- rep(0, n)
   # calculate shapley value only with permutations compatible with coalition structure P
-  for (x in 1:(m / n)) {
+  x <- 1
+  while(x <= (m/n)){
     order <- sampleOrderP(P)
     # i is not the player (like in the paper) but the idx of the player in the current order O
     for (i in 1:n) {
@@ -38,6 +40,7 @@ approOwen <- function(n, m, v, P) {
       player_i <- order[i]
       Owen[player_i] <- Owen[player_i] + owen_i
     }
+    x <- x + 1
   }
   Owen
   Owen <- Owen / (m / n)
@@ -62,18 +65,3 @@ sampleOrderP <- function(P) {
   # print(un)
   return(un)
 }
-
-# initialParamChecksApproOwen <- function(paramCheckResult, n, m, v, P) {
-#   # ToDo common parameter checks
-#   stopOnInvalidGameVector=function(paramCheckResult, v, n)
-#
-#   # ToDo custom parameter checks
-#   checkResult=getEmptyParamCheckResult()
-#   # Fitting P to n?
-#   if(length(unlist(P)) != n){
-#     checkResult$errMessage="Partitions don't fit to n"
-#     checkResult$errCode=2010
-#   }
-#   eval.parent(substitute(paramCheckResult<-checkResult))
-#   stopOnParamCheckError(paramCheckResult)
-# }
