@@ -17,6 +17,18 @@ banz <- banz/100
 print(banz)
 
 
+parContext <- list(24, 29, 31, 19, 14, 16, 18, 18, 19)
+P <- list()
+cnt <- 1
+acc <- 1
+for(i in parContext){
+  print(acc:(acc+i-1))
+  P[[cnt]] <- acc:(acc+i-1)
+  acc <- acc + i
+  cnt <- cnt + 1
+}
+P
+
 # Testing
 R <- list()
 
@@ -30,7 +42,7 @@ R <- unlist(R)/sum(unlist(R))
 # Error
 print(banz-R)
 
-owen <- approOwen(188, 100000, v, list(c(1:188)))
+owen <- approOwen(188, 100000, v, P)
 print(owen)
 print(shap)
 
@@ -38,6 +50,8 @@ shapley <- approShapley(188, 100000, v)
 print(shapley)
 print(shap)
 
+
+# Todo BigZ * float = 0; potentiell problem bei ApproOwen und stApproWenAndBanzafOwen
 
 R <- list()
 
@@ -52,11 +66,11 @@ R <- unlist(R)/sum(unlist(R))
 print(banz-R)
 
 
-stApproOwenAndBanzhafOwen(180, 1000000, v, list(c(1:188)))
+as.numeric(stApproOwenAndBanzhafOwen(180, as.bigz(100000), v, P)$'Banzhaf-Owen')
 
 confidenceBanzhaf(180, 188, v, 0.95, 0.005)
 
 print(twoStageStApproShapleyOptCor(188, v, 1000000))
 
 
-twoStageApproBanzhafOwen(180, 1, 100, v, list(c(1:188)))
+twoStageApproBanzhafOwen(180, 256, 2000, v, P)
