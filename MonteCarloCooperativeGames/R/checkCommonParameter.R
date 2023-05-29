@@ -15,10 +15,10 @@
 #' check_v(function(x)x)
 check_v <- function(v) {
   if(is.null(v))
-    stop("Function is NULL")
+    stop("v cannot be NULL")
 
   if(!is.function(v))
-    stop("Parameter v isn't a function")
+    stop("v must be a function")
 }
 
 
@@ -35,7 +35,7 @@ check_v <- function(v) {
 #' @return Returns
 check_positive_number <- function(parameter) {
   if(is.null(parameter))
-    stop("parameter is NULL")
+    stop("parameter cannot be NULL")
 
   if(!is.numeric(parameter))
     stop("parameter must be a number")
@@ -68,7 +68,7 @@ check_n_i <- function(n, i) {
   if(i <= 0)
     stop("i must be at least 1")
   if(i > n)
-    stop("i isn't in n")
+    stop("i must be in n")
 }
 
 
@@ -87,7 +87,7 @@ check_n_i <- function(n, i) {
 check_P <- function(P) {
   # if P is set
   if(is.null(P))
-    stop("P is NULL")
+    stop("P cannot be NULL")
 
   # Check if it is a list
   if(!is.list(P))
@@ -95,14 +95,14 @@ check_P <- function(P) {
 
   #Check if the values of the priori unions are numeric and positive
   if(any(sapply(unlist(P), function(x) is.numeric(x) && x > 0) == FALSE))
-    stop("There is a priori union that contains a element that isn't numeric or smaller than 0")
+    stop("There is a priori union that contains an element that isn't numeric or smaller than 0")
 
   #Check if the prior unions are disjunct
   last = -1
   liste = sort(unlist(P))
   for(p in liste) {
     if(p != last) last = p
-    else stop("Priori unions aren't disjunct")
+    else stop("Priori unions cannot be disjunct")
   }
 }
 
@@ -124,7 +124,7 @@ check_P_i <- function(P, i) {
   check_positive_number(i)
 
   if(i %in% unlist(P) == FALSE)
-    stop("i isn't in a priori unions")
+    stop("i must be in a priori union")
 }
 
 
