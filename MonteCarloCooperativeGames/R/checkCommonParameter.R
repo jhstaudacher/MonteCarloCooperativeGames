@@ -158,9 +158,19 @@ check_conf <- function(conf) {
 #' @template param/m
 #' @param max_value Maximal value m can take
 #' @return Returns NULL
-check_m <- function(m, max_value = NULL) {
-  check_positive_number(m)
+check_m <- function(m, max_value = NULL, bigz_allowed = FALSE) {
+  if(is.null(m))
+    stop("m cannot be NULL")
   
+  if(!is.numeric(m)){
+    if(bigz_allowed){
+      if(!is.bigz(m))
+        stop("m must be a number or an R object of class \"bigz\"")
+    }else{
+      stop("m must be a number")
+    }
+  }
+    
   if(m <= 0)
     stop("m must be at least 1")
 

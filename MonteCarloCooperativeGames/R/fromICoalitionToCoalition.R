@@ -11,12 +11,13 @@
 fromICoalitionToCoalition <- function(cardinality_n, iCoalition) {
   Coalition <- array(0, dim = cardinality_n)
   a1 <- iCoalition - 1
+  
   ij <- 0
-
   while (ij < cardinality_n) {
     ij <- ij + 1
-    Coalition[ij] <- a1 - trunc(a1 / 2) * 2
-    a1 <- trunc(a1 / 2)
+    # cast to int for ähh bigz usage
+    Coalition[ij] <- as.integer(a1 - as.integer(a1 / 2) * 2)
+    a1 <- as.integer(a1 / 2)
   }
 
   return(Coalition)
