@@ -20,12 +20,11 @@
 #' @examples
 #' print(approShapley(10, 10000, gloveGameForSampling(1:5, 6:10)))
 approShapley <- function(n, m, v) {
+  check_m_n(m, n)
+  check_v(v)
+
   # N is a list of players with the specified length according to the number of players (n)
   N <- 1:n
-  if (m %% n) {
-    msg <- paste("You provided a sample size of ", m, ", but m is not divisible by n. For consistency (i.e. the sum of the result vector is 1) the remaining ", m%%n," samples will not be used.")
-    warning(msg)
-  }
 
   # Initialize a list that will be used to store the Shapley values for each player
   # It is initialized with 0

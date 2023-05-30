@@ -17,6 +17,4 @@ Check parameter conf for validity.
 }
 \author{
 Tim Pollmann
-
-Alexander Rießbeck
 }

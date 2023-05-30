@@ -14,11 +14,13 @@
 #' example
 #' check_v(function(x)x)
 check_v <- function(v) {
-  if(is.null(v))
-    stop("v cannot be NULL")
+  if (is.null(v)) {
+    stop("Function is NULL")
+  }
 
-  if(!is.function(v))
-    stop("v must be a function")
+  if (!is.function(v)) {
+    stop("Parameter v isn't a function")
+  }
 }
 
 
@@ -34,14 +36,17 @@ check_v <- function(v) {
 #' @param parameter Parameter to check
 #' @return Returns
 check_positive_number <- function(parameter) {
-  if(is.null(parameter))
-    stop("parameter cannot be NULL")
+  if (is.null(parameter)) {
+    stop("parameter is NULL")
+  }
 
-  if(!is.numeric(parameter))
+  if (!is.numeric(parameter)) {
     stop("parameter must be a number")
+  }
 
-  if(parameter <= 0)
+  if (parameter <= 0) {
     stop("parameter must be greater than 0")
+  }
 }
 
 
@@ -62,13 +67,16 @@ check_positive_number <- function(parameter) {
 check_n_i <- function(n, i) {
   check_positive_number(n)
   check_positive_number(i)
-  
-  if(n <= 0)
+
+  if (n <= 0) {
     stop("n must be at least 1")
-  if(i <= 0)
+  }
+  if (i <= 0) {
     stop("i must be at least 1")
-  if(i > n)
-    stop("i must be in n")
+  }
+  if (i > n) {
+    stop("i isn't in n")
+  }
 }
 
 
@@ -86,23 +94,29 @@ check_n_i <- function(n, i) {
 #' @return Returns
 check_P <- function(P) {
   # if P is set
-  if(is.null(P))
-    stop("P cannot be NULL")
+  if (is.null(P)) {
+    stop("P is NULL")
+  }
 
   # Check if it is a list
-  if(!is.list(P))
+  if (!is.list(P)) {
     stop("Priori unions must be a list")
+  }
 
-  #Check if the values of the priori unions are numeric and positive
-  if(any(sapply(unlist(P), function(x) is.numeric(x) && x > 0) == FALSE))
-    stop("There is a priori union that contains an element that isn't numeric or smaller than 0")
+  # Check if the values of the priori unions are numeric and positive
+  if (any(sapply(unlist(P), function(x) is.numeric(x) && x > 0) == FALSE)) {
+    stop("There is a priori union that contains a element that isn't numeric or smaller than 0")
+  }
 
-  #Check if the prior unions are disjunct
-  last = -1
-  liste = sort(unlist(P))
-  for(p in liste) {
-    if(p != last) last = p
-    else stop("Priori unions cannot be disjunct")
+  # Check if the prior unions are disjunct
+  last <- -1
+  liste <- sort(unlist(P))
+  for (p in liste) {
+    if (p != last) {
+      last <- p
+    } else {
+      stop("Priori unions aren't disjunct")
+    }
   }
 }
 
@@ -123,8 +137,9 @@ check_P_i <- function(P, i) {
   check_P(P)
   check_positive_number(i)
 
-  if(i %in% unlist(P) == FALSE)
-    stop("i must be in a priori union")
+  if (i %in% unlist(P) == FALSE) {
+    stop("i isn't in a priori unions")
+  }
 }
 
 
@@ -136,14 +151,14 @@ check_P_i <- function(P, i) {
 #' @description
 #' Check parameter conf for validity.
 #' @template author/TP
-#' @template author/AR
 #' @template param/conf
 #' @return Returns NULL
 check_conf <- function(conf) {
   check_positive_number(conf)
 
-  if(conf >= 1.0)
+  if (conf >= 1.0) {
     stop("conf cannot be greater or equal to 1.0")
+  }
 }
 
 
@@ -158,25 +173,41 @@ check_conf <- function(conf) {
 #' @template param/m
 #' @param max_value Maximal value m can take
 #' @return Returns NULL
-check_m <- function(m, max_value = NULL, bigz_allowed = FALSE) {
-  if(is.null(m))
-    stop("m cannot be NULL")
-  
-  if(!is.numeric(m)){
-    if(bigz_allowed){
-      if(!is.bigz(m))
-        stop("m must be a number or an R object of class \"bigz\"")
-    }else{
-      stop("m must be a number")
+check_m <- function(m, max_value = NULL) {
+  check_positive_number(m)
+
+  if (m <= 0) {
+    stop("m must be at least 1")
+  }
+
+  if (!is.null(max_value)) {
+    if (max_value < m) {
+      stop("m cannot be greater than ", max_value)
     }
   }
-    
-  if(m <= 0)
-    stop("m must be at least 1")
-
-  if(!is.null(max_value))
-    if(max_value < m)
-      stop("m cannot be greater than ", max_value)
 }
 
 
+#' @name check_m_n
+#' @title Check parameters m and n
+#' @description
+#' Check parameters m and n for validity.
+#' @template author/TP
+#' @template param/m
+#' @template param/n
+#' @param m_max Maximal value m can take
+#' @return Returns NULL
+check_m_n <- function(m, n, m_max=NULL) {
+  check_m(m, m_max)
+  check_positive_number(n)
+
+  if (m < n) {
+    msg <- paste("You provided a sample size of m=", m, ", but m is less than n=", n, ". To guarantee that every player gets at least one sample you need to provide a higher sample size m.", sep="")
+    stop(msg)
+  }
+
+  if (m %% n) {
+    msg <- paste("You provided a sample size of m=", m, ", but m is not divisible by n=", n, ". To preserve the efficiency (i.e. the sum of the result vector is 1) the remaining ", m%%n," samples will not be used.", sep="")
+    warning(msg)
+  }
+}
