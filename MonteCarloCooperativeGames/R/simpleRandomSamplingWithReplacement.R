@@ -1,5 +1,3 @@
-library(gmp)
-
 #' @name simpleRandomSamplingWithReplacement
 #' @title Simple Random Sampling With Replacement
 #' @description Simple random sampling with replacement is a method to
@@ -20,6 +18,7 @@ library(gmp)
 #' @template return/Banzhaf
 #' @template cites/SAAVEDRA_NIEVES_ET_AL_2020
 #' @templateVar SAAVEDRA_NIEVES_ET_AL_2020_P pp. 131
+#' @import gmp
 #' @export
 #' @examples
 #' print(simpleRandomSamplingWithReplacement(1, 10, 200, gloveGameForSampling(1:5, 6:10)))
@@ -27,7 +26,7 @@ simpleRandomSamplingWithReplacement <- function(i, n, m, v) {
   check_n_i(n, i)
   check_m(m, max_value = as.bigz(2)^(n - 1), bigz_allowed = TRUE)
   check_v(v)
-  
+
   player_i <- i
   all_players <- 1:n
   sampling_size <- as.bigz(m)
@@ -36,11 +35,11 @@ simpleRandomSamplingWithReplacement <- function(i, n, m, v) {
   banzhaf_value <- as.bigq(0)
   player_i_value <- all_players[player_i]
   players_without_i <- all_players[-player_i]
-  
+
   j <- as.bigz(0)
   while (j < sampling_size) {
     j <- j + 1
-    sample <- coalitionFromIndex(players_without_i, urand.bigz(1,length(players_without_i))+1)
+    sample <- coalitionFromIndex(players_without_i, urand.bigz(1, length(players_without_i)) + 1)
     banzhaf_value <- banzhaf_value + (game(append(sample, player_i_value)) - game(sample))
   }
 

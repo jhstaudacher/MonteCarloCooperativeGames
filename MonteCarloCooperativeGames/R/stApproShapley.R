@@ -34,7 +34,7 @@ stApproShapley <- function(i, n, v, m) {
   N <- 1:n
   # sample size of player i in position l
   m_il <- m / n
-  m_il_rest <- sample(c(rep(1, m%%n), rep(0, n - m%%n)))
+  m_il_rest <- sample(c(rep(1, m %% n), rep(0, n - m %% n)))
 
   # for every position l in which player i occurs
   for (l in N) {

@@ -29,7 +29,7 @@ approShapley <- function(n, m, v) {
   # Initialize a list that will be used to store the Shapley values for each player
   # It is initialized with 0
   Sh <- rep(0, n)
-  m_O <- as.integer(m/n)
+  m_O <- as.integer(m / n)
 
   # Loop for all samples
   # The number m (number of samples) is divided by the player count because in the inner loop each player is sampled

@@ -4,12 +4,14 @@
 \alias{check_m}
 \title{Check parameter m}
 \usage{
-check_m(m, max_value = NULL)
+check_m(m, max_value = NULL, bigz_allowed = FALSE)
 }
 \arguments{
 \item{m}{The number of samples}
 
 \item{max_value}{Maximal value m can take}
+
+\item{bigz_allowed}{Determine if big ints from gmp are allowed}
 }
 \value{
 Returns NULL

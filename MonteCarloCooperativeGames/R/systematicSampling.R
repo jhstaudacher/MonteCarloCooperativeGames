@@ -1,5 +1,3 @@
-library(gmp)
-
 #' @name systematicSampling
 #' @title Systematic Sampling
 #' @description Systematic sampling is a method to estimate the Banzhaf-Owen
@@ -21,6 +19,7 @@ library(gmp)
 #' @template return/Banzhaf
 #' @template cites/SAAVEDRA_NIEVES_ET_AL_2020
 #' @templateVar SAAVEDRA_NIEVES_ET_AL_2020_P pp. 132
+#' @import gmp
 #' @export
 #' @examples
 #' print(systematicSampling(1, 10, 200, gloveGameForSampling(1:5, 6:10)))
@@ -28,7 +27,7 @@ systematicSampling <- function(i, n, m, v) {
   check_n_i(n, i)
   check_m(m, max_value = as.bigz(2)^(n - 1), bigz_allowed = TRUE)
   check_v(v)
-  
+
   player_i <- i
   all_players <- 1:n
   sampling_size <- as.bigz(m)
@@ -39,15 +38,16 @@ systematicSampling <- function(i, n, m, v) {
   players_without_i <- all_players[-player_i]
   max_samples <- as.bigz(2)^(length(all_players) - 1)
   increment <- floor(max_samples / sampling_size)
-  
-  if(increment < .Machine$integer.max)
+
+  if (increment < .Machine$integer.max) {
     starting_point <- sample(1:as.integer(increment), 1)
-  else
+  } else {
     starting_point <- urand.bigz(1, as.integer(log2(increment)))
-  
-  index<-starting_point
-  while(index < max_samples){
-    index<-index+increment
+  }
+
+  index <- starting_point
+  while (index < max_samples) {
+    index <- index + increment
     sample <- coalitionFromIndex(players_without_i, index)
     banzhaf_value <- banzhaf_value + (game(append(sample, player_i_value)) - game(sample))
   }

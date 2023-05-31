@@ -11,7 +11,7 @@
 fromICoalitionToCoalition <- function(cardinality_n, iCoalition) {
   Coalition <- array(0, dim = cardinality_n)
   a1 <- iCoalition - 1
-  
+
   ij <- 0
   while (ij < cardinality_n) {
     ij <- ij + 1

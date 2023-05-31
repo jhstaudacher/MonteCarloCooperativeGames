@@ -20,13 +20,16 @@ The Banzhaf value of the specified player
 }
 \description{
 Systematic sampling is a method to estimate the Banzhaf-Owen
-  value for a specified TU game. First, the algorithm systematically creates
-  samples of players without the player i by incrementally taking samples out
-  of a sequence of all possible combinations of players. Then the algorithm
-  checks the value the player adds to all the samples.
+  value for a specified TU game.
+}
+\details{
+First, the algorithm systematically creates samples of players
+without the player i by incrementally taking samples out of a sequence of all
+possible combinations of players. Then the algorithm checks the value the
+player adds to all the samples.
 
-  Based on the paper: "Statistics and game theory: Estimating coalitional
-  values in R software" (A. Saavedra-Nieves, 2020) Algorithm 3
+Based on the paper: "Statistics and game theory: Estimating coalitional
+values in R software" (A. Saavedra-Nieves, 2020) Algorithm 3
 }
 \examples{
 print(systematicSampling(1, 10, 200, gloveGameForSampling(1:5, 6:10)))

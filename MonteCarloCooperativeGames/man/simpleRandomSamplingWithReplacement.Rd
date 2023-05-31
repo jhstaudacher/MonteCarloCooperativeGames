@@ -20,13 +20,15 @@ The Banzhaf value of the specified player
 }
 \description{
 Simple random sampling with replacement is a method to
-  approximate the Banzhaf value for a specified TU game. First, the algorithm
-  takes a sample with replacement of all players without the player i. Then
-  the algorithm checks the value the player adds to the sample. These two
-  steps are repeated for the number of samples.
+  approximate the Banzhaf value for a specified TU game.
+}
+\details{
+First, the algorithm takes a sample with replacement of all players
+without the player i. Then the algorithm checks the value the player adds to
+the sample. These two steps are repeated for the number of samples.
 
-  Based on the paper: "Statistics and game theory: Estimating coalitional
-  values in R software" (A. Saavedra-Nieves, 2020) Algorithm 1
+Based on the paper: "Statistics and game theory: Estimating coalitional
+values in R software" (A. Saavedra-Nieves, 2020) Algorithm 1
 }
 \examples{
 print(simpleRandomSamplingWithReplacement(1, 10, 200, gloveGameForSampling(1:5, 6:10)))

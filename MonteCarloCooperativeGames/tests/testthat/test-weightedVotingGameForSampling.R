@@ -48,4 +48,3 @@ test_that("q == 1 and n == 0", {
   expect_equal(v(c(1)), 1)
   expect_equal(v(c()), 0)
 })
-

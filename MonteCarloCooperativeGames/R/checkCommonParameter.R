@@ -172,9 +172,22 @@ check_conf <- function(conf) {
 #' @template author/AR
 #' @template param/m
 #' @param max_value Maximal value m can take
+#' @param bigz_allowed Determine if big ints from gmp are allowed
 #' @return Returns NULL
-check_m <- function(m, max_value = NULL) {
-  check_positive_number(m)
+check_m <- function(m, max_value = NULL, bigz_allowed = FALSE) {
+  if (is.null(m)) {
+    stop("m cannot be NULL")
+  }
+
+  if (!is.numeric(m)) {
+    if (bigz_allowed) {
+      if (!is.bigz(m)) {
+        stop("m must be a number or an R object of class \"bigz\"")
+      }
+    } else {
+      stop("m must be a number")
+    }
+  }
 
   if (m <= 0) {
     stop("m must be at least 1")
@@ -187,7 +200,6 @@ check_m <- function(m, max_value = NULL) {
   }
 }
 
-
 #' @name check_m_n
 #' @title Check parameters m and n
 #' @description
@@ -197,17 +209,17 @@ check_m <- function(m, max_value = NULL) {
 #' @template param/n
 #' @param m_max Maximal value m can take
 #' @return Returns NULL
-check_m_n <- function(m, n, m_max=NULL) {
+check_m_n <- function(m, n, m_max = NULL) {
   check_m(m, m_max)
   check_positive_number(n)
 
   if (m < n) {
-    msg <- paste("You provided a sample size of m=", m, ", but m is less than n=", n, ". To guarantee that every player gets at least one sample you need to provide a higher sample size m.", sep="")
+    msg <- paste("You provided a sample size of m=", m, ", but m is less than n=", n, ". To guarantee that every player gets at least one sample you need to provide a higher sample size m.", sep = "")
     stop(msg)
   }
 
   if (m %% n) {
-    msg <- paste("You provided a sample size of m=", m, ", but m is not divisible by n=", n, ". To preserve the efficiency (i.e. the sum of the result vector is 1) the remaining ", m%%n," samples will not be used.", sep="")
+    msg <- paste("You provided a sample size of m=", m, ", but m is not divisible by n=", n, ". To preserve the efficiency (i.e. the sum of the result vector is 1) the remaining ", m %% n, " samples will not be used.", sep = "")
     warning(msg)
   }
 }

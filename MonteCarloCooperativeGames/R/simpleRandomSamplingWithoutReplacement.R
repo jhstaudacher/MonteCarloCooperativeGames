@@ -25,12 +25,12 @@ simpleRandomSamplingWithoutReplacement <- function(i, n, m, v) {
   check_n_i(n, i)
   check_m(m, max_value = 2^(n - 1))
   check_v(v)
-  
+
   player_i <- i
   all_players <- 1:n
   sampling_size <- m
   game <- v
-  
+
   banzhaf_value <- 0
   player_i_value <- all_players[player_i]
   players_without_i <- all_players[-player_i]

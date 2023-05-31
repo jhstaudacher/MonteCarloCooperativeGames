@@ -27,9 +27,11 @@ twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
   check_positive_number(ls)
 
 
+
+
   withoutPi <- list() # contains all coalitions without Pi
 
-  if(length(withoutPi) > 50) stop("There must be less than 50 a priori unions")
+  if (length(withoutPi) > 50) stop("There must be less than 50 a priori unions")
 
   idx <- 1
   for (x in P) {
@@ -42,7 +44,14 @@ twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
     }
   }
 
-  if(length(Pi) > 50) stop("There can be no more than 50 players in the union to which player i belongs")
+
+  oa <- 0.1
+  ob <- 0.1
+  m <- 1000
+  var <- (1 / lr) * (1 - (lr / (2^(m - 1)))) * oa^2 + (1 - (ls / (2^Pi) / (ob^2 / ls)))
+  print(var)
+
+  if (length(Pi) > 50) stop("There can be no more than 50 players in the union to which player i belongs")
 
   # prepare the list R that contains lists of different permutations of P\Pi
 

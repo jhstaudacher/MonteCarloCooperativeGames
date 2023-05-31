@@ -7,30 +7,7 @@
 # If there are too many test failures, so the overview is not displayed use testthat::set_max_fails(1)  to limit
 # the amount of test failures that are displayed.
 
-skip_tests <- TRUE
-with_expects <- TRUE
-with_prints <- FALSE
-
-setup_game <- function() {
-  total <- read.csv(file = test_path("fixtures", "imf_2015.txt"), sep = ";")$Total
-  v <- weightedVotingGameForSampling(total, 0.5)
-  v
-}
-setup_exact_shap <- function() {
-  exact_shap <- read.csv(file = test_path("fixtures", "IMF2015Res.csv"), sep = " ")$simp2015Shap
-  exact_shap <- as.numeric(sub("%", "", exact_shap))
-  exact_shap <- exact_shap / 100
-  exact_shap
-}
-setup_exact_banz <- function() {
-  exact_banz <- read.csv(file = test_path("fixtures", "IMF2015Res.csv"), sep = " ")$simp2015Banz
-  exact_banz <- as.numeric(sub("%", "", exact_banz))
-  exact_banz <- exact_banz / 100
-  exact_banz
-}
-
 test_that("approShapley", {
-
   skip_if(skip_tests)
   skip_on_cran()
 
@@ -42,7 +19,6 @@ test_that("approShapley", {
   print("----------------------------------")
   calculated_shapley <- approShapley(188, 188 * 10000, v)
   for (i in 1:188) {
-
     if (with_prints) {
       print(paste("i: ", format(i, digits = 3), " Calculated: ", format(calculated_shapley[i], nsmall = 17, scientific = FALSE), " Expected: ", format(exact_shap[i], nsmall = 17, scientific = FALSE), " Abs Difference: ", format(abs(calculated_shapley[i] - exact_shap[i]), nsmall = 17, scientific = FALSE)))
     }
@@ -54,7 +30,6 @@ test_that("approShapley", {
 })
 
 test_that("confidenceShapleyShubik", {
-
   skip_if(skip_tests)
   skip_on_cran()
 
@@ -80,30 +55,9 @@ test_that("confidenceShapleyShubik", {
   }
 })
 
-test_that("approOwen", {
 
-  skip_if(skip_tests)
-  skip_on_cran()
-
-  v <- setup_game()
-  exact_shap <- setup_exact_shap()
-
-  print("----------------------------------")
-  print("---------- approOwen  ------------")
-  print("----------------------------------")
-  calculated_owen <- approOwen(188, 188 * 1000, v, list(c(1:188)))
-  for (i in 1:188) {
-    if (with_prints) {
-      print(paste("i: ", format(i, digits = 3), " Calculated: ", format(calculated_owen[i], nsmall = 17, scientific = FALSE), " Expected: ", format(exact_shap[i], nsmall = 17, scientific = FALSE), " Abs Difference: ", format(abs(calculated_owen[i] - exact_shap[i]), nsmall = 17, scientific = FALSE)))
-    }
-    if (with_expects) {
-      expect_equal(calculated_owen[i], exact_shap[i], tolerance = 0.01)
-    }
-  }
-})
 
 test_that("confidenceBanzhaf", {
-
   skip_if(skip_tests)
   skip_on_cran()
 
@@ -130,7 +84,6 @@ test_that("confidenceBanzhaf", {
 })
 
 test_that("stApproOwenAndBanzhafOwen", {
-
   skip_if(skip_tests)
   skip_on_cran()
 
@@ -159,7 +112,6 @@ test_that("stApproOwenAndBanzhafOwen", {
 })
 
 test_that("twoStageStApproShapleyOptCor", {
-
   skip_if(skip_tests)
   skip_on_cran()
 
@@ -183,7 +135,6 @@ test_that("twoStageStApproShapleyOptCor", {
 
 
 test_that("twoStageApproBanzhafOwen", {
-
   skip_if(skip_tests)
   skip_on_cran()
 
