@@ -22,7 +22,7 @@ approOwen <- function(n, m, v, P) {
   # initialParamChecksApproOwen(paramCheckResult, n, m, v, P)
 
   check_v(v)
-  # check_positive_number(m)
+  check_m(m, bigz_allowed=TRUE)
   check_P(P)
   if (length(unlist(P)) != n) {
     stop("Partitions do not fit to n")

@@ -23,8 +23,8 @@
 twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
   check_P_i(P, i)
   check_v(v)
-  check_positive_number(lr)
-  check_positive_number(ls)
+  check_m(lr)
+  check_m(ls)
 
 
 

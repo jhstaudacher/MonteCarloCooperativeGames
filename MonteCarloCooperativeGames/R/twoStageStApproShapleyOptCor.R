@@ -35,7 +35,7 @@
 #' print(twoStageStApproShapleyOptCor(3, gloveGameForSampling(1:2, 3:3), 1000))
 twoStageStApproShapleyOptCor <- function(n, v, min_sample_size) {
   check_v(v)
-  check_positive_number(min_sample_size)
+  check_m(min_sample_size)
   check_positive_number(n)
 
   N <- 1:n

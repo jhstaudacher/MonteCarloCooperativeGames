@@ -27,7 +27,7 @@
 stApproOwenAndBanzhafOwen <- function(i, m, v, P, proportional = TRUE) {
   check_P_i(P, i)
   check_v(v)
-  check_positive_number(m)
+  check_m(m)
 
   # extract the P(i) Partition
   # extract R Partitions
