@@ -7,7 +7,7 @@
 check_P(P)
 }
 \arguments{
-\item{P}{A priori unions}
+\item{P}{list: a priori unions}
 }
 \value{
 Returns

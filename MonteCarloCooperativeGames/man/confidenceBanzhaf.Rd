@@ -7,15 +7,15 @@
 confidenceBanzhaf(i, n, v, conf, w)
 }
 \arguments{
-\item{i}{The player i}
+\item{i}{integer: the player i}
 
-\item{n}{Indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
 
-\item{v}{The characteristic function.}
+\item{v}{function: the characteristic function.}
 
 \item{conf}{Confidence (probability) of the true (exact) value being in the interval}
 
-\item{w}{Width of the confidence interval}
+\item{w}{integer: width of the confidence interval}
 }
 \value{
 Confidence interval as a vector of size 2

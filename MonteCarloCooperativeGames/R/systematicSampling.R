@@ -14,7 +14,7 @@
 #' @template author/MM
 #' @template param/i
 #' @template param/n
-#' @template param/m
+#' @template param/mBigz
 #' @template param/v
 #' @template return/Banzhaf
 #' @template cites/SAAVEDRA_NIEVES_ET_AL_2020

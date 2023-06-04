@@ -7,7 +7,7 @@
 check_m(m, max_value = NULL, bigz_allowed = FALSE)
 }
 \arguments{
-\item{m}{The number of samples}
+\item{m}{integer: the number of samples}
 
 \item{max_value}{Maximal value m can take}
 

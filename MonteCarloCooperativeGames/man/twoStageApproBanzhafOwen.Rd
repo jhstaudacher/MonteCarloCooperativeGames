@@ -7,15 +7,15 @@
 twoStageApproBanzhafOwen(i, lr, ls, v, P)
 }
 \arguments{
-\item{i}{The player i}
+\item{i}{integer: the player i}
 
 \item{lr}{number of samples of coalitions of unions}
 
 \item{ls}{number of samples of coalitions in Pi for each element of sample}
 
-\item{v}{The characteristic function.}
+\item{v}{function: the characteristic function.}
 
-\item{P}{A priori unions}
+\item{P}{list: a priori unions}
 }
 \value{
 approximation of the Banzaf-Owen value based on two-stage sampling

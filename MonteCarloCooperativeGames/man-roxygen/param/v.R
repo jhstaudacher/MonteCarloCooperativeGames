@@ -1,1 +1,1 @@
-#' @param v The characteristic function.
+#' @param v function: the characteristic function.

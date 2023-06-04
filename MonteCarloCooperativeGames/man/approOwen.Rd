@@ -7,13 +7,13 @@
 approOwen(n, m, v, P)
 }
 \arguments{
-\item{n}{Indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
 
-\item{m}{The number of samples}
+\item{m}{integer: the number of samples}
 
-\item{v}{The characteristic function.}
+\item{v}{function: the characteristic function.}
 
-\item{P}{A priori unions}
+\item{P}{list: a priori unions}
 }
 \value{
 A list of Owen values of every player

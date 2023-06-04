@@ -7,13 +7,13 @@
 stApproOwenAndBanzhafOwen(i, m, v, P, proportional = TRUE)
 }
 \arguments{
-\item{i}{The player i}
+\item{i}{integer: the player i}
 
-\item{m}{The number of samples}
+\item{m}{integer: the number of samples}
 
-\item{v}{The characteristic function.}
+\item{v}{function: the characteristic function.}
 
-\item{P}{A priori unions}
+\item{P}{list: a priori unions}
 
 \item{proportional}{boolean with true = propotional allocation and false = simple allocation procedure of samples}
 }
