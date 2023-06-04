@@ -9,16 +9,16 @@
 #' one to which player i belongs. Secondly, for each element of the first sample, the algorithm takes with replacement a coalition
 #' of players in the union of player i other than player i itself. This sample is used to calculate the Owen and Banzhaf-Owen values.
 #' If propotional is set, the samples are allocated proportionally to the weight of the strata. Otherwise they are evenly distributed.
-#' Using BigInt(gmp) for m is possible.
 #' Based on: "On stratified sampling for estimating coalitional values" (A. Saavedra-Nieves, 2022)
 #' @template author/MS
 #' @template param/i
-#' @template param/m
+#' @template param/mBigz
 #' @template param/v
 #' @template param/P
 #' @param proportional boolean with true = propotional allocation and false = simple allocation procedure of samples
 #' @template cites/SAAVEDRA_NIEVES_ET_AL_2022
 #' @templateVar SAAVEDRA_NIEVES_ET_AL_2022_P pp. 5
+#' @import gmp
 #' @return approximation of the Banzaf-Owen value and Owen value based on stratified sampling
 #' @export
 #' @examples
@@ -61,13 +61,13 @@ stApproOwenAndBanzhafOwen <- function(i, m, v, P, proportional = TRUE) {
       ekh <- 0
       # calculates lkh evaluating variable proportional
       # ensure multiplication correctness
-      if(is.bigz(m)) m <- as.bigq(m)
+      if (is.bigz(m)) m <- as.bigq(m)
       # apply ceiling function
       lkh <- ceilingForBigInt(m / (length(P) * (length(Pi) + 1)))
       if (proportional) lkh <- ceilingForBigInt(m * W)
-      
-      sampleidx <- 1
-      while(sampleidx <= lkh){
+
+      sampleidx <- as.bigz(1)
+      while (sampleidx <= lkh) {
         if (length(R) <= 1) { # prevent sample behavior for x
           first <- rep(R, k)
         } else {
@@ -98,16 +98,15 @@ stApproOwenAndBanzhafOwen <- function(i, m, v, P, proportional = TRUE) {
   return(list("Owen" = O, "Banzhaf-Owen" = BzO))
 }
 
-ceilingForBigInt <- function(num){
-  if(is.numeric(num)){
+ceilingForBigInt <- function(num) {
+  if (is.numeric(num)) {
     return(ceiling(num))
   } else {
     numAsBigZ <- as.bigz(num)
-    if(numAsBigZ == num){
+    if (numAsBigZ == num) {
       return(numAsBigZ)
     } else {
-      return(numAsBigZ+1)
+      return(numAsBigZ + 1)
     }
   }
 }
-

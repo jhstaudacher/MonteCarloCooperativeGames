@@ -9,7 +9,7 @@ stApproOwenAndBanzhafOwen(i, m, v, P, proportional = TRUE)
 \arguments{
 \item{i}{integer: the player i}
 
-\item{m}{integer: the number of samples}
+\item{m}{integer or bigz: the number of samples}
 
 \item{v}{function: the characteristic function.}
 
@@ -31,7 +31,6 @@ Firstly, the algorithm takes with replacement a sample of coalitions of size k c
 one to which player i belongs. Secondly, for each element of the first sample, the algorithm takes with replacement a coalition
 of players in the union of player i other than player i itself. This sample is used to calculate the Owen and Banzhaf-Owen values.
 If propotional is set, the samples are allocated proportionally to the weight of the strata. Otherwise they are evenly distributed.
-Using BigInt(gmp) for m is possible.
 Based on: "On stratified sampling for estimating coalitional values" (A. Saavedra-Nieves, 2022)
 }
 \examples{

@@ -9,7 +9,7 @@ approOwen(n, m, v, P)
 \arguments{
 \item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
 
-\item{m}{integer: the number of samples}
+\item{m}{integer or bigz: the number of samples}
 
 \item{v}{function: the characteristic function.}
 
@@ -24,7 +24,6 @@ Approximates the Owen value by using a simple Monte Carlo simulation.
 \details{
 It is an adaptation of an analogous procedure
 for the estimation of the Shapley value and it is particularly useful when dealing with games having large sets of players.
-Using BigInt for m is possible.
 Based on: "Estimation of the Owen Value Based on Sampling" (Alejandro Saavedra-Nieve et al., 2018)
 }
 \examples{
