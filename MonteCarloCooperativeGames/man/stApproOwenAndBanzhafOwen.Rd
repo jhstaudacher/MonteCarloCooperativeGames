@@ -35,7 +35,10 @@ Based on: "On stratified sampling for estimating coalitional values" (A. Saavedr
 }
 \examples{
 print(stApproOwenAndBanzhafOwen(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3))))
-print(stApproOwenAndBanzhafOwen(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)), FALSE)$Owen)
+print(stApproOwenAndBanzhafOwen(
+  1, 1000, gloveGameForSampling(1:2, 3:3),
+  list(c(1, 2), c(3)), FALSE
+)$Owen)
 
 }
 \references{

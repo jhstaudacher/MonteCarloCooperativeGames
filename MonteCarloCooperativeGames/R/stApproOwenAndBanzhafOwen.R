@@ -23,12 +23,20 @@
 #' @export
 #' @examples
 #' print(stApproOwenAndBanzhafOwen(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3))))
-#' print(stApproOwenAndBanzhafOwen(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)), FALSE)$Owen)
+#' print(stApproOwenAndBanzhafOwen(
+#'   1, 1000, gloveGameForSampling(1:2, 3:3),
+#'   list(c(1, 2), c(3)), FALSE
+#' )$Owen)
 #'
 stApproOwenAndBanzhafOwen <- function(i, m, v, P, proportional = TRUE) {
   check_P_i(P, i)
   check_v(v)
   check_m(m, bigz_allowed = TRUE)
+
+  use_bigz <- FALSE
+  if (is.bigz(m)) {
+    use_bigz <- TRUE
+  }
 
   # extract the P(i) Partition
   # extract R Partitions
@@ -44,7 +52,6 @@ stApproOwenAndBanzhafOwen <- function(i, m, v, P, proportional = TRUE) {
       idx <- idx + 1
     }
   }
-  # cnt <- 0
   # initialize Owen Value
   O <- 0
   # initialize Banzhaf Owen Value
@@ -53,20 +60,23 @@ stApproOwenAndBanzhafOwen <- function(i, m, v, P, proportional = TRUE) {
   for (k in 0:(length(P) - 1)) {
     # for every h to pi - 1 #not -1 because Pi doesn't contain i in this implementation
     for (h in 0:(length(Pi))) {
-      # print('----------')
-      # print(cat('K: ', k, ', H: ', h))
       # strata weight calculation, needed for proportional distribution of samples lkh and Banzhaf–Owen
       W <- (choose(length(P) - 1, k) * choose(length(Pi), h)) / ((2^(length(P) - 1)) * (2^(length(Pi))))
-      # print(W)
       ekh <- 0
       # calculates lkh evaluating variable proportional
       # ensure multiplication correctness
-      if (is.bigz(m)) m <- as.bigq(m)
+      if (use_bigz) m <- as.bigq(m)
       # apply ceiling function
-      lkh <- ceilingForBigInt(m / (length(P) * (length(Pi) + 1)))
-      if (proportional) lkh <- ceilingForBigInt(m * W)
+      if (use_bigz) {
+        lkh <- ceilingForBigInt(m / (length(P) * (length(Pi) + 1)))
+        if (proportional) lkh <- ceilingForBigInt(m * W)
+      } else {
+        lkh <- ceiling(m / (length(P) * (length(Pi) + 1)))
+        if (proportional) lkh <- ceiling(m * W)
+      }
 
-      sampleidx <- as.bigz(1)
+      sampleidx <- 1
+      if (use_bigz) sampleidx <- as.bigz(1)
       while (sampleidx <= lkh) {
         if (length(R) <= 1) { # prevent sample behavior for x
           first <- rep(R, k)
@@ -79,17 +89,12 @@ stApproOwenAndBanzhafOwen <- function(i, m, v, P, proportional = TRUE) {
           sec <- sample(x = Pi, size = h, replace = FALSE)
         }
         sample <- unlist(append(first, sec))
-        # print(append(sample, i))
         xi <- v(append(sample, i)) - v(sample)
-        # print(xi)
         ekh <- ekh + (1 / lkh) * xi
-        # cnt <- cnt +1
         sampleidx <- sampleidx + 1
       }
       # Owen calculation
       O <- O + ekh
-      # print(O)
-      # print(W)
       # Banzhaf–Owen calculation
       BzO <- BzO + W * ekh
     }

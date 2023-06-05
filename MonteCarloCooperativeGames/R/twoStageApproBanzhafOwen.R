@@ -26,9 +26,6 @@ twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
   check_m(lr)
   check_m(ls)
 
-
-
-
   withoutPi <- list() # contains all coalitions without Pi
 
   if (length(withoutPi) > 50) stop("There must be less than 50 a priori unions")
@@ -43,13 +40,6 @@ twoStageApproBanzhafOwen <- function(i, lr, ls, v, P) {
       idx <- idx + 1
     }
   }
-
-
-  oa <- 0.1
-  ob <- 0.1
-  m <- 1000
-  var <- (1 / lr) * (1 - (lr / (2^(m - 1)))) * oa^2 + (1 - (ls / (2^Pi) / (ob^2 / ls)))
-  print(var)
 
   if (length(Pi) > 50) stop("There can be no more than 50 players in the union to which player i belongs")
 

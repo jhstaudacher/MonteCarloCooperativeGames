@@ -18,9 +18,6 @@
 #' @examples
 #' print(approOwen(3, 100, gloveGameForSampling(1:2, 3:3), list(c(1, 2), (3))))
 approOwen <- function(n, m, v, P) {
-  # paramCheckResult=getEmptyParamCheckResult()
-  # initialParamChecksApproOwen(paramCheckResult, n, m, v, P)
-
   check_v(v)
   check_m(m, bigz_allowed = TRUE)
   check_P(P)
@@ -28,10 +25,15 @@ approOwen <- function(n, m, v, P) {
     stop("Partitions do not fit to n")
   }
 
+  use_bigz <- FALSE
+  if (is.bigz(m)) {
+    use_bigz <- TRUE
+  }
 
   Owen <- rep(0, n)
   # calculate shapley value only with permutations compatible with coalition structure P
-  x <- as.bigz(1)
+  x <- 1
+  if (use_bigz) x <- as.bigz(1)
   while (x <= (m / n)) {
     order <- sampleOrderP(P)
     # i is not the player (like in the paper) but the idx of the player in the current order O
@@ -62,6 +64,5 @@ sampleOrderP <- function(P) {
   # random permutation of unions
   li <- sample(P)
   un <- unlist(li, use.names = FALSE)
-  # print(un)
   return(un)
 }

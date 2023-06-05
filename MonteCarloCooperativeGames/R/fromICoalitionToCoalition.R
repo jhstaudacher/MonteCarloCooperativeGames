@@ -15,7 +15,7 @@ fromICoalitionToCoalition <- function(cardinality_n, iCoalition) {
   ij <- 0
   while (ij < cardinality_n) {
     ij <- ij + 1
-    # cast to int for ähh bigz usage
+    # cast to int for bigz usage
     Coalition[ij] <- as.integer(a1 - floor(a1 / 2) * 2)
     a1 <- floor(a1 / 2)
   }
