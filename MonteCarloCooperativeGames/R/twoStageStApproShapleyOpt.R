@@ -44,10 +44,16 @@
 #' Sh <- twoStageStApproShapleyOpt(length(costs), v, 100000)
 #' }
 twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 0.5) {
-  check_m(min_sample_size)
+  check_m(min_sample_size, bigz_allowed=TRUE)
   check_positive_number(n)
   check_v(v)
   check_first_stage_size(first_stage_size)
+
+  use_bigz <- FALSE
+  if (is.bigz(min_sample_size)) {
+    min_sample_size <- as.bigq(min_sample_size)
+    use_bigz <- TRUE
+  }
 
   N <- 1:n
 
@@ -67,11 +73,16 @@ twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 
   sample_size_per_strata_first_half <- sample_size_first_half / (n * n)
   check_sample_size_per_strata_first_half(sample_size_per_strata_first_half)
 
+  initial_zero <- 0
+  if (use_bigz) {
+    initial_zero <- as.bigq(0)
+  }
+
   # Sh[player, position]
-  Sh <- matrix(rep(0, n * n), nrow = n, ncol = n)
+  Sh <- matrix(rep(initial_zero, n * n), nrow = n, ncol = n)
 
   # variances[player, position]
-  variances <- matrix(rep(0, n * n), nrow = n, ncol = n)
+  variances <- matrix(rep(initial_zero, n * n), nrow = n, ncol = n)
 
   # 1. Stage:
   # iterate through each position and player (each stratum) and sample
@@ -80,15 +91,17 @@ twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 
   for (pos in 1:n) {
     for (player in 1:n) {
       sum_squared <- 0
-      for (x in 1:sample_size_per_strata_first_half) {
+      count <- 1
+      while (count <= sample_size_per_strata_first_half) {
         order <- get_sample_from_population(player, pos)
         marg_contrib <- v(take(order, pos)) - v(take(order, pos - 1))
         Sh[player, pos] <- Sh[player, pos] + marg_contrib
         sum_squared <- sum_squared + marg_contrib * marg_contrib
+        count <- count + 1
       }
 
       # estimate the variance of each stratum
-      variances[player, pos] <- (sum_squared - (Sh[player, pos] / sample_size_per_strata_first_half)) / (sample_size_per_strata_first_half - 1)
+      variances[player, pos] <- (sum_squared - (Sh[player, pos] / sample_size_per_strata_first_half)) / max(sample_size_per_strata_first_half - 1, 1)
     }
   }
 
@@ -100,14 +113,16 @@ twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 
   # stratum
   for (pos in 1:n) {
     for (player in 1:n) {
-      target_sample_count <- min_sample_size * variances[player, pos] / variances_sum
+      target_sample_count <- min_sample_size * variances[player, pos] / max(variances_sum, 1)
       remaining_sample_count <- target_sample_count - sample_size_per_strata_first_half
 
       if (remaining_sample_count > 0) {
-        for (x in 1:remaining_sample_count) {
+        count <- 1
+        while (count <= remaining_sample_count) {
           order <- get_sample_from_population(player, pos)
           marg_contrib <- v(take(order, pos)) - v(take(order, pos - 1))
           Sh[player, pos] <- Sh[player, pos] + marg_contrib
+          count <- count + 1
         }
       }
 
@@ -118,7 +133,19 @@ twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 
   }
 
   # todo: maybe also return the variances and the actual sample count
-  Sh <- rowSums(Sh) / n
+
+  if (use_bigz) {
+    # for some reason rowSums does not work with bigz
+    row_sum_result <- c()
+    for (row in 1:nrow(Sh)) {
+      row_sum_result <- append(row_sum_result, sum(Sh[row, ]))
+    }
+    Sh <- row_sum_result / n
+  }
+  else {
+    Sh <- rowSums(Sh) / n
+  }
+
   Sh
 }
 
