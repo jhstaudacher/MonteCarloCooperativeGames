@@ -23,6 +23,14 @@ Described in "Improving polynomial estimation of the Shapley value by stratified
 Calculates the shapley value based on the twoStageStApproShapleyOpt algorithm and the common approShapley
 with the extension, that the algorithm calculates the value efficient
 }
+\details{
+For an efficient value the sum of all shapley values are exact the same as the value of the huge coalition.
+First this algorithm calculates the common shapley value, that is an efficient value.
+Second the value is calculated with stratified sampling. This algorithm returns values that don't fulfil the efficient property.
+With the first value and the shapley value of the huge coalition a ratio is calculated for each player.
+This ratio is the factor for the gap between all second values and the huge coalition, so the gap that is missing for being efficient.
+This gap multiply with the factor is than added to the second value for each player.
+}
 \examples{
 # sample a glove Game with 100 players (|L|=50 => |R|=50)
 L <- 1:50
