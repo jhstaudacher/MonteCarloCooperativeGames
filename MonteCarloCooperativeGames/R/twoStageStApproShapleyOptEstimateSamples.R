@@ -28,7 +28,7 @@ twoStageStApproShapleyOptEstimateSamples <- function(n, v, error, probability) {
   variance_upper_bound <- (x_max - x_min)^2 / 4
   Z_alpha_half <- qnorm(1 - alpha / 2)
 
-  m <- Z_alpha_half^2 * n * variance_upper_bound^2 / error
+  m <- Z_alpha_half^2 * n * variance_upper_bound / error^2
 
   m
 }
