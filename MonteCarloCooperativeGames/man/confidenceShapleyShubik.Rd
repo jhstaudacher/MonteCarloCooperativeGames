@@ -37,6 +37,14 @@ empirical analysis" by Bachrach et al. from 2010.
 }
 \examples{
 confidenceShapleyShubik(3, 4, weightedVotingGameForSampling(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
+\donttest{
+weights <- c(1, 1, 2, 3, 2, 3, 4, 2, 1, 1, 1, 2, 2, 3, 2, 2, 1, 2, 3)
+v <- weightedVotingGameForSampling(weights, 1 / 2)
+Sh <- rep(0, length(weights))
+for (i in 1:length(weights)) {
+  Sh[i] <- mean(confidenceShapleyShubik(i, length(weights), v, 0.95, 0.03))
+}
+}
 }
 \references{
 Bachrach, Y. et al. (2010) "Approximating power indices: theoretical and empirical analysis", Auton Agent Multi-Agent Syst 20, pp. 105-122

@@ -25,6 +25,14 @@
 #' @templateVar BACHRACH_ET_AL_2010_P pp. 105-122
 #' @examples
 #' confidenceShapleyShubik(3, 4, weightedVotingGameForSampling(c(1, 1, 2, 3), 1 / 2), 0.95, 0.01)
+#' \donttest{
+#' weights <- c(1, 1, 2, 3, 2, 3, 4, 2, 1, 1, 1, 2, 2, 3, 2, 2, 1, 2, 3)
+#' v <- weightedVotingGameForSampling(weights, 1 / 2)
+#' Sh <- rep(0, length(weights))
+#' for (i in 1:length(weights)) {
+#'   Sh[i] <- mean(confidenceShapleyShubik(i, length(weights), v, 0.95, 0.03))
+#' }
+#' }
 confidenceShapleyShubik <- function(i, n, v, conf, w) {
   check_n_i(n, i)
   check_v(v)

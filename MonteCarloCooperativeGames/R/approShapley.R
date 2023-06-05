@@ -4,6 +4,10 @@
 #' Approximates the Shapley value by using a simple Monte Carlo simulation.
 #' @details
 #' Appro Shapley is a sampling method, which samples permutations of the players.
+#' Note that it is possible that the provided sample size is not divisible by
+#' the number of players. In that case the remaining samples m %% n will not be
+#' used. This preserves the efficiency (i.e. the sum of the result vector is 1)
+#' of the algorithm.
 #' Based on: "Polynomial calculation of the Shapley value based on sampling" (Javier Castro Et al., 2008)
 #' @template author/JM
 #' @template author/DU
@@ -18,7 +22,16 @@
 #' @template cites/CASTRO_ET_AL_2008
 #' @templateVar CASTRO_ET_AL_2008_P pp. 1727
 #' @examples
-#' print(approShapley(10, 10000, gloveGameForSampling(1:5, 6:10)))
+#' approShapley(10, 10000, gloveGameForSampling(1:5, 6:10))
+#' \donttest{
+#' # sample an airport game as described in section 4.3 of the underlying paper
+#' costs <- buildAirportCostVector(list(
+#'   c(1, 8), c(2, 12), c(3, 6), c(4, 14), c(5, 8), c(6, 9),
+#'   c(7, 13), c(8, 10), c(9, 10), c(10, 10)
+#' ))
+#' v <- airportGameForSampling(costs)
+#' Sh <- approShapley(length(costs), 1000000, v)
+#' }
 approShapley <- function(n, m, v) {
   check_m_n(m, n)
   check_v(v)

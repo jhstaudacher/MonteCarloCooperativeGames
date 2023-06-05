@@ -3,7 +3,7 @@
 #' @description
 #' Monte Carlo Simulation for calculating the Shapley value with stratification.
 #' @details
-#' This function uses stratification to calculate the Shapley value. A stratum is
+#' This function uses stratification to approximate the Shapley value. A stratum is
 #' created for the given player at each possible position.
 #' Note that it is possible that the provided sample size is not divisible by
 #' the number of positions the player can occur in. In that case the remaining samples
@@ -20,9 +20,20 @@
 #' @template cites/CASTRO_ET_AL_2017
 #' @templateVar CASTRO_ET_AL_2017_P pp. 5
 #' @export
-#' @importFrom stats rmultinom
 #' @examples
 #' stApproShapley(1, 10, gloveGameForSampling(1:5, 6:10), 1000)
+#' \donttest{
+#' # sample an airport game as described in section 6.3 of the underlying paper
+#' costs <- buildAirportCostVector(list(
+#'   c(1, 8), c(2, 12), c(3, 6), c(4, 14), c(5, 8), c(6, 9),
+#'   c(7, 13), c(8, 10), c(9, 10), c(10, 10)
+#' ))
+#' v <- airportGameForSampling(costs)
+#' Sh <- rep(0, length(costs))
+#' for (i in 1:length(costs)) {
+#'   Sh[i] <- stApproShapley(i, length(costs), v, 5000)
+#' }
+#' }
 stApproShapley <- function(i, n, v, m) {
   check_n_i(n, i)
   check_v(v)
