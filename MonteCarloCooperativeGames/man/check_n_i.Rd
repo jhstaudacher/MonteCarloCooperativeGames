@@ -7,9 +7,9 @@
 check_n_i(n, i)
 }
 \arguments{
-\item{n}{Indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
 
-\item{i}{The player i}
+\item{i}{integer: the player i}
 }
 \value{
 Returns

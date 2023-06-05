@@ -1,1 +1,1 @@
-#' @param P A priori unions
+#' @param P list: a priori unions

@@ -7,7 +7,7 @@
 check_v(v)
 }
 \arguments{
-\item{v}{The characteristic function.}
+\item{v}{function: the characteristic function.}
 }
 \value{
 Returns

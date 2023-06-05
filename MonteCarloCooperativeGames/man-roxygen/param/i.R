@@ -1,1 +1,1 @@
-#' @param i The player i
+#' @param i integer: the player i

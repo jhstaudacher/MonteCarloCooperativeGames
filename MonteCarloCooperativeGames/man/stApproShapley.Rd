@@ -7,13 +7,13 @@
 stApproShapley(i, n, v, m)
 }
 \arguments{
-\item{i}{The player i}
+\item{i}{integer: the player i}
 
-\item{n}{Indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
 
-\item{v}{The characteristic function.}
+\item{v}{function: the characteristic function.}
 
-\item{m}{The number of samples}
+\item{m}{integer: the number of samples}
 }
 \value{
 Estimated Shapley value of player i

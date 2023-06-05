@@ -7,9 +7,9 @@
 twoStageApproShapleyEff(n, v, sample_size_eff, sample_size_opt)
 }
 \arguments{
-\item{n}{Indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
 
-\item{v}{The characteristic function.}
+\item{v}{function: the characteristic function.}
 
 \item{sample_size_eff}{The amount of samples for the common approShapley algorithm.}
 

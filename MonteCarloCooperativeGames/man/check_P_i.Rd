@@ -7,9 +7,9 @@
 check_P_i(P, i)
 }
 \arguments{
-\item{P}{A priori unions}
+\item{P}{list: a priori unions}
 
-\item{i}{The player i}
+\item{i}{integer: the player i}
 }
 \value{
 Returns

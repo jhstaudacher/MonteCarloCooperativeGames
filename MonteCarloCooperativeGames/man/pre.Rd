@@ -9,7 +9,7 @@ pre(O, i)
 \arguments{
 \item{O}{Order}
 
-\item{i}{The player i}
+\item{i}{integer: the player i}
 }
 \value{
 Vector of all predecessors of player i in order O

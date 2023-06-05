@@ -7,9 +7,9 @@
 twoStageStApproShapleyOpt(n, v, min_sample_size, first_stage_size = 0.5)
 }
 \arguments{
-\item{n}{Indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
 
-\item{v}{The characteristic function.}
+\item{v}{function: the characteristic function.}
 
 \item{min_sample_size}{The amount of samples that should be taken.
 Based on the variances of each stratum it is likely to happen, that more

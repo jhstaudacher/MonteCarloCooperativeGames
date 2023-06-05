@@ -7,9 +7,9 @@
 check_m_n(m, n, m_max = NULL)
 }
 \arguments{
-\item{m}{The number of samples}
+\item{m}{integer: the number of samples}
 
-\item{n}{Indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
 
 \item{m_max}{Maximal value m can take}
 }

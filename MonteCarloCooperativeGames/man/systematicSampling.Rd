@@ -7,13 +7,13 @@
 systematicSampling(i, n, m, v)
 }
 \arguments{
-\item{i}{The player i}
+\item{i}{integer: the player i}
 
-\item{n}{Indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
 
-\item{m}{The number of samples}
+\item{m}{integer or bigz: the number of samples}
 
-\item{v}{The characteristic function.}
+\item{v}{function: the characteristic function.}
 }
 \value{
 The Banzhaf value of the specified player
@@ -33,6 +33,12 @@ values in R software" (A. Saavedra-Nieves, 2020) Algorithm 3
 }
 \examples{
 print(systematicSampling(1, 10, 200, gloveGameForSampling(1:5, 6:10)))
+# --------------
+\dontrun{
+  # very long runtime
+  m <- as.bigz(.Machine$integer.max) + 1
+  print(simpleRandomSamplingWithoutReplacement(1, 100, m, gloveGameForSampling(1:50, 51:100)))
+}
 }
 \references{
 Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 132
