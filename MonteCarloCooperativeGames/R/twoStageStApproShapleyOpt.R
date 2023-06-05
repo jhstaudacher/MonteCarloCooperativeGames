@@ -44,7 +44,7 @@
 #' Sh <- twoStageStApproShapleyOpt(length(costs), v, 100000)
 #' }
 twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 0.5) {
-  check_m(min_sample_size, bigz_allowed=TRUE)
+  check_m(min_sample_size, bigz_allowed = TRUE)
   check_positive_number(n)
   check_v(v)
   check_first_stage_size(first_stage_size)
@@ -141,8 +141,7 @@ twoStageStApproShapleyOpt <- function(n, v, min_sample_size, first_stage_size = 
       row_sum_result <- append(row_sum_result, sum(Sh[row, ]))
     }
     Sh <- row_sum_result / n
-  }
-  else {
+  } else {
     Sh <- rowSums(Sh) / n
   }
 
