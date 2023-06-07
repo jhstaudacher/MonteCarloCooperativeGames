@@ -1,115 +1,308 @@
-# Monte Carlo Simulation for Large Cooperative Games
 
-"Monte Carlo Simulation for Large Cooperative Games with applications to biomedical networks and machine learning": DV-Projektarbeit in den Bachelorstudiengängen Informatik und Wirtschaftsinformatik unter gemeinsamer Betreuung mit Prof. Dr. Moretti.
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
+# Monte Carlo For Coop Games
 
+Monte Carlo For Coop Games is a R package for simulating arbitrary
+cooperative games and approximating the Shapley value of them.
 
+## Getting started with development
 
-# Projektstatus
-| name of the algorithm                                           | Paper                                                                                                                                                  | Functions                                                                                       | Responsible                                                                                     |   |
-|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|---|
-| The algorithm based on simple random sampling without replacement | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 2 Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 3.1" | "Prototyp: Simple_random_sampling_without_replacement.R                                          Paket: simpleRandomSamplingWithoutReplacement.R Funktion: simpleRandomSamplingWithoutReplacement() |   |
-| The algorithm based on simple random sampling with replacement    | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 1                                                                           | Prototyp: Simple_random_sampling_with_replacement.R Paket: simpleRandomSamplingWithReplacement.R |                                                                                                    |   |
-| The algorithm based on two-stage sampling                         | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 4                                                                           <br> Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 4.1                         | Prototyp: ? Paket: twoStageApproBanzhafOwen.R                                                      |   |
-| Systematic sampling                                               | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 3                                                                           | Paket: systematicSampling.R                                                                      |                                                                                                    |   |
-| Estimation in parallel                                            | "Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves" Algorithm 5                                                                           | Nicht implementiert! Könnte beim Parallelisieren gemacht werden                                  |                                                                                                    |   |
-| A stratified sampling procedure to estimate coalitional values    | "On stratified sampling for estimating coalitional values Procedure 3.1"                                                                                | ?                                                                                                |                                                                                                    |   |
-| Approximating power indices by sampling (ConfidenceBanzhaf)       | "Approximating power indices: theoretical and empirical analysis" Algorithm 1                                                                           | Paket: ConfidenceBanzhaff                                                                        |                                                                                                    |   |
-| Two-Stage-St-ApproShapley-opt                                     | "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" Its described on page 182                  | Paket: twoStageStApproShapleyOpt.R                                                               |                                                                                                    |   |
-| Two-Stage-St-ApproShapley-eff                                     | "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" Its described on page 183                  | Paket: twoStageStApproShapleyEff.R                                                               |                                                                                                    |   |
-| Appro the Shapley value                                           | "Polynomial calculation of the Shapley value based on sampling Algorithm" ApproShapley                                                                  | Paket: approShapley.R                                                                            |                                                                                                    |   |
+Install the devtools and other necessary packages
 
-
-
-
-
-
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://ips.hs-kempten.de/powerindex/monte-carlo-simulation-for-large-cooperative-games.git
-git branch -M main
-git push -uf origin main
+``` r
+install.packages(c("devtools", "roxygen2", "testthat", "knitr", "styler","covr"))
 ```
 
-## Integrate with your tools
+R Studio: Tools/Install Packages or Build Pane: Install
 
-- [ ] [Set up project integrations](https://ips.hs-kempten.de/powerindex/monte-carlo-simulation-for-large-cooperative-games/-/settings/integrations)
+### Rtools
 
-## Collaborate with your team
+Install Rtools (required to build packages with C++ code) - Windows:
+Download it from [here](https://cran.r-project.org/bin/windows/Rtools/)
+and run the installer. - MacOs: Run `xcode-select --install` -
+Ubuntu/Debian: Run `sudo apt install r-base-dev`
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Verify installation with:
 
-## Test and Deploy
+``` r
+devtools::dev_sitrep()
+```
 
-Use the built-in continuous integration in GitLab.
+## Development workflow
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+- Run `check()` often and fix any errors, warnings and notes.
+- Be extremely careful with top level code in a package. It is ONLY run
+  when the package is build, NEVER again. Mainly use them for static
+  variables. Any R code outside of a function is suspicious and should
+  be carefully reviewed.
+- Using `library`, `source` and `require` in a package is **forbidden**.
+- Sub folders in the R directory are not supported.
 
-***
+### General workflow
 
-# Editing this README
+![General dev
+workflow](https://r-pkgs.org/diagrams/workflow.png "General development workflow")
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Run the following command in each new R session to load the devtools.
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+``` r
+library(devtools)
+```
 
-## Name
-Choose a self-explaining name for your project.
+Alternatively a `.Rprofile` file can be used to automatically load the
+library. Create the file manually at `~/.RProfile` or run
+`use_devtools()` to create the file.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+``` r
+if (interactive()) {
+  suppressMessages(require(devtools))
+}
+```
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### Check
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Run the following command periodically to check the state of the package
+Address any issues as soon as possible.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+Console:
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+``` r
+check()
+```
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+R Studio: Build/Check Package or Build Pane: Check
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+### Loading the code
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+Running code directly can cause problems, because R Studio just sends
+the code to the console and defines it in the global environment. This
+is not well suited for package development, because as the package gets
+more and more complicated, manually defining all required functions
+becomes unsustainable. Instead, use the following command to load the
+code.:
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Use this command to reload package Console:
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+``` r
+load_all()
+```
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+R Studio: Build/Load All
 
-## License
-For open source projects, say how it is licensed.
+If you want to install the package like normal use the following
+command. For development it is better to use load_all() for faster
+iteration.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Console:
+
+``` r
+install()
+```
+
+R Studio: Build/Install Package
+
+## Testing
+
+Unit testing is handled by [testthat](https://testthat.r-lib.org/)
+
+Create a new test or open an existing one.
+
+``` r
+# For the current active file
+use_test()
+# Or explicitly defined name
+use_test("FUNCTION_NAME_TO_TEST")
+```
+
+Execute all tests:
+
+Console:
+
+``` r
+test()
+```
+
+R Studio: Build/Test Package or Build Pane: Test
+
+### Writing tests
+
+- Each test file should be located in the `tests/testthat/`folder and
+  should be named `test-FILENAME_OF_FUNCIONS_TO_TEST`.
+- The actual result can be compared with the expected result with the
+  functions that start with `expect_`.
+- Write tests for input that is expected in typical use and for input
+  that represend edge cases and may throw errors.
+  - You can test for errors with `expect_error`
+  - You can test for equality, with some reasonable amount of numeric
+    tolerance with `expect_equal()`. Use `expect_identical()` for no
+    tolerance.
+- Top-Level code is completly **forbidden** in tests.
+  - `library()`, `attach()` is forbidden.
+  - It is highly discouraged to write/read filed in tests. If so, make
+    absolutely sure to clean them up.
+  - `options()` and `par()`are also highly discouraged. If so, consider
+    using the `withr`package.
+- Each test should be entirly independant of all other tests. They
+  should not assume any preexisting environment.
+- Use `skip_if(today_is_a_monday())` and `skip_on_os("windows")` to
+  conditunally skip tests.
+
+### Test converage
+
+To see the test converage of the package run:
+
+    test_coverage()
+
+## Documentation
+
+Documentation for individual files is handled by
+[roxygen2](https://cran.r-project.org/package=roxygen2)
+
+### man Generation
+
+Generate the documentation files (man/\*\*.Rd) from roxygen comments.
+Also regenerates the NAMESPACE file.
+
+``` r
+document()
+```
+
+Preview the documentation of any function by running:
+
+``` r
+?FUNCTION_NAME
+# For the documentation of function "take" run:
+?take
+```
+
+### Roxygen comments
+
+- Start any roxygen comment with `#'` (hash and single quote)  
+- Use `\code{CODE_HERE}` for inline code
+- Use `\link{function_name}` to link to other function documentation.
+- Required and Optional tags in this order: (These are very opinionated
+  rules to keep the documentation tidy and consistent):
+  - `@name` (Required): The function name
+  - `@title` (Required): Explain the function in as few words as
+    possible. Avoid any non necessary words. If sufficiend use: Function
+    name with all abbreviations expanded and with spaces.
+  - `@description` (Required): Explain what the function does from a
+    user perspective.
+  - `@details` (Optional): Explain how the algorithm works internally
+    and any other useful information. Anything that is not required to
+    use the function but still useful. If required, this can be
+    organized with the `@section Section_Name:` tag
+  - Author (Required): The person/persons that wrote the functions. Use
+    `#' @template author/PERSON_FILENAME`.
+  - Arguments (Required): Document **all** arguments the function uses.
+    Look through the `man-roxygen/params` folder to check if there is
+    already a param in the package with the same usage. If so add
+    `@template param/ARGUMENT_NAME`. If there is none, create a new file
+    in the `man-roxygen/params` folder. Explain thoroughly what the
+    argument does and what it is used for. Use the following syntax in
+    the file:
+    `#' @params PARAMETER_NAME Here is a very detailed explanation of what this argument does.`
+  - Returns (Required): Look through the `man-roxygen/returns` folder to
+    check if a return type is already documented there. Because the
+    return type can vary wildly, it isn’t required to use roxygen
+    templates, if you expect no other function will return data with the
+    same shape and meaning.
+    - If you decided to use a roxygen template return documentation use
+      `#' @template return/RETURN_FILE_NAME` as the comment.
+    - If you decide to use a standalone comment, describe the shape
+      (scaler, vector, matrix, …), size and meaning of the output.
+    - If the functions returns nothing, use `@returns None`, but think
+      about if this function is well designed if it returns nothing.
+  - `@export`: Add if the functions should be used from outside.
+  - `@importFrom` (Required): If you use functionality from another
+    package (even the base package) declare them with `@importFrom`.
+    Also do not forget to add the package in the `DESCRIPTION` file
+    under the `Imports` (or for development dependencies `Suggests`)
+    section. `check()` will also complain if you forget this.
+  - References (Required): If the algorithm is based on a paper, you
+    **must** cite all sources. To cite, check the
+    `man-roxygen/cites`folder is the paper is already present there. If
+    not create a new file.
+    - **For new files**:
+    - Use the last name of the author in upper case, `ET_AL` if there
+      are more than one contributor and the year it was published as the
+      file name.
+    - Use the following syntax in the file:
+      `#' @references <Authors> <Published Year>, <Paper Title>, <Published in> <%=FILE_NAME_P%>,`.
+      The last part is a placeholder for the page number.
+    - **For the roxygen comment**:
+    - Use: `#' @template cites/FILE_NAME` and
+      `#' @templateVar FILE_NAME_P pp. PAGE_NUMBER_OR_RANGE`
+  - `@examples` (Required on exported functions): Provide one or
+    multiple examples of how the function can be used.
+    - On non exported functions, write tests instead.
+    - They should be as short as possible, while still using the
+      function in a realistic and authentic way. They must run
+      **without** errors and sideeffects (change the environment,
+      working directory, write files, …). You should just be able to
+      copy and run them.
+    - Add comments to the examples as well.
+    - If you provide multiple examples, break them up with a comment
+      line (e.g. `# --------------`).
+    - Do not use edge cases as examples. Make tests out of them instead.
+    - Do not use excessive sample sizes. Running the examples should be
+      almost instantaneous and can not take more than 3 seconds. If this
+      is not possible add the `\dontrun` attribute.
+    - `check()` also runs these examples.
+
+### Vignette - NOT DONE YET. DO NOT USE YET.
+
+The vignette should a provide a higher level overview of how the package
+should be used, compared to the function docuementation.
+
+#### Build the vignette
+
+Setup:
+
+Run the following commands to install latex
+
+    install.packages('tinytex')
+    tinytex::install_tinytex()
+
+The vignette is build from the installed version of the package. Not the
+loaded version. Therefor `load_all()` can not be used. It needs to be
+installed.
+
+The easiest way to build the vingnette is to use the `Knit`Button in R
+Studio (located at the top of the code view. Make sure to click it, when
+the correct document is open)
+
+### Readme
+
+Build the readme file
+
+``` r
+build_readme()
+```
+
+## Style
+
+This project follows the tidyverse style guide.
+
+Use Linter from the Console:
+
+``` r
+styler:::style_active_pkg()
+```
+
+R Studio: Menu bar/Addins/Style active file or Style active package
+
+After using the linter, inspect the code again to avoid any unwanted
+changes.
+
+## Usage check functions in checkCommonParameter
+
+For Parameters i, n, m, w use check_positive_numbers(), i only use one
+method, because they all have the same restrictions For the
+characteristic function use check_v(). Here i don’t check if the
+function has just one parameter, because i havtn’t found a way to do
+this. To check the parameters i und n use check_n\_i(). Use it if you
+use both parameters. To check the priori unions use check_P(). To check
+the parameters i and P use function check_P\_i(). Use it if you use both
+parameters.
