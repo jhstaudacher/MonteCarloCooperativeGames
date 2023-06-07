@@ -16,6 +16,7 @@
 #' @return An estimate for m/the sample size (upper bound).
 #' @template cites/CASTRO_ET_AL_2017
 #' @templateVar CASTRO_ET_AL_2017_P pp. 184
+#' @importFrom stats qnorm
 #' @export
 #' @examples
 #' v <- gloveGameForSampling(L = 1:5, R = 6:10)

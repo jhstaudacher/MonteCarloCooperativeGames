@@ -27,4 +27,4 @@ Config/testthat/edition: 3
 Imports: 
     stats,
     gmp
-VignetteBuilder: knitr, rmarkdown
+VignetteBuilder: knitr
