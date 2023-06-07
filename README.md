@@ -33,7 +33,7 @@ R Studio: Tools/Install Packages or Build Pane: Install
 
 ### Rtools
 
-Install Rtools (required to build packages with C++ code) - Windows:
+Install Rtools (required to build packages with C++ code): - Windows:
 Download it from [here](https://cran.r-project.org/bin/windows/Rtools/)
 and run the installer. - MacOs: Run `xcode-select --install` -
 Ubuntu/Debian: Run `sudo apt install r-base-dev`
@@ -48,7 +48,7 @@ devtools::dev_sitrep()
 
 - Run `check()` often and fix any errors, warnings and notes.
 - Be extremely careful with top level code in a package. It is ONLY run
-  when the package is build, NEVER again. Mainly use them for static
+  when the package is build, **NEVER** again. Mainly use them for static
   variables. Any R code outside of a function is suspicious and should
   be carefully reviewed.
 - Using `library`, `source` and `require` in a package is **forbidden**.
@@ -204,10 +204,10 @@ Preview the documentation of any function by running:
     name with all abbreviations expanded and with spaces.
   - `@description` (Required): Explain what the function does from a
     user perspective.
-  - `@details` (Optional): Explain how the algorithm works internally
-    and any other useful information. Anything that is not required to
-    use the function but still useful. If required, this can be
-    organized with the `@section Section_Name:` tag
+  - `@details` (Required if exported): Explain how the algorithm works
+    internally and any other useful information. Anything that is not
+    required to use the function but still useful. If required, this can
+    be organized with the `@section Section_Name:` tag
   - Author (Required): The person/persons that wrote the functions. Use
     `#' @template author/PERSON_FILENAME`.
   - Arguments (Required): Document **all** arguments the function uses.
@@ -217,7 +217,10 @@ Preview the documentation of any function by running:
     in the `man-roxygen/params` folder. Explain thoroughly what the
     argument does and what it is used for. Use the following syntax in
     the file:
-    `#' @params PARAMETER_NAME Here is a very detailed explanation of what this argument does.`
+    `#' @params PARAMETER_NAME Here is a very detailed explanation of what this argument does.`.
+    If the parameter is specific to only one function then you can also
+    use
+    `@param PARAMETER_NAME Here is a very detailed explanation of what this argument does.`
   - Returns (Required): Look through the `man-roxygen/returns` folder to
     check if a return type is already documented there. Because the
     return type can vary wildly, it isn’t required to use roxygen
@@ -266,7 +269,7 @@ Preview the documentation of any function by running:
       is not possible add the `\dontrun` attribute.
     - `check()` also runs these examples.
 
-### Vignette - NOT DONE YET. DO NOT USE YET.
+### Vignette
 
 The vignette should a provide a higher level overview of how the package
 should be used, compared to the function docuementation.

@@ -20,6 +20,7 @@ header-includes:
 - \postauthor{\end{center}}
 ---
 ```{r eval=TRUE, echo=FALSE}
-child_docs <- list.files(path="chapters",recursive = TRUE, pattern=".Rmd", full.names = TRUE)
+child_docs <- list.files(path = "chapters", recursive = TRUE, pattern = ".Rmd", full.names = TRUE)
 ```
 ```{r, child = child_docs}
+```

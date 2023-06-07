@@ -35,9 +35,9 @@ values in R software" (A. Saavedra-Nieves, 2020) Algorithm 3
 print(systematicSampling(1, 10, 200, gloveGameForSampling(1:5, 6:10)))
 # --------------
 \dontrun{
-  # very long runtime
-  m <- as.bigz(.Machine$integer.max) + 1
-  print(simpleRandomSamplingWithoutReplacement(1, 100, m, gloveGameForSampling(1:50, 51:100)))
+# very long runtime
+m <- as.bigz(.Machine$integer.max) + 1
+print(simpleRandomSamplingWithoutReplacement(1, 100, m, gloveGameForSampling(1:50, 51:100)))
 }
 }
 \references{
