@@ -6,6 +6,7 @@
 #' It is an adaptation of an analogous procedure
 #' for the estimation of the Shapley value and it is particularly useful when dealing with games having large sets of players.
 #' Based on: "Estimation of the Owen Value Based on Sampling" (Alejandro Saavedra-Nieve et al., 2018)
+#' @template details/BigQSupport
 #' @template author/MS
 #' @template param/n
 #' @template param/mBigz

@@ -1,7 +1,7 @@
 #' @name weightedVotingGameForSampling
 #' @title Weighted Voting Game
 #' @description
-#' Returns the characteristic function of a weighted voting game with the specified weights and quota
+#' Returns the characteristic function of a weighted voting game with the specified weights and quota.
 #' @template author/JM
 #' @template author/MS
 #' @template author/TP
@@ -9,9 +9,9 @@
 #' @template author/AR
 #' @template author/RL
 #' @template author/MM
-#' @param weights The weights of the players
-#' @param quota The required relative quota
-#' @return 1 if sum of weighted votes >= quota; 0 otherwise
+#' @param weights The weights of the players.
+#' @param quota The required relative quota.
+#' @return Returns 1 if sum of weighted votes >= quota; otherwise 0
 #' @export
 #' @examples
 #' v <- weightedVotingGameForSampling(c(1, 2, 3, 4, 5, 4, 3, 2, 1, 10), 1 / 2)

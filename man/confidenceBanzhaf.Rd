@@ -7,18 +7,18 @@
 confidenceBanzhaf(i, n, v, conf, w)
 }
 \arguments{
-\item{i}{integer: the player i}
+\item{i}{integer: The player \code{i}.}
 
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 
-\item{conf}{Confidence (probability) of the true (exact) value being in the interval}
+\item{conf}{Confidence (probability) of the true (exact) value being in the interval.}
 
-\item{w}{integer: width of the confidence interval}
+\item{w}{integer: Width of the confidence interval.}
 }
 \value{
-Confidence interval as a vector of size 2
+Confidence interval as a vector of size 2.
 }
 \description{
 Monte Carlo Simulation for calculating the Banzhaf value in a simple game.

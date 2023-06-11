@@ -7,20 +7,20 @@
 simpleRandomSamplingWithReplacement(i, n, m, v)
 }
 \arguments{
-\item{i}{integer: the player i}
+\item{i}{integer: The player \code{i}.}
 
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{m}{integer: the number of samples}
+\item{m}{integer: The number of samples.}
 
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 }
 \value{
-The Banzhaf value of the specified player
+The Banzhaf value of the specified player.
 }
 \description{
 Simple random sampling with replacement is a method to
-  approximate the Banzhaf value for a specified TU game.
+approximate the Banzhaf value for a specified TU game.
 }
 \details{
 First, the algorithm takes a sample with replacement of all players
@@ -29,6 +29,8 @@ the sample. These two steps are repeated for the number of samples.
 
 Based on the paper: "Statistics and game theory: Estimating coalitional
 values in R software" (A. Saavedra-Nieves, 2020) Algorithm 1
+
+This algorithm supports BigQ from GMP.
 }
 \examples{
 print(simpleRandomSamplingWithReplacement(1, 10, 200, gloveGameForSampling(1:5, 6:10)))

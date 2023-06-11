@@ -7,7 +7,7 @@
 subsetFromIndex(n, index)
 }
 \arguments{
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
 \item{index}{A one based index describing the subset}
 }

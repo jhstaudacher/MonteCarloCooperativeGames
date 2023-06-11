@@ -7,24 +7,24 @@
 twoStageStApproShapleyOpt(n, v, min_sample_size, first_stage_size = 0.5)
 }
 \arguments{
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 
 \item{min_sample_size}{The amount of samples that should be taken.
 Based on the variances of each stratum it is likely to happen, that more
-samples are used than specified in min_sample_size. The actual sample size
+samples are used than specified in \code{min_sample_size}. The actual sample size
 depends on the problem.}
 
 \item{first_stage_size}{The amount of samples to use for the first stage as
 a ratio. Usually 0.5 (half of all samples).}
 }
 \value{
-A list of Shapley values of every player
+A list of Shapley values of every player.
 }
 \description{
 Calculates the shapley value for each player with stratification and
-sample size per strata based on each stratums variance.
+sample size per strata based on each stratum's variance.
 }
 \details{
 Stratified:
@@ -35,7 +35,7 @@ at position 1, for player 2 at position 2...
 
 Two Stages:
 The computation is split into two stages. The first stage gets a fixed amount
-of samples (min_sample_size * first_stage_size) which are distributed to each
+of samples (\code{min_sample_size * first_stage_size}) which are distributed to each
 stratum equally. While sampling for the first stage, the variance of each
 stratum is recorded next to the shapley value.
 In the second stage, the variances are used to calculate the amount of

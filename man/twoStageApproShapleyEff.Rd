@@ -7,26 +7,26 @@
 twoStageApproShapleyEff(n, v, sample_size_eff, sample_size_opt)
 }
 \arguments{
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 
 \item{sample_size_eff}{The amount of samples for the common approShapley algorithm.}
 
-\item{sample_size_opt}{The amount of samples for the twoStageStApproShapleyOpt algorithm}
+\item{sample_size_opt}{The amount of samples for the twoStageStApproShapleyOpt algorithm.}
 }
 \value{
-The shapley value of each player with the addition, that sum(sh_i) = v(N) (efficient)
+The shapley value of each player with the addition, that \code{sum(sh_i) = v(N)} (efficient).
 }
 \description{
-Described in "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" on page 183
+Described in "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation" on page 183.
 Calculates the shapley value based on the twoStageStApproShapleyOpt algorithm and the common approShapley
-with the extension, that the algorithm calculates the value efficient
+with the extension, that the algorithm calculates the value efficient.
 }
 \details{
 For an efficient value the sum of all shapley values are exact the same as the value of the huge coalition.
 First this algorithm calculates the common shapley value, that is an efficient value.
-Second the value is calculated with stratified sampling. This algorithm returns values that don't fulfil the efficient property.
+Second the value is calculated with stratified sampling. This algorithm returns values that don't fulfill the efficient property.
 With the first value and the shapley value of the huge coalition a ratio is calculated for each player.
 This ratio is the factor for the gap between all second values and the huge coalition, so the gap that is missing for being efficient.
 This gap multiply with the factor is than added to the second value for each player.
@@ -38,7 +38,7 @@ R <- 51:100
 Sh <- twoStageApproShapleyEff(100, gloveGameForSampling(L, R), 10000, 100000)
 }
 \references{
-CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, TODOe
+CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp:183
 }
 \author{
 Elias Wucher

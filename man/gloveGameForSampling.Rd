@@ -7,12 +7,12 @@
 gloveGameForSampling(L, R)
 }
 \arguments{
-\item{L}{Set of players with a left glove}
+\item{L}{Set of players with a left glove.}
 
-\item{R}{Set of players with a right glove}
+\item{R}{Set of players with a right glove,}
 }
 \value{
-The characteristic function configured with the provided left and right glove lists that returns the number of matching  glove pairs according to the provided set of players (S)
+The characteristic function configured with the provided left and right glove lists that returns the number of matching glove pairs according to the provided set of players (S).
 }
 \description{
 Returns the characteristic function of a glove game with the specified sets of left and right gloves.

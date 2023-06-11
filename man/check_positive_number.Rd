@@ -2,7 +2,7 @@
 % Please edit documentation in R/checkCommonParameter.R
 \name{check_positive_number}
 \alias{check_positive_number}
-\title{Check if the parameter is a number and positive}
+\title{Check if the parameter is a number and positive.}
 \usage{
 check_positive_number(parameter)
 }
@@ -10,11 +10,11 @@ check_positive_number(parameter)
 \item{parameter}{Parameter to check}
 }
 \value{
-Returns
+None
 }
 \description{
-Check if the parameter is a number and positive. It can be used for the parameter
-n, i, m and w.
+Check if the parameter is a number and positive. It can be used for the
+parameters \code{n}, \code{i}, \code{m} and \code{w}.
 }
 \author{
 Elias Wucher

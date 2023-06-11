@@ -9,6 +9,7 @@
 #'
 #' Based on the paper: "Statistics and game theory: Estimating coalitional
 #' values in R software" (A. Saavedra-Nieves, 2020) Algorithm 3
+#' @template details/BigQSupport
 #' @template author/AR
 #' @template author/RL
 #' @template author/MM

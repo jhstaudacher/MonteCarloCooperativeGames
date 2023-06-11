@@ -6,10 +6,10 @@
 #' @template author/RL
 #' @template author/MM
 #' @param d The numeric vector which contains the claims of each player in a
-#'   bankruptcy game
-#' @param E The value of the estate in a bankruptcy game
+#'   bankruptcy game.
+#' @param E The value of the estate in a bankruptcy game.
 #' @return The characteristic function configured with the provided list of
-#'   players and estate value that returns remaining value for players (S)
+#'   players and estate value that returns remaining value for players (S).
 #' @export
 #' @examples
 #' v <- bankruptcyGameForSampling(c(1, 2, 3), 4)

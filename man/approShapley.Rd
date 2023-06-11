@@ -7,14 +7,14 @@
 approShapley(n, m, v)
 }
 \arguments{
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{m}{integer: the number of samples}
+\item{m}{integer: The number of samples.}
 
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 }
 \value{
-A list of Shapley values of every player
+A list of Shapley values of every player.
 }
 \description{
 Approximates the Shapley value by using a simple Monte Carlo simulation.
@@ -22,7 +22,7 @@ Approximates the Shapley value by using a simple Monte Carlo simulation.
 \details{
 Appro Shapley is a sampling method, which samples permutations of the players.
 Note that it is possible that the provided sample size is not divisible by
-the number of players. In that case the remaining samples m %% n will not be
+the number of players. In that case the remaining samples \code{m \%\% n} will not be
 used. This preserves the efficiency (i.e. the sum of the result vector is 1)
 of the algorithm.
 Based on: "Polynomial calculation of the Shapley value based on sampling" (Javier Castro Et al., 2008)

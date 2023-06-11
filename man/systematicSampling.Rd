@@ -7,20 +7,20 @@
 systematicSampling(i, n, m, v)
 }
 \arguments{
-\item{i}{integer: the player i}
+\item{i}{integer: The player \code{i}.}
 
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{m}{integer or bigz: the number of samples}
+\item{m}{integer or bigz: the number of samples.}
 
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 }
 \value{
-The Banzhaf value of the specified player
+The Banzhaf value of the specified player.
 }
 \description{
 Systematic sampling is a method to estimate the Banzhaf-Owen
-  value for a specified TU game.
+value for a specified TU game.
 }
 \details{
 First, the algorithm systematically creates samples of players
@@ -30,6 +30,8 @@ player adds to all the samples.
 
 Based on the paper: "Statistics and game theory: Estimating coalitional
 values in R software" (A. Saavedra-Nieves, 2020) Algorithm 3
+
+This algorithm supports BigQ from GMP.
 }
 \examples{
 print(systematicSampling(1, 10, 200, gloveGameForSampling(1:5, 6:10)))

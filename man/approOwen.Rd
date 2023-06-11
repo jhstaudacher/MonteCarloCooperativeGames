@@ -7,16 +7,16 @@
 approOwen(n, m, v, P)
 }
 \arguments{
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{m}{integer or bigz: the number of samples}
+\item{m}{integer or bigz: the number of samples.}
 
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 
-\item{P}{list: a priori unions}
+\item{P}{list: A priori unions.}
 }
 \value{
-A list of Owen values of every player
+A list of Owen values of every player.
 }
 \description{
 Approximates the Owen value by using a simple Monte Carlo simulation.
@@ -25,6 +25,8 @@ Approximates the Owen value by using a simple Monte Carlo simulation.
 It is an adaptation of an analogous procedure
 for the estimation of the Shapley value and it is particularly useful when dealing with games having large sets of players.
 Based on: "Estimation of the Owen Value Based on Sampling" (Alejandro Saavedra-Nieve et al., 2018)
+
+This algorithm supports BigQ from GMP.
 }
 \examples{
 print(approOwen(3, 100, gloveGameForSampling(1:2, 3:3), list(c(1, 2), (3))))

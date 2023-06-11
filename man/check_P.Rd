@@ -2,18 +2,18 @@
 % Please edit documentation in R/checkCommonParameter.R
 \name{check_P}
 \alias{check_P}
-\title{Check parameter P}
+\title{Check parameter \code{P}}
 \usage{
 check_P(P)
 }
 \arguments{
-\item{P}{list: a priori unions}
+\item{P}{list: A priori unions.}
 }
 \value{
-Returns
+None
 }
 \description{
-Check parameter P for validity. Parameter P must not be NULL, must be a
+Check parameter \code{P} for validity. Parameter \code{P} must not be \code{NULL}, must be a
 list of vectors or a list of lists for the priori unions. The priori unions
 must be numeric and positive. Besides the priori unions has to be disjunct.
 }

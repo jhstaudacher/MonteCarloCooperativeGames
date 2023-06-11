@@ -1,1 +1,1 @@
-#' @param m integer or bigz: the number of samples
+#' @param m integer or bigz: the number of samples.

@@ -7,9 +7,9 @@
 twoStageStApproShapleyOptEstimateSamples(n, v, error, probability)
 }
 \arguments{
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 
 \item{error}{The error (difference between actual shapley value and estimated
 shapley value) we do not want to exceed.}

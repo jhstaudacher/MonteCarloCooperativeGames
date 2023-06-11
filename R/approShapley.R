@@ -5,7 +5,7 @@
 #' @details
 #' Appro Shapley is a sampling method, which samples permutations of the players.
 #' Note that it is possible that the provided sample size is not divisible by
-#' the number of players. In that case the remaining samples m %% n will not be
+#' the number of players. In that case the remaining samples ```m %% n``` will not be
 #' used. This preserves the efficiency (i.e. the sum of the result vector is 1)
 #' of the algorithm.
 #' Based on: "Polynomial calculation of the Shapley value based on sampling" (Javier Castro Et al., 2008)

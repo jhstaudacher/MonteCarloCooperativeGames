@@ -8,10 +8,10 @@ coalitionFromIndex(superset, index)
 }
 \arguments{
 \item{superset}{The superset from which to get a specific coalition described
-by the parameter index}
+by the parameter index.}
 
 \item{index}{Index describing the coalition/subset. Valid values are in the
-range from 1 to including 2^len(superset).}
+range from 1 to including \code{2^len(superset)}.}
 }
 \value{
 A coalition/subset from superset described by index

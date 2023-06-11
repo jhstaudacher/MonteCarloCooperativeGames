@@ -7,15 +7,15 @@
 fromICoalitionToCoalition(cardinality_n, iCoalition)
 }
 \arguments{
-\item{cardinality_n}{indicates the cardinality of the set of players N}
+\item{cardinality_n}{Indicates the cardinality of the set of players \code{N}.}
 
-\item{iCoalition}{indicates the index of the coalition. This value should be greater than or equal to 1 and less than or equal to 2^n}
+\item{iCoalition}{Indicates the index of the coalition. This value should be greater than or equal to 1 and less than or equal to \code{2^n}.}
 }
 \value{
-numeric binary vector, of dimension n, which each component i indicates the belonging of player i to the coalition
+Numeric binary vector, of dimension \code{n}, which each component \code{i} indicates the belonging of player \code{i} to the coalition.
 }
 \description{
-Access possible coalitions of players through index
+Access possible coalitions of players through index.
 }
 \details{
 Based on: "Statistics and game theory: Estimating coalitional values in R software" (Alejandro Saavedra-Nieves, 2020)

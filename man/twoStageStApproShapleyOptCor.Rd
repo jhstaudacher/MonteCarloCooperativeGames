@@ -7,21 +7,21 @@
 twoStageStApproShapleyOptCor(n, v, min_sample_size)
 }
 \arguments{
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 
 \item{min_sample_size}{The amount of samples that should be taken.
 Based on the variances of each stratum it is likely to happen, that more
-samples are used than specified in min_sample_size. These samples are proportionally
-adjusted-}
+samples are used than specified in \code{min_sample_size}. These samples are proportionally
+adjusted.}
 }
 \value{
-A list of Shapley values of every player
+A list of Shapley values of every player.
 }
 \description{
 Calculates the shapley value for each player with stratification and
-sample size per strata based on each stratums variance samples size adjusted
+sample size per strata based on each stratums variance samples size adjusted.
 }
 \details{
 twoStageStApproShapleyOptCor is a sampling procedure to estimate the Shapley value for cooperative games.

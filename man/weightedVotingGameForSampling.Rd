@@ -7,15 +7,15 @@
 weightedVotingGameForSampling(weights, quota)
 }
 \arguments{
-\item{weights}{The weights of the players}
+\item{weights}{The weights of the players.}
 
-\item{quota}{The required relative quota}
+\item{quota}{The required relative quota.}
 }
 \value{
-1 if sum of weighted votes >= quota; 0 otherwise
+Returns 1 if sum of weighted votes >= quota; otherwise 0
 }
 \description{
-Returns the characteristic function of a weighted voting game with the specified weights and quota
+Returns the characteristic function of a weighted voting game with the specified weights and quota.
 }
 \examples{
 v <- weightedVotingGameForSampling(c(1, 2, 3, 4, 5, 4, 3, 2, 1, 10), 1 / 2)

@@ -8,17 +8,17 @@ bankruptcyGameForSampling(d, E)
 }
 \arguments{
 \item{d}{The numeric vector which contains the claims of each player in a
-bankruptcy game}
+bankruptcy game.}
 
-\item{E}{The value of the estate in a bankruptcy game}
+\item{E}{The value of the estate in a bankruptcy game.}
 }
 \value{
 The characteristic function configured with the provided list of
-  players and estate value that returns remaining value for players (S)
+players and estate value that returns remaining value for players (S).
 }
 \description{
 Returns the characteristic function of a bankruptcy game with the
-  specified players and estate.
+specified players and estate.
 }
 \examples{
 v <- bankruptcyGameForSampling(c(1, 2, 3), 4)

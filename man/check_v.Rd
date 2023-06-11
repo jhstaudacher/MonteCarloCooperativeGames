@@ -7,16 +7,16 @@
 check_v(v)
 }
 \arguments{
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 }
 \value{
-Returns
+None
 
 example
 check_v(function(x)x)
 }
 \description{
-Check parameter v for validity. V must not be NULL and it has to be a function
+Check parameter \code{v} for validity. \code{v} must not be \code{NULL} and it has to be a function.
 }
 \author{
 Elias Wucher

@@ -11,7 +11,7 @@ geometry: margin=3.8cm
 papersize: A4
 vignette: >
   %\VignetteIndexEntry{UsingMonteCarloCooperativeGames}
-  %\VignetteEngine{rmarkdown::render}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 abstract: "TODO: Describe the package"
 header-includes:

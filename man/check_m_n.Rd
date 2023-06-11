@@ -2,22 +2,22 @@
 % Please edit documentation in R/checkCommonParameter.R
 \name{check_m_n}
 \alias{check_m_n}
-\title{Check parameters m and n}
+\title{Check parameters \code{m} and \code{n}}
 \usage{
 check_m_n(m, n, m_max = NULL)
 }
 \arguments{
-\item{m}{integer: the number of samples}
+\item{m}{integer: The number of samples.}
 
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
 \item{m_max}{Maximal value m can take}
 }
 \value{
-Returns NULL
+None
 }
 \description{
-Check parameters m and n for validity.
+Check parameters \code{m} and \code{n} for validity.
 }
 \author{
 Tim Pollmann

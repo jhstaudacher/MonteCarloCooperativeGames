@@ -1,1 +1,1 @@
-#' @param w integer: width of the confidence interval
+#' @param w integer: Width of the confidence interval.

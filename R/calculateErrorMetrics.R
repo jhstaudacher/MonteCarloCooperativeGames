@@ -3,19 +3,19 @@
 #' @description
 #' Calculates the following error metrics given the estimated shapley values
 #' and the actual shapley values:
-#'   - total_error (sum of absolute errors)
-#'   - mean_error (the mean of absolute errors)
-#'   - mean_squared_error (the mean of squared errors)
-#'   - root_mean_squared_error (the root of mean_squared_error)
-#'   - max_error (the absolute value of the maximum error)
-#'   - min_error (the absolute value of the minimal error)
-#'   - std_of_errors (the standard deviation of absolute errors)
+#' - total_error (sum of absolute errors)
+#' - mean_error (the mean of absolute errors)
+#' - mean_squared_error (the mean of squared errors)
+#' - root_mean_squared_error (the root of mean_squared_error)
+#' - max_error (the absolute value of the maximum error)
+#' - min_error (the absolute value of the minimal error)
+#' - std_of_errors (the standard deviation of absolute errors)
 #' @template author/DU
 #' @param estimated_shapley_values The estimated shapley values for each player
-#' in form of a vector
+#' in form of a vector.
 #' @param actual_shapley_values The actual shapley values for each player in
 #' form of a vector
-#' @return The error metrics in a list
+#' @return The error metrics in a list.
 #' @export
 #' @importFrom stats sd
 #' @examples

@@ -2,7 +2,7 @@
 #' @title Two Stage St Appro Shapley Opt
 #' @description
 #' Calculates the shapley value for each player with stratification and
-#' sample size per strata based on each stratums variance.
+#' sample size per strata based on each stratum's variance.
 #' @details
 #' Stratified:
 #' This function uses strata to calculate the shapley value. A stratum is
@@ -12,7 +12,7 @@
 #'
 #' Two Stages:
 #' The computation is split into two stages. The first stage gets a fixed amount
-#' of samples (min_sample_size * first_stage_size) which are distributed to each
+#' of samples (```min_sample_size * first_stage_size```) which are distributed to each
 #' stratum equally. While sampling for the first stage, the variance of each
 #' stratum is recorded next to the shapley value.
 #' In the second stage, the variances are used to calculate the amount of
@@ -25,7 +25,7 @@
 #' @template param/v
 #' @param min_sample_size The amount of samples that should be taken.
 #' Based on the variances of each stratum it is likely to happen, that more
-#' samples are used than specified in min_sample_size. The actual sample size
+#' samples are used than specified in ```min_sample_size```. The actual sample size
 #' depends on the problem.
 #' @param first_stage_size The amount of samples to use for the first stage as
 #' a ratio. Usually 0.5 (half of all samples).

@@ -1,1 +1,1 @@
-#' @returns A list of Shapley values of every player
+#' @returns A list of Shapley values of every player.

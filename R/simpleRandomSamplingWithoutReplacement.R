@@ -3,7 +3,7 @@
 #' @description Simple random sampling without replacement is a method to
 #' approximate the Banzhaf value for a specified TU game.
 #' @details First, the algorithm takes a sample without replacement of all
-#' players without the player i. Then the algorithm checks the value the player
+#' players without the player ```i```. Then the algorithm checks the value the player
 #' adds to the sample. These two steps are repeated for the number of samples.
 #'
 #' Based on the paper: "Statistics and game theory: Estimating coalitional

@@ -2,21 +2,21 @@
 % Please edit documentation in R/checkCommonParameter.R
 \name{check_P_i}
 \alias{check_P_i}
-\title{Check parameter P and i}
+\title{Check parameter \code{P} and \code{i}}
 \usage{
 check_P_i(P, i)
 }
 \arguments{
-\item{P}{list: a priori unions}
+\item{P}{list: A priori unions.}
 
-\item{i}{integer: the player i}
+\item{i}{integer: The player \code{i}.}
 }
 \value{
-Returns
+None
 }
 \description{
-Check parameter P and i for validity with the intended functions for that purpose.
-Additionally it checks if player i is element of a priori union in P
+Check parameter \code{P} and \code{i} for validity with the intended functions for that purpose.
+Additionally, check if player \code{i} is element of a priori union in \code{P}.
 }
 \author{
 Elias Wucher

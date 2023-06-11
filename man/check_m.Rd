@@ -2,22 +2,22 @@
 % Please edit documentation in R/checkCommonParameter.R
 \name{check_m}
 \alias{check_m}
-\title{Check parameter m}
+\title{Check parameter \code{m}}
 \usage{
 check_m(m, max_value = NULL, bigz_allowed = FALSE)
 }
 \arguments{
-\item{m}{integer: the number of samples}
+\item{m}{integer: The number of samples.}
 
-\item{max_value}{Maximal value m can take}
+\item{max_value}{Maximal value \code{m} can take.}
 
-\item{bigz_allowed}{Determine if big ints from gmp are allowed}
+\item{bigz_allowed}{Determine if big ints from \code{gmp} are allowed.}
 }
 \value{
-Returns NULL
+None
 }
 \description{
-Check parameter m for validity.
+Check parameter \code{m} for validity.
 }
 \author{
 Alexander Rießbeck

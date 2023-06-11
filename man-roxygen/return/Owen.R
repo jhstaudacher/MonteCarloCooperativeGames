@@ -1,1 +1,1 @@
-#' @returns A list of Owen values of every player
+#' @returns A list of Owen values of every player.

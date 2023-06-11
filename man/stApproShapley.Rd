@@ -7,16 +7,16 @@
 stApproShapley(i, n, v, m)
 }
 \arguments{
-\item{i}{integer: the player i}
+\item{i}{integer: The player \code{i}.}
 
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 
-\item{m}{integer: the number of samples}
+\item{m}{integer: The number of samples.}
 }
 \value{
-Estimated Shapley value of player i
+Estimated Shapley value of player \code{i}.
 }
 \description{
 Monte Carlo Simulation for calculating the Shapley value with stratification.
@@ -26,7 +26,7 @@ This function uses stratification to approximate the Shapley value. A stratum is
 created for the given player at each possible position.
 Note that it is possible that the provided sample size is not divisible by
 the number of positions the player can occur in. In that case the remaining samples
-m %% n will be randomly distributed over the strata, so some strata will have the
+m \%\% n will be randomly distributed over the strata, so some strata will have the
 sample size m / n and others the size m / n + 1.
 Based on the paper "Improving polynomial estimation of the Shapley value by
 stratified random sampling with optimum allocation" by Castro et al. from 2017.

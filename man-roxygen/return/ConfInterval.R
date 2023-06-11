@@ -1,1 +1,1 @@
-#' @return Confidence interval as a vector of size 2
+#' @return Confidence interval as a vector of size 2.

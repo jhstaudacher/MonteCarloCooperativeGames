@@ -1,1 +1,1 @@
-#' @return The Banzhaf value of the specified player
+#' @return The Banzhaf value of the specified player.

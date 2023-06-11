@@ -7,16 +7,16 @@
 simpleRandomSamplingWithoutReplacement(i, n, m, v)
 }
 \arguments{
-\item{i}{integer: the player i}
+\item{i}{integer: The player \code{i}.}
 
-\item{n}{integer: indicates the cardinality of the set of players N (The number of players).}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{m}{integer or bigz: the number of samples}
+\item{m}{integer or bigz: the number of samples.}
 
-\item{v}{function: the characteristic function.}
+\item{v}{function: The characteristic function.}
 }
 \value{
-The Banzhaf value of the specified player
+The Banzhaf value of the specified player.
 }
 \description{
 Simple random sampling without replacement is a method to
@@ -24,7 +24,7 @@ approximate the Banzhaf value for a specified TU game.
 }
 \details{
 First, the algorithm takes a sample without replacement of all
-players without the player i. Then the algorithm checks the value the player
+players without the player \code{i}. Then the algorithm checks the value the player
 adds to the sample. These two steps are repeated for the number of samples.
 
 Based on the paper: "Statistics and game theory: Estimating coalitional

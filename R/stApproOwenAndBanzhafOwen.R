@@ -1,15 +1,16 @@
 #' @name stApproOwenAndBanzhafOwen
-#' @title A stratified sampling procedure to estimate coalitional values
+#' @title A stratified sampling procedure to estimate coalitional values.
 #' @description stApproOwenAndBanzhafOwen is a sampling methodology to estimate coalitional values, in particular the
 #' Owen value and the Banzhaf–Owen value for a specified TU game with a system of a priori unions, based on stratified sampling.
 #' Offering two allocation procedures for the samples.
 #' @details
-#' The algorithm loops through a strata of k unions and h players.
-#' Firstly, the algorithm takes with replacement a sample of coalitions of size k composed by unions other than the
-#' one to which player i belongs. Secondly, for each element of the first sample, the algorithm takes with replacement a coalition
-#' of players in the union of player i other than player i itself. This sample is used to calculate the Owen and Banzhaf-Owen values.
-#' If propotional is set, the samples are allocated proportionally to the weight of the strata. Otherwise they are evenly distributed.
+#' The algorithm loops through a strata of ```k``` unions and ```h``` players.
+#' Firstly, the algorithm takes with replacement a sample of coalitions of size ```k``` composed by unions other than the
+#' one to which player ```i``` belongs. Secondly, for each element of the first sample, the algorithm takes with replacement a coalition
+#' of players in the union of player ```i``` other than player ```i``` itself. This sample is used to calculate the Owen and Banzhaf-Owen values.
+#' If ```proportional``` is set, the samples are allocated proportionally to the weight of the strata. Otherwise, they are evenly distributed.
 #' Based on: "On stratified sampling for estimating coalitional values" (A. Saavedra-Nieves, 2022)
+#' @template details/BigQSupport
 #' @template author/MS
 #' @template param/i
 #' @template param/mBigz
@@ -19,7 +20,7 @@
 #' @template cites/SAAVEDRA_NIEVES_ET_AL_2022
 #' @templateVar SAAVEDRA_NIEVES_ET_AL_2022_P pp. 5
 #' @import gmp
-#' @return approximation of the Banzaf-Owen value and Owen value based on stratified sampling
+#' @return Approximation of the Banzaf-Owen value and Owen value based on stratified sampling.
 #' @export
 #' @examples
 #' print(stApproOwenAndBanzhafOwen(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3))))

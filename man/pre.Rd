@@ -9,14 +9,14 @@ pre(O, i)
 \arguments{
 \item{O}{Order}
 
-\item{i}{integer: the player i}
+\item{i}{integer: The player \code{i}.}
 }
 \value{
-Vector of all predecessors of player i in order O
+Vector of all predecessors of player \code{i} in order \code{O}.
 }
 \description{
-Get predecessors of i in O
-Returns a vector of all predecessors of player i in order O
+Get predecessors of \code{i} in \code{O}.
+Returns a vector of all predecessors of player \code{i} in order \code{O}.
 }
 \author{
 Tim Pollmann

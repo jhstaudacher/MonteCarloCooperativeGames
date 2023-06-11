@@ -2,18 +2,18 @@
 % Please edit documentation in R/checkCommonParameter.R
 \name{check_conf}
 \alias{check_conf}
-\title{Check parameter conf}
+\title{Check parameter \code{conf}}
 \usage{
 check_conf(conf)
 }
 \arguments{
-\item{conf}{Confidence (probability) of the true (exact) value being in the interval}
+\item{conf}{Confidence (probability) of the true (exact) value being in the interval.}
 }
 \value{
-Returns NULL
+None
 }
 \description{
-Check parameter conf for validity.
+Check parameter \code{conf} for validity.
 }
 \author{
 Tim Pollmann

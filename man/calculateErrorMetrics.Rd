@@ -8,24 +8,26 @@ calculateErrorMetrics(estimated_shapley_values, actual_shapley_values)
 }
 \arguments{
 \item{estimated_shapley_values}{The estimated shapley values for each player
-in form of a vector}
+in form of a vector.}
 
 \item{actual_shapley_values}{The actual shapley values for each player in
 form of a vector}
 }
 \value{
-The error metrics in a list
+The error metrics in a list.
 }
 \description{
 Calculates the following error metrics given the estimated shapley values
 and the actual shapley values:
-  - total_error (sum of absolute errors)
-  - mean_error (the mean of absolute errors)
-  - mean_squared_error (the mean of squared errors)
-  - root_mean_squared_error (the root of mean_squared_error)
-  - max_error (the absolute value of the maximum error)
-  - min_error (the absolute value of the minimal error)
-  - std_of_errors (the standard deviation of absolute errors)
+\itemize{
+\item total_error (sum of absolute errors)
+\item mean_error (the mean of absolute errors)
+\item mean_squared_error (the mean of squared errors)
+\item root_mean_squared_error (the root of mean_squared_error)
+\item max_error (the absolute value of the maximum error)
+\item min_error (the absolute value of the minimal error)
+\item std_of_errors (the standard deviation of absolute errors)
+}
 }
 \examples{
 calculateErrorMetrics(c(0.4, 0.6, 0.55), c(0.5, 0.5, 0.5))
