@@ -9,9 +9,10 @@ twoStageApproBanzhafOwen(i, lr, ls, v, P)
 \arguments{
 \item{i}{integer: the player i}
 
-\item{lr}{number of samples of coalitions of unions}
+\item{lr}{number of samples of coalitions of unions; max of 2^(unions-1)}
 
-\item{ls}{number of samples of coalitions in Pi for each element of sample}
+\item{ls}{number of samples of coalitions in Pi for each element of sample;
+max of 2^(pi-1)}
 
 \item{v}{function: the characteristic function.}
 
