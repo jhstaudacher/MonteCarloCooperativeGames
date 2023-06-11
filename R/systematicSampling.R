@@ -31,26 +31,23 @@
 #' print(simpleRandomSamplingWithoutReplacement(1, 100, m, gloveGameForSampling(1:50, 51:100)))
 #' }
 systematicSampling <- function(i, n, m, v) {
+  using_bigz <- is.bigz(m)
+  
   check_n_i(n, i)
-  check_m(m, max_value = as.bigz(2)^(n - 1), bigz_allowed = TRUE)
+  check_m(m, max_value = as.bigz(2)^(n - 1), bigz_allowed = using_bigz)
   check_v(v)
 
   player_i <- i
   all_players <- 1:n
-  sampling_size <- as.bigz(m)
+  sampling_size <- m
   game <- v
 
-  banzhaf_value <- as.bigq(0)
+  if(using_bigz) banzhaf_value <- as.bigq(0) else banzhaf_value <- 0
   player_i_value <- all_players[player_i]
   players_without_i <- all_players[-player_i]
-  max_samples <- as.bigz(2)^(length(all_players) - 1)
-  increment <- floor(max_samples / sampling_size)
-
-  if (increment < .Machine$integer.max) {
-    starting_point <- sample(1:as.integer(increment), 1)
-  } else {
-    starting_point <- urand.bigz(1, as.integer(log2(increment)))
-  }
+  if(using_bigz) max_samples <- as.bigz(2)^(length(all_players) - 1) else max_samples <- 2^(length(all_players) - 1)
+  if(using_bigz) increment <- as.bigz(max_samples / sampling_size) else increment <- as.integer(max_samples / sampling_size)
+  if(using_bigz) starting_point <- urand.bigz(1, as.integer(log2(increment))) else starting_point <- sample.int(as.integer(increment), 1)
 
   index <- starting_point
   while (index < max_samples) {
@@ -60,5 +57,5 @@ systematicSampling <- function(i, n, m, v) {
   }
 
   banzhaf_value <- banzhaf_value / sampling_size
-  return(as.double(banzhaf_value))
+  return(banzhaf_value)
 }

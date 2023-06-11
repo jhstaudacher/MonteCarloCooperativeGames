@@ -11,8 +11,9 @@
 #' @template author/MS
 #' @template param/i
 #' @template param/v
-#' @param lr number of samples of coalitions of unions
-#' @param ls number of samples of coalitions in Pi for each element of sample
+#' @param lr number of samples of coalitions of unions; max of 2^(unions-1)
+#' @param ls number of samples of coalitions in Pi for each element of sample;
+#' max of 2^(pi-1)
 #' @template param/P
 #' @return approximation of the Banzaf-Owen value based on two-stage sampling
 #' @template cites/SAAVEDRA_NIEVES_ET_AL_2020
