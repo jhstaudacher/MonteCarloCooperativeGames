@@ -33,9 +33,11 @@ This gap multiply with the factor is than added to the second value for each pla
 }
 \examples{
 # sample a glove Game with 100 players (|L|=50 => |R|=50)
+\donttest{
 L <- 1:50
 R <- 51:100
 Sh <- twoStageApproShapleyEff(100, gloveGameForSampling(L, R), 10000, 100000)
+}
 }
 \references{
 CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp:183
