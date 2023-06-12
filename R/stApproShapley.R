@@ -3,14 +3,18 @@
 #' @description
 #' Monte Carlo Simulation for calculating the Shapley value with stratification.
 #' @details
-#' This function uses stratification to approximate the Shapley value. A stratum is
-#' created for the given player at each possible position.
+#' This function uses stratification to approximate the Shapley value. A stratum
+#' is created for the given player at each possible position. In each of these
+#' strata there will be m / n (or m / n + 1) sampled orders. In each of these
+#' orders the marginal contribution of each player in the current order will be
+#' calculated to estimate the real Shapley value.
 #' Note that it is possible that the provided sample size is not divisible by
-#' the number of positions the player can occur in. In that case the remaining samples
-#' m %% n will be randomly distributed over the strata, so some strata will have the
-#' sample size m / n and others the size m / n + 1.
+#' the number of positions the player can occur in. In that case the remaining
+#' samples m %% n will be randomly distributed over the strata, so some strata
+#' will have the sample size m / n and others the size m / n + 1.
 #' Based on the paper "Improving polynomial estimation of the Shapley value by
-#' stratified random sampling with optimum allocation" by Castro et al. from 2017.
+#' stratified random sampling with optimum allocation" by Castro et al. from
+#' 2017.
 #' @template author/TP
 #' @template param/i
 #' @template param/n
@@ -37,7 +41,7 @@
 stApproShapley <- function(i, n, v, m) {
   check_n_i(n, i)
   check_v(v)
-  check_positive_number(m)
+  check_m(m)
 
   # accumulated marginal contribution of player i over all positions l
   sh_sum <- 0
