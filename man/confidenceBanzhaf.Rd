@@ -13,9 +13,9 @@ confidenceBanzhaf(i, n, v, conf, w)
 
 \item{v}{function: The characteristic function.}
 
-\item{conf}{Confidence (probability) of the true (exact) value being in the interval.}
+\item{conf}{numeric: Confidence (probability) of the true (exact) value being in the provided interval.}
 
-\item{w}{integer: Width of the confidence interval.}
+\item{w}{numeric: Width of the confidence interval.}
 }
 \value{
 Confidence interval as a vector of size 2.
