@@ -1,18 +1,19 @@
 #' @name confidenceShapleyShubik
 #' @title Confidence Shapley Shubik
 #' @description
-#' Monte Carlo Simulation for calculating the Shapley-Shubik power index in a simple game.
+#' Monte Carlo Simulation for approximating the Shapley-Shubik power index in a
+#' simple game.
 #' @details
-#' This function calculates an approximation of the Shapley-Shubik value.
-#' You do not have to provide a sample size. The needed sample size is calculated
-#' inside the function based on the given confidence and interval width.
-#' The interval width is the width of the interval of the approximated Shapley-Shubik value
-#' (accuracy) while the confidence is the probability of the true (exact) Shapley-Shubik
-#' value being in this interval. Decreasing the interval width and/ or increasing
-#' the confidence will lead to an increase of the required samples and a longer
-#' computation time.
-#' The method is based on the paper "Approximating power indices: theoretical an
-#' empirical analysis" by Bachrach et al. from 2010.
+#' This function calculates an approximation of the Shapley-Shubik value. You do
+#' not have to provide a sample size. The needed sample size is calculated
+#' inside the function based on the given confidence and interval width. The
+#' interval width is the width of the interval of the approximated
+#' Shapley-Shubik value (accuracy) while the confidence is the probability of
+#' the true (exact) Shapley-Shubik value being in this interval. Decreasing the
+#' interval width and/ or increasing the confidence will lead to an increase of
+#' the required samples and a longer computation time.
+#' The method is based on the paper "Approximating power indices: theoretical
+#' and empirical analysis" by Bachrach et al. from 2010.
 #' @template author/TP
 #' @template param/i
 #' @template param/n
