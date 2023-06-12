@@ -67,3 +67,67 @@ approShapley <- function(n, m, v) {
 
   Sh
 }
+
+# calcSampleSize <- function(v, n, err, alpha) {
+# x_i_max <- v(c(1:n))
+# x_i_min <- v(c())
+# x_i_mean <- (x_i_max + x_i_min) / 2
+# var <- ((x_i_max - x_i_min)^2) / 4
+
+#  z <- qnorm(1 - alpha / 2)
+
+# m <- ceiling(z^2 * var / err^2)
+# m
+# }
+
+calcErr <- function(v, n, m, alpha) {
+  x_i_max <- v(c(1:n))
+  x_i_min <- v(c())
+  x_i_mean <- (x_i_max + x_i_min) / 2
+  var <- ((x_i_max - x_i_min)^2) / 4
+  print(var)
+
+  z <- -qnorm(alpha / 2)
+
+  e <- sqrt(z^2 * var / m)
+  e
+}
+
+testErrAppro <- function(airport = TRUE) {
+  if (airport) {
+    # 4.3
+    costs <- buildAirportCostVector(list(
+      c(1, 8), c(2, 12), c(3, 6), c(4, 14), c(5, 8), c(6, 9),
+      c(7, 13), c(8, 10), c(9, 10), c(10, 10)
+    ))
+    v <- airportGameForSampling(costs)
+    n <- length(costs)
+  } else {
+    # 4.2
+    weights <- c(45, 41, 27, 26, 26, 25, 21, 17, 17, 14, 13, 13, 12, 12, 12, 11, 10, 10, 10, 10, 9, 9, 9, 9, 8, 8, 7, 7, 7, 7, 6, 6, 6, 6, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4)
+    v <- weightedVotingGameForSampling(weights, 0.5)
+    n <- length(weights)
+  }
+
+  alpha <- 0.01
+
+  if (airport) {
+    # 4.3
+    e_ths <- c(0.31, 0.098, 0.031, 0.0098)
+  } else {
+    # 4.2
+    e_ths <- c(0.0475, 0.015, 0.00475, 0.0015)
+  }
+
+  for (i in 1:4) {
+    e_th_calc <- calcErr(v, n, 10^(i + 2), alpha)
+    factor <- e_th_calc / e_ths[i]
+    print(paste("samples=", 10^(i + 2), ", e_th_calc=", e_th_calc, ", e_th=", e_ths[i], ", factor=", factor, sep = ""))
+  }
+
+  # for (i in 1:4) {
+  #  m_real <- calcSampleSize(v, n, e_ths[i], alpha)
+  # factor <- m_real / (10^(i+2))
+  # print(factor)
+  # }
+}
