@@ -15,11 +15,12 @@
 #' Based on the paper "Improving polynomial estimation of the Shapley value by
 #' stratified random sampling with optimum allocation" by Castro et al. from
 #' 2017.
+#' @template details/BigQSupport
 #' @template author/TP
 #' @template param/i
 #' @template param/n
 #' @template param/v
-#' @template param/m
+#' @template param/mBigz
 #' @template return/Sh_i
 #' @template cites/CASTRO_ET_AL_2017
 #' @templateVar CASTRO_ET_AL_2017_P pp. 5
@@ -41,24 +42,26 @@
 stApproShapley <- function(i, n, v, m) {
   check_n_i(n, i)
   check_v(v)
-  check_m(m)
+  check_m(m, bigz_allowed = TRUE)
 
   # accumulated marginal contribution of player i over all positions l
-  sh_sum <- 0
-  # player  set
+  sh_sum <- if (is.bigz(m)) as.bigq(0.0) else 0.0
+  # player set
   N <- 1:n
   # sample size of player i in position l
-  m_il <- m / n
-  m_il_rest <- sample(c(rep(1, m %% n), rep(0, n - m %% n)))
+  m_il <- if (is.bigz(m)) as.bigz(m / n) else as.integer(m / n)
+  m_il_rest <- sample(c(rep(1, as.integer(m %% n)), rep(0, n - as.integer(m %% n))))
 
   # for every position l in which player i occurs
   for (l in N) {
     # accumulated marginal contribution of player i in position l
-    x_il <- 0
+    x_il <- if (is.bigz(m)) as.bigq(0.0) else 0.0
     m_il_corr <- m_il + m_il_rest[l]
 
     # sample m_il_corr times and calculate each marginal contribution
-    for (idx in 1:m_il_corr) {
+    count <- if (is.bigz(m)) as.bigz(0) else 0
+    while (count < m_il_corr) {
+      count <- count + 1
       S <- sample(N[N != i], size = l - 1)
       x_il <- x_il + (v(append(S, i)) - v(S))
     }
@@ -66,7 +69,6 @@ stApproShapley <- function(i, n, v, m) {
     # add average marginal contribution of player i in position l
     sh_sum <- sh_sum + x_il / m_il_corr
   }
-
   # calculate average marginal contribution of player i
   sh_sum / n
 }

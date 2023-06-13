@@ -13,7 +13,7 @@ stApproShapley(i, n, v, m)
 
 \item{v}{function: The characteristic function.}
 
-\item{m}{integer: The number of samples.}
+\item{m}{integer or bigz: the number of samples.}
 }
 \value{
 Estimated Shapley value of player \code{i}.
@@ -34,6 +34,8 @@ will have the sample size m / n and others the size m / n + 1.
 Based on the paper "Improving polynomial estimation of the Shapley value by
 stratified random sampling with optimum allocation" by Castro et al. from
 2017.
+
+This algorithm supports BigQ from GMP.
 }
 \examples{
 stApproShapley(1, 10, gloveGameForSampling(1:5, 6:10), 1000)
