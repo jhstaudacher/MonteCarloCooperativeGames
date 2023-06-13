@@ -34,6 +34,12 @@ This algorithm supports BigQ from GMP.
 }
 \examples{
 print(simpleRandomSamplingWithReplacement(1, 10, 200, gloveGameForSampling(1:5, 6:10)))
+# --------------
+\dontrun{
+# very long runtime
+m <- as.bigz(.Machine$integer.max) + 1
+print(simpleRandomSamplingWithReplacement(1, 100, m, gloveGameForSampling(1:50, 51:100)))
+}
 }
 \references{
 Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 131

@@ -4,14 +4,16 @@
 \alias{check_m_n}
 \title{Check parameters \code{m} and \code{n}}
 \usage{
-check_m_n(m, n, m_max = NULL)
+check_m_n(m, n, m_max = NULL, bigz_allowed = FALSE)
 }
 \arguments{
 \item{m}{integer: The number of samples.}
 
 \item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
-\item{m_max}{Maximal value m can take}
+\item{m_max}{Maximal value \code{m} can take.}
+
+\item{bigz_allowed}{Determines if bigz are allowed.}
 }
 \value{
 None

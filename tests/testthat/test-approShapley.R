@@ -9,6 +9,8 @@ test_that("m %% n != 0", {
 })
 
 test_that("n == 1", {
-  result <- approShapley(1, 5, weightedVotingGameForSampling(c(1), 0.5))
+
+  # This test can only use 1 sample because, there is only one player -> one permutation/order
+  result <- approShapley(1, 1, weightedVotingGameForSampling(c(1), 0.5))
   expect_equal(sum(result), 1)
 })

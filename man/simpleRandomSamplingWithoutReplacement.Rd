@@ -32,12 +32,6 @@ values in R software" (A. Saavedra-Nieves, 2020) Algorithm 2
 }
 \examples{
 print(simpleRandomSamplingWithoutReplacement(1, 10, 200, gloveGameForSampling(1:5, 6:10)))
-# --------------
-\dontrun{
-# very long runtime
-m <- as.bigz(.Machine$integer.max) + 1
-print(simpleRandomSamplingWithoutReplacement(1, 100, m, gloveGameForSampling(1:50, 51:100)))
-}
 }
 \references{
 Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 131

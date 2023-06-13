@@ -207,7 +207,8 @@ check_m <- function(m, max_value = NULL, bigz_allowed = FALSE) {
 #' @template author/TP
 #' @template param/m
 #' @template param/n
-#' @param m_max Maximal value m can take
+#' @param m_max Maximal value ```m``` can take.
+#' @param bigz_allowed Determines if bigz are allowed.
 #' @return None
 check_m_n <- function(m, n, m_max = NULL, bigz_allowed = FALSE) {
   check_m(m, m_max, bigz_allowed)
