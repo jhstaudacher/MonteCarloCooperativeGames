@@ -36,7 +36,9 @@ simpleRandomSamplingWithoutReplacement <- function(i, n, m, v) {
   players_without_i <- all_players[-player_i]
   random_numbers <- sample.int(2^(length(players_without_i)), sampling_size, replace = FALSE)
 
-  for (j in 1:sampling_size) {
+  j <- 0
+  while (j < sampling_size) {
+    j <- j + 1
     sample <- coalitionFromIndex(players_without_i, random_numbers[j])
     banzhaf_value <- banzhaf_value + game(append(sample, player_i_value)) - game(sample)
   }
