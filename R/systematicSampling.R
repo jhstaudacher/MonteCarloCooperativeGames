@@ -37,6 +37,9 @@ systematicSampling <- function(i, n, m, v) {
   check_m(m, max_value = as.bigz(2)^(n - 1), bigz_allowed = using_bigz)
   check_v(v)
 
+  if(30 < n & !using_bigz)
+    stop("m must be bigz if n is more than 30")
+
   player_i <- i
   all_players <- 1:n
   sampling_size <- m
