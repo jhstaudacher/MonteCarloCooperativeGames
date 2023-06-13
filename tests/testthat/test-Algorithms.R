@@ -69,16 +69,23 @@ test_that("confidenceBanzhaf", {
   print("---------------------------------------------")
   print("10% (18) should fail on average.")
   tolerance <- 0.01
+  result <- c()
   for (i in 1:188) {
-    c <- confidenceBanzhaf(180, 188, v, 0.90, tolerance)
-
+    c <- confidenceBanzhaf(i, 188, v, 0.90, tolerance)
     middle <- (c[1] + c[2]) / 2
 
     if (with_prints) {
-      print(paste("i: ", format(i, digits = 3), "Calculated Interval: min: ", format(c[1], nsmall = 17, scientific = FALSE), " max: ", format(c[2], nsmall = 17, scientific = FALSE), "Avg: ", format(middle, nsmall = 17, scientific = FALSE), " Expected: ", format(exact_banz[i], nsmall = 17, scientific = FALSE), "Abs Difference: ", format(abs(middle - exact_banz[i]), nsmall = 17, scientific = FALSE)))
+      print(paste("i: ", format(i, digits = 3), "Calculated Interval: min: ", format(c[1], nsmall = 17, scientific = FALSE), " max: ", format(c[2], nsmall = 17, scientific = FALSE), "Avg: ", format(middle, nsmall = 17, scientific = FALSE)))
     }
+
+    result <- append(result, middle)
+  }
+
+  result <- result / sum(result)
+
+  for (i in 1:188) {
     if (with_expects) {
-      expect_equal(middle, exact_banz[i], tolerance = tolerance)
+      expect_equal(result[i], exact_banz[i], tolerance = tolerance)
     }
   }
 })
