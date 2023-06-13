@@ -23,6 +23,12 @@
 #' @export
 #' @examples
 #' print(simpleRandomSamplingWithReplacement(1, 10, 200, gloveGameForSampling(1:5, 6:10)))
+#' # --------------
+#' \dontrun{
+#' # very long runtime
+#' m <- as.bigz(.Machine$integer.max) + 1
+#' print(simpleRandomSamplingWithReplacement(1, 100, m, gloveGameForSampling(1:50, 51:100)))
+#' }
 simpleRandomSamplingWithReplacement <- function(i, n, m, v) {
   using_bigz <- is.bigz(m)
 
