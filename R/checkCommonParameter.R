@@ -209,8 +209,8 @@ check_m <- function(m, max_value = NULL, bigz_allowed = FALSE) {
 #' @template param/n
 #' @param m_max Maximal value m can take
 #' @return None
-check_m_n <- function(m, n, m_max = NULL) {
-  check_m(m, m_max)
+check_m_n <- function(m, n, m_max = NULL, bigz_allowed = FALSE) {
+  check_m(m, m_max, bigz_allowed)
   check_positive_number(n)
 
   if (m < n) {
@@ -218,7 +218,7 @@ check_m_n <- function(m, n, m_max = NULL) {
     stop(msg)
   }
 
-  if (m %% n) {
+  if ((m %% n) > 0) {
     msg <- paste("You provided a sample size of m=", m, ", but m is not divisible by n=", n, ". To preserve the efficiency (i.e. the sum of the result vector is 1) the remaining ", m %% n, " samples will not be used.", sep = "")
     warning(msg)
   }

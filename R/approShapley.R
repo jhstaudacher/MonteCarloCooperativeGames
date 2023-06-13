@@ -36,25 +36,41 @@
 #' Sh <- approShapley(length(costs), 1000000, v)
 #' }
 approShapley <- function(n, m, v) {
-  check_m_n(m, n)
+  using_bigz <- is.bigz(m)
+
+  check_m_n(m, n, factorial(n), using_bigz)
   check_v(v)
 
   N <- 1:n
 
-  # list that will be used to store the Shapley values for each player
-  Sh <- rep(0, n)
-  m_O <- as.integer(m / n)
+  # First it is checked if a bigz is used. Than the follow variables are initialized with the right type.
+  # Sh: create list that will be used to store the Shapley values for each player
+  # m_O: with one sample a value is calculated for all players, so the sample size can be divided by n
+  # idx_m: counter for the samples
+  if (using_bigz) {
+    Sh <- rep(as.bigz(0), n)
+    m_O <- as.bigz(m / n)
+    idx_m <- as.bigz(0)
+  }
+  else {
+    Sh <- rep(0, n)
+    m_O <- as.integer(m / n)
+    idx_m <- 0
+  }
 
-  # The number m (number of samples) is divided by the player count because in
-  # the inner loop each player is sampled
-  for (x in 1:m_O) {
+  # Calculate the Shapley value
+  while (idx_m < m_O) {
     O <- sample(N)
 
-    for (idx in 1:n) {
-      sh_i <- v(take(O, idx)) - v(take(O, idx - 1))
-      i <- O[idx]
+    idx_n <- 1
+    while (idx_n <= n) {
+      sh_i <- v(take(O, idx_n)) - v(take(O, idx_n - 1))
+      i <- O[idx_n]
       Sh[i] <- Sh[i] + sh_i
+      idx_n = idx_n + 1
     }
+
+    idx_m <- idx_m + 1
   }
 
   Sh <- Sh / m_O
