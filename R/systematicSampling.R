@@ -32,7 +32,7 @@
 #' }
 systematicSampling <- function(i, n, m, v) {
   using_bigz <- is.bigz(m)
-  
+
   check_n_i(n, i)
   check_m(m, max_value = as.bigz(2)^(n - 1), bigz_allowed = using_bigz)
   check_v(v)
@@ -45,7 +45,7 @@ systematicSampling <- function(i, n, m, v) {
   if(using_bigz) banzhaf_value <- as.bigq(0) else banzhaf_value <- 0
   player_i_value <- all_players[player_i]
   players_without_i <- all_players[-player_i]
-  if(using_bigz) max_samples <- as.bigz(2)^(length(all_players) - 1) else max_samples <- 2^(length(all_players) - 1)
+  if(using_bigz) max_samples <- as.bigz(2)^(length(players_without_i)) else max_samples <- 2^(length(players_without_i))
   if(using_bigz) increment <- as.bigz(max_samples / sampling_size) else increment <- as.integer(max_samples / sampling_size)
   if(using_bigz) starting_point <- urand.bigz(1, as.integer(log2(increment))) else starting_point <- sample.int(as.integer(increment), 1)
 
