@@ -50,20 +50,20 @@ check_positive_number <- function(parameter) {
 }
 
 
-#' @name check_positive_integer
-#' @title Check if the parameter is an integer and positive.
+#' @name check_natural_number
+#' @title Check if the parameter is an natural number.
 #' @description
-#' Checks if the value of the parameter is an integer and positive. Note: The
+#' Checks if the value of the parameter is an natural number. Note: The
 #' datatype will not be checked. It will only be checked if the value of the
-#' parameter is an integer.
+#' parameter is greater than 0 and not a point number.
 #' @template author/TP
 #' @param parameter Parameter to check
 #' @return None
-check_positive_integer <- function(parameter) {
+check_natural_number <- function(parameter) {
   check_positive_number(parameter)
 
   if (parameter %% 1 != 0) {
-    stop("parameter must be an integer")
+    stop("parameter must be an natural number")
   }
 }
 
@@ -80,8 +80,8 @@ check_positive_integer <- function(parameter) {
 #' @template param/i
 #' @return None
 check_n_i <- function(n, i) {
-  check_positive_integer(n)
-  check_positive_integer(i)
+  check_natural_number(n)
+  check_natural_number(i)
 
   if (n <= 0) {
     stop("n must be at least 1")
@@ -150,7 +150,7 @@ check_P <- function(P) {
 #' @return None
 check_P_i <- function(P, i) {
   check_P(P)
-  check_positive_integer(i)
+  check_natural_number(i)
 
   if (i %in% unlist(P) == FALSE) {
     stop("i isn't in a priori unions")
@@ -209,7 +209,7 @@ check_m <- function(m, max_value = NULL, bigz_allowed = FALSE) {
   }
 
   if (m %% 1 != 0) {
-    stop("parameter must be an integer")
+    stop("m must be an natural number")
   }
 
   if (!is.null(max_value)) {
@@ -231,7 +231,7 @@ check_m <- function(m, max_value = NULL, bigz_allowed = FALSE) {
 #' @return None
 check_m_n <- function(m, n, m_max = NULL, bigz_allowed = FALSE) {
   check_m(m, m_max, bigz_allowed)
-  check_positive_integer(n)
+  check_natural_number(n)
 
   if (m < n) {
     msg <- paste("You provided a sample size of m=", m, ", but m is less than n=", n, ". To guarantee that every player gets at least one sample you need to provide a higher sample size m.", sep = "")
