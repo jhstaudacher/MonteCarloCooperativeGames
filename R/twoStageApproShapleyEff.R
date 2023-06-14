@@ -28,10 +28,10 @@
 #' Sh <- twoStageApproShapleyEff(100, gloveGameForSampling(L, R), 10000, 100000)
 #' }
 twoStageApproShapleyEff <- function(n, v, sample_size_eff, sample_size_opt) {
-  check_positive_number(n)
+  check_positive_integer(n)
   check_v(v)
-  check_positive_number(sample_size_eff)
-  check_positive_number(sample_size_opt)
+  check_m(sample_size_eff)
+  check_m(sample_size_opt)
 
   # calculate the common shapley value
   sh_eff <- approShapley(n, sample_size_eff, v)

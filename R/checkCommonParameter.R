@@ -50,7 +50,22 @@ check_positive_number <- function(parameter) {
 }
 
 
+#' @name check_positive_integer
+#' @title Check if the parameter is an integer and positive.
+#' @description
+#' Checks if the value of the parameter is an integer and positive. Note: The
+#' datatype will not be checked. It will only be checked if the value of the
+#' parameter is an integer.
+#' @template author/TP
+#' @param parameter Parameter to check
+#' @return None
+check_positive_integer <- function(parameter) {
+  check_positive_number(parameter)
 
+  if (parameter %% 1 != 0) {
+    stop("parameter must be an integer")
+  }
+}
 
 
 #' @name check_n_i
@@ -65,8 +80,8 @@ check_positive_number <- function(parameter) {
 #' @template param/i
 #' @return None
 check_n_i <- function(n, i) {
-  check_positive_number(n)
-  check_positive_number(i)
+  check_positive_integer(n)
+  check_positive_integer(i)
 
   if (n <= 0) {
     stop("n must be at least 1")
@@ -135,7 +150,7 @@ check_P <- function(P) {
 #' @return None
 check_P_i <- function(P, i) {
   check_P(P)
-  check_positive_number(i)
+  check_positive_integer(i)
 
   if (i %in% unlist(P) == FALSE) {
     stop("i isn't in a priori unions")
@@ -193,6 +208,10 @@ check_m <- function(m, max_value = NULL, bigz_allowed = FALSE) {
     stop("m must be at least 1")
   }
 
+  if (m %% 1 != 0) {
+    stop("parameter must be an integer")
+  }
+
   if (!is.null(max_value)) {
     if (max_value < m) {
       stop("m cannot be greater than ", max_value)
@@ -212,7 +231,7 @@ check_m <- function(m, max_value = NULL, bigz_allowed = FALSE) {
 #' @return None
 check_m_n <- function(m, n, m_max = NULL, bigz_allowed = FALSE) {
   check_m(m, m_max, bigz_allowed)
-  check_positive_number(n)
+  check_positive_integer(n)
 
   if (m < n) {
     msg <- paste("You provided a sample size of m=", m, ", but m is less than n=", n, ". To guarantee that every player gets at least one sample you need to provide a higher sample size m.", sep = "")

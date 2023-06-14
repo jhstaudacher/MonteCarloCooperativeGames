@@ -36,7 +36,7 @@
 twoStageStApproShapleyOptCor <- function(n, v, min_sample_size) {
   check_v(v)
   check_m(min_sample_size)
-  check_positive_number(n)
+  check_positive_integer(n)
 
   N <- 1:n
   m <- min_sample_size
