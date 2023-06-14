@@ -36,22 +36,23 @@ simpleRandomSamplingWithReplacement <- function(i, n, m, v) {
   check_m(m, max_value = as.bigz(2)^(n - 1), bigz_allowed = using_bigz)
   check_v(v)
 
-  if(30 < n & !using_bigz)
+  if (30 < n & !using_bigz) {
     stop("m must be bigz if n is more than 30")
+  }
 
   player_i <- i
   all_players <- 1:n
   sampling_size <- m
   game <- v
 
-  if(using_bigz) banzhaf_value <- as.bigq(0) else banzhaf_value <- 0
+  if (using_bigz) banzhaf_value <- as.bigq(0) else banzhaf_value <- 0
   player_i_value <- all_players[player_i]
   players_without_i <- all_players[-player_i]
 
-  if(using_bigz) j <- as.bigz(0) else j <- 0
+  if (using_bigz) j <- as.bigz(0) else j <- 0
   while (j < sampling_size) {
     j <- j + 1
-    if(using_bigz) random_nr <- urand.bigz(1, length(players_without_i)) else random_nr <- sample.int(2^length(players_without_i), 1)
+    if (using_bigz) random_nr <- urand.bigz(1, length(players_without_i)) else random_nr <- sample.int(2^length(players_without_i), 1)
     sample <- coalitionFromIndex(players_without_i, random_nr)
     banzhaf_value <- banzhaf_value + (game(c(sample, player_i_value)) - game(sample))
   }

@@ -51,8 +51,7 @@ approShapley <- function(n, m, v) {
     Sh <- rep(as.bigz(0), n)
     m_O <- as.bigz(m / n)
     idx_m <- as.bigz(0)
-  }
-  else {
+  } else {
     Sh <- rep(0, n)
     m_O <- as.integer(m / n)
     idx_m <- 0
@@ -67,7 +66,7 @@ approShapley <- function(n, m, v) {
       sh_i <- v(take(O, idx_n)) - v(take(O, idx_n - 1))
       i <- O[idx_n]
       Sh[i] <- Sh[i] + sh_i
-      idx_n = idx_n + 1
+      idx_n <- idx_n + 1
     }
 
     idx_m <- idx_m + 1
