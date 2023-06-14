@@ -28,7 +28,7 @@
 #' Sh <- twoStageApproShapleyEff(100, gloveGameForSampling(L, R), 10000, 100000)
 #' }
 twoStageApproShapleyEff <- function(n, v, sample_size_eff, sample_size_opt) {
-  check_positive_integer(n)
+  check_natural_number(n)
   check_v(v)
   check_m(sample_size_eff)
   check_m(sample_size_opt)
