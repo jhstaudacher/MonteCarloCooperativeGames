@@ -2,7 +2,7 @@
 % Please edit documentation in R/checkCommonParameter.R
 \name{check_v}
 \alias{check_v}
-\title{Check parameter v}
+\title{Check parameter \code{v}}
 \usage{
 check_v(v)
 }
@@ -11,9 +11,6 @@ check_v(v)
 }
 \value{
 None
-
-example
-check_v(function(x)x)
 }
 \description{
 Check parameter \code{v} for validity. \code{v} must not be \code{NULL} and it has to be a function.

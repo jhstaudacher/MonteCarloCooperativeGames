@@ -53,7 +53,7 @@ for (i in 1:length(costs)) {
 }
 }
 \references{
-CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 5
+CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 183
 }
 \author{
 Tim Pollmann

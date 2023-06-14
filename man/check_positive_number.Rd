@@ -7,7 +7,7 @@
 check_positive_number(parameter)
 }
 \arguments{
-\item{parameter}{Parameter to check}
+\item{parameter}{value to check}
 }
 \value{
 None

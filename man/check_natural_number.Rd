@@ -2,20 +2,20 @@
 % Please edit documentation in R/checkCommonParameter.R
 \name{check_natural_number}
 \alias{check_natural_number}
-\title{Check if the parameter is an natural number.}
+\title{Check if the parameter is a natural number.}
 \usage{
 check_natural_number(parameter)
 }
 \arguments{
-\item{parameter}{Parameter to check}
+\item{parameter}{value to check}
 }
 \value{
 None
 }
 \description{
-Checks if the value of the parameter is an natural number. Note: The
-datatype will not be checked. It will only be checked if the value of the
-parameter is greater than 0 and not a point number.
+Checks if the value of the parameter is a natural number. Note: The
+datatype will not be checked. It is will only checked if the value of the
+parameter is greater than 0 and not a decimal number.
 }
 \author{
 Tim Pollmann

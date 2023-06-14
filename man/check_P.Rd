@@ -15,7 +15,7 @@ None
 \description{
 Check parameter \code{P} for validity. Parameter \code{P} must not be \code{NULL}, must be a
 list of vectors or a list of lists for the priori unions. The priori unions
-must be numeric and positive. Besides the priori unions has to be disjunct.
+must be numeric and positive. Additionally, the priori unions have to be disjunct.
 }
 \author{
 Elias Wucher

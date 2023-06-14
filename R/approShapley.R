@@ -12,6 +12,7 @@
 #' is 1) of the algorithm.
 #' Based on: "Polynomial calculation of the Shapley value based on sampling"
 #' (Javier Castro Et al., 2008)
+#' @template details/BigQSupport
 #' @template author/JM
 #' @template author/DU
 #' @template author/TP

@@ -23,7 +23,7 @@
 #' @template param/mBigz
 #' @template return/Sh_i
 #' @template cites/CASTRO_ET_AL_2017
-#' @templateVar CASTRO_ET_AL_2017_P pp. 5
+#' @templateVar CASTRO_ET_AL_2017_P pp. 183
 #' @export
 #' @examples
 #' stApproShapley(1, 10, gloveGameForSampling(1:5, 6:10), 1000)

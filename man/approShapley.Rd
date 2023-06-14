@@ -29,6 +29,8 @@ not be used. This preserves the efficiency (i.e. the sum of the result vector
 is 1) of the algorithm.
 Based on: "Polynomial calculation of the Shapley value based on sampling"
 (Javier Castro Et al., 2008)
+
+This algorithm supports BigQ from GMP.
 }
 \examples{
 approShapley(10, 10000, gloveGameForSampling(1:5, 6:10))

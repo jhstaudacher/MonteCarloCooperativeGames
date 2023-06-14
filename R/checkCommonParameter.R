@@ -4,15 +4,15 @@
 
 
 #' @name check_v
-#' @title Check parameter v
+#' @title Check parameter ```v```
 #' @description
 #' Check parameter ```v``` for validity. ```v``` must not be ```NULL``` and it has to be a function.
 #' @template author/EW
 #' @template param/v
 #' @return None
-#'
-#' example
-#' check_v(function(x)x)
+#
+# example
+# check_v(function(x)x)
 check_v <- function(v) {
   if (is.null(v)) {
     stop("Function is NULL")
@@ -33,7 +33,7 @@ check_v <- function(v) {
 #' Check if the parameter is a number and positive. It can be used for the
 #' parameters ```n```, ```i```, ```m``` and ```w```.
 #' @template author/EW
-#' @param parameter Parameter to check
+#' @param parameter value to check
 #' @return None
 check_positive_number <- function(parameter) {
   if (is.null(parameter)) {
@@ -51,19 +51,19 @@ check_positive_number <- function(parameter) {
 
 
 #' @name check_natural_number
-#' @title Check if the parameter is an natural number.
+#' @title Check if the parameter is a natural number.
 #' @description
-#' Checks if the value of the parameter is an natural number. Note: The
-#' datatype will not be checked. It will only be checked if the value of the
-#' parameter is greater than 0 and not a point number.
+#' Checks if the value of the parameter is a natural number. Note: The
+#' datatype will not be checked. It is will only checked if the value of the
+#' parameter is greater than 0 and not a decimal number.
 #' @template author/TP
-#' @param parameter Parameter to check
+#' @param parameter value to check
 #' @return None
 check_natural_number <- function(parameter) {
   check_positive_number(parameter)
 
   if (parameter %% 1 != 0) {
-    stop("parameter must be an natural number")
+    stop("parameter must be a natural number")
   }
 }
 
@@ -103,7 +103,7 @@ check_n_i <- function(n, i) {
 #' @description
 #' Check parameter ```P``` for validity. Parameter ```P``` must not be ```NULL```, must be a
 #' list of vectors or a list of lists for the priori unions. The priori unions
-#' must be numeric and positive. Besides the priori unions has to be disjunct.
+#' must be numeric and positive. Additionally, the priori unions have to be disjunct.
 #' @template author/EW
 #' @template param/P
 #' @return None
@@ -115,7 +115,7 @@ check_P <- function(P) {
 
   # Check if it is a list
   if (!is.list(P)) {
-    stop("Priori unions must be a list")
+    stop("P must be a list")
   }
 
   # Check if the values of the priori unions are numeric and positive
@@ -209,7 +209,7 @@ check_m <- function(m, max_value = NULL, bigz_allowed = FALSE) {
   }
 
   if (m %% 1 != 0) {
-    stop("m must be an natural number")
+    stop("m must be a natural number")
   }
 
   if (!is.null(max_value)) {
