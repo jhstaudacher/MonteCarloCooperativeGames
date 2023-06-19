@@ -24,13 +24,13 @@ v(c(1:10))
 \author{
 Julian Musch
 
-Matthias Schöner
+Matthias SchÃ¶ner
 
 Tim Pollmann
 
 David Ulrich
 
-Alexander Rießbeck
+Alexander Riessbeck
 
 Robin Liebermann
 

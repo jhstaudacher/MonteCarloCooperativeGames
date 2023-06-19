@@ -37,7 +37,7 @@ print(simpleRandomSamplingWithoutReplacement(1, 10, 200, gloveGameForSampling(1:
 Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 131
 }
 \author{
-Alexander Rießbeck
+Alexander Riessbeck
 
 Robin Liebermann
 

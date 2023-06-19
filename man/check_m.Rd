@@ -20,5 +20,5 @@ None
 Check parameter \code{m} for validity.
 }
 \author{
-Alexander Rießbeck
+Alexander Riessbeck
 }

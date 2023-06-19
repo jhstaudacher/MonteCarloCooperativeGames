@@ -56,5 +56,5 @@ Tim Pollmann
 
 Elias Wucher
 
-Matthias Schöner
+Matthias SchÃ¶ner
 }

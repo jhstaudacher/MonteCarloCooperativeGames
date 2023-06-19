@@ -26,13 +26,13 @@ Julian Musch
 
 David Ulrich
 
-Matthias Schöner
+Matthias SchÃ¶ner
 
 Tim Pollmann
 
 Elias Wucher
 
-Alexander Rießbeck
+Alexander Riessbeck
 
 Robin Liebermann
 

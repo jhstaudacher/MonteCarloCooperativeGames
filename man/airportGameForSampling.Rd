@@ -23,7 +23,7 @@ v(c(1, 3, 6)) # returns 5
 \author{
 David Ulrich
 
-Alexander Rießbeck
+Alexander Riessbeck
 
 Robin Liebermann
 

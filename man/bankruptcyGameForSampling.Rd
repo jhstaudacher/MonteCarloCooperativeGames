@@ -25,7 +25,7 @@ v <- bankruptcyGameForSampling(c(1, 2, 3), 4)
 v(c(2, 3)) # returns 3
 }
 \author{
-Alexander Rießbeck
+Alexander Riessbeck
 
 Robin Liebermann
 

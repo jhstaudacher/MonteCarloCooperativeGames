@@ -48,5 +48,5 @@ print(twoStageStApproShapleyOptCor(3, gloveGameForSampling(1:2, 3:3), 1000))
 CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 182
 }
 \author{
-Matthias Schöner
+Matthias SchÃ¶ner
 }

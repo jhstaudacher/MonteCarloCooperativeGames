@@ -1,1 +1,1 @@
-#' @author Alexander Rießbeck
+#' @author Alexander Riessbeck

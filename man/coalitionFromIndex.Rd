@@ -20,9 +20,9 @@ A coalition/subset from superset described by index
 Gets the coalition/subset of superset described by index.
 }
 \author{
-Alexander Rießbeck
+Alexander Riessbeck
 
-Matthias Schöner
+Matthias SchÃ¶ner
 
 David Ulrich
 }
