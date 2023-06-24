@@ -37,10 +37,12 @@ twoStageStApproShapleyOptCor <- function(n, v, min_sample_size) {
   check_v(v)
   check_m(min_sample_size)
   check_natural_number(n)
+  if (min_sample_size < n * n * 2) {
+    stop("The provided min_sample_size results in a sample size per stratum which is smaller than one. Please increase the min_sample_size.")
+  }
 
   N <- 1:n
   m <- min_sample_size
-  totalSampleCount <- 0
   L <- 1:n
   Shes <- matrix(0, nrow = n, ncol = n)
   mst <- matrix(0, nrow = n, ncol = n)
@@ -54,21 +56,25 @@ twoStageStApproShapleyOptCor <- function(n, v, min_sample_size) {
         xOi <- v(take(order, l)) - v(take(order, l - 1))
         Shes[l, i] <- Shes[l, i] + xOi
         sum_cuad_l <- sum_cuad_l + xOi^2
-        totalSampleCount <- totalSampleCount + 1
       }
       # variances
-      sil <- (1 / (mExpIl - 1)) * (sum_cuad_l - (Shes[l, i]^2) / mExpIl)
+      sil <- (1 / max((mExpIl - 1), 1)) * (sum_cuad_l - (Shes[l, i]^2) / mExpIl)
       totalvar <- totalvar + sil
       mst[l, i] <- m * sil
     }
   }
-  mstst <- mst / totalvar - mExpIl
-  mststSumPostitves <- sum(mstst[mstst >= 0])
-  mststSumNegatives <- sum(mstst[mstst < 0])
-  correctionRatio <- (m / 2) / mststSumPostitves
-  mstst <- mstst * correctionRatio
-  mstst[mstst < 0] <- 0
-  mstst <- floor(mstst)
+  if (totalvar == 0) {
+    val <- min_sample_size / 2 / (n * n)
+    mstst <- matrix(val, nrow = n, ncol = n)
+  } else {
+    mstst <- mst / totalvar - mExpIl
+    mststSumPostitves <- sum(mstst[mstst >= 0])
+    mststSumNegatives <- sum(mstst[mstst < 0])
+    correctionRatio <- (m / 2) / mststSumPostitves
+    mstst <- mstst * correctionRatio
+    mstst[mstst < 0] <- 0
+    mstst <- floor(mstst)
+  }
   for (l in L) {
     for (i in N) {
       if (mstst[l, i] <= 1) next
@@ -76,7 +82,6 @@ twoStageStApproShapleyOptCor <- function(n, v, min_sample_size) {
         order <- c(sampleP(i, l, N))
         xOi <- v(take(order, l)) - v(take(order, l - 1))
         Shes[l, i] <- Shes[l, i] + xOi
-        totalSampleCount <- totalSampleCount + 1
       }
     }
   }
