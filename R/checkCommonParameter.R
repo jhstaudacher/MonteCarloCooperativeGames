@@ -239,7 +239,7 @@ check_m_n <- function(m, n, m_max = NULL, bigz_allowed = FALSE) {
   }
 
   if ((m %% n) > 0) {
-    msg <- paste("You provided a sample size of m=", m, ", but m is not divisible by n=", n, ". To preserve the efficiency (i.e. the sum of the result vector is 1) the remaining ", m %% n, " samples will not be used.", sep = "")
+    msg <- paste("You provided a sample size of m=", m, ", but m is not divisible by n=", n, ". To preserve the efficiency (i.e. the sum of the result vector is v(N)) the remaining ", m %% n, " samples will not be used.", sep = "")
     warning(msg)
   }
 }
