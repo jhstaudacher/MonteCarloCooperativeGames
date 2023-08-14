@@ -24,7 +24,7 @@ v(c(1:10))
 \author{
 Julian Musch
 
-Matthias SchÃ¶ner
+Matthias Schöner
 
 Tim Pollmann
 

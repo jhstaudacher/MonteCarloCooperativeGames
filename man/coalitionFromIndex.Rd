@@ -22,7 +22,7 @@ Gets the coalition/subset of superset described by index.
 \author{
 Alexander Riessbeck
 
-Matthias SchÃ¶ner
+Matthias Schöner
 
 David Ulrich
 }
