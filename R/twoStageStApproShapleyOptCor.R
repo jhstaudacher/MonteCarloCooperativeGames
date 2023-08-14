@@ -7,16 +7,14 @@
 #' twoStageStApproShapleyOptCor is a sampling procedure to estimate the Shapley value for cooperative games.
 #' In the first stage, the optimal allocation is calculated and executed in the second stage. It may occur that
 #' more samples would be used than specified. If this is the case, the algorithm adjusts the samples proportionally
-#' to the given sample size. The Algorithm twoStageStApproShapleyOptCor does not correct the sample size.
+#' to the given sample size. The algorithm twoStageStApproShapleyOpt does not correct the sample size.
 #' Modified according to: "Improving polynomial estimation of the Shapley value by stratified
 #' random sampling with optimum allocation" (J. Castro Et al., 2017)
 #' @template author/MS
+#' @template author/TP
 #' @template param/n
 #' @template param/v
-#' @param min_sample_size The amount of samples that should be taken.
-#' Based on the variances of each stratum it is likely to happen, that more
-#' samples are used than specified in ```min_sample_size```. These samples are proportionally
-#' adjusted.
+#' @template param/m
 #' @template return/Sh
 #' @template cites/CASTRO_ET_AL_2017
 #' @templateVar CASTRO_ET_AL_2017_P pp. 182
@@ -33,64 +31,59 @@
 #' print(Sh)
 #' }
 #' print(twoStageStApproShapleyOptCor(3, gloveGameForSampling(1:2, 3:3), 1000))
-twoStageStApproShapleyOptCor <- function(n, v, min_sample_size) {
+twoStageStApproShapleyOptCor <- function(n, v, m) {
   check_v(v)
-  check_m(min_sample_size)
+  check_m(m)
   check_natural_number(n)
-  if (min_sample_size < n * n * 2) {
+  if (m < 2 * n^2) {
     stop("The provided min_sample_size results in a sample size per stratum which is smaller than one. Please increase the min_sample_size.")
   }
 
   N <- 1:n
-  m <- min_sample_size
-  L <- 1:n
-  Shes <- matrix(0, nrow = n, ncol = n)
-  mst <- matrix(0, nrow = n, ncol = n)
-  totalvar <- 0
-  mExpIl <- m / (2 * (n^2))
-  for (l in L) {
-    for (i in N) {
-      sum_cuad_l <- 0
-      for (cont_l in 1:mExpIl) {
-        order <- c(sampleP(i, l, N))
-        xOi <- v(take(order, l)) - v(take(order, l - 1))
-        Shes[l, i] <- Shes[l, i] + xOi
-        sum_cuad_l <- sum_cuad_l + xOi^2
+  s_squared <- matrix(rep(0, n^2), nrow = n, ncol = n)
+  Sh <- matrix(rep(0, n^2), nrow = n, ncol = n)
+  m_exp <- matrix(rep(m %/% (2 * n^2), n^2), nrow = n, ncol = n)
+
+  for (i in 1:n) {
+    N_without_i <- N[N != i]
+    for (l in 1:n) {
+      sum_quad_l <- 0
+      j <- 0
+      while (j < m_exp[i, l]) {
+        j <- j + 1
+        S <- sample(N_without_i, size = l - 1)
+        x <- v(append(S, i)) - v(S)
+        Sh[i, l] <- Sh[i, l] + x
+        sum_quad_l <- sum_quad_l + x^2
       }
-      # variances
-      sil <- (1 / max((mExpIl - 1), 1)) * (sum_cuad_l - (Shes[l, i]^2) / mExpIl)
-      totalvar <- totalvar + sil
-      mst[l, i] <- m * sil
+      s_squared[i, l] <- (sum_quad_l - (Sh[i, l]^2 / m_exp[i, l])) / (m_exp[i, l] - 1)
     }
   }
-  if (totalvar == 0) {
-    val <- min_sample_size / 2 / (n * n)
-    mstst <- matrix(val, nrow = n, ncol = n)
-  } else {
-    mstst <- mst / totalvar - mExpIl
-    mststSumPostitves <- sum(mstst[mstst >= 0])
-    mststSumNegatives <- sum(mstst[mstst < 0])
-    correctionRatio <- (m / 2) / mststSumPostitves
-    mstst <- mstst * correctionRatio
-    mstst[mstst < 0] <- 0
-    mstst <- floor(mstst)
-  }
-  for (l in L) {
-    for (i in N) {
-      if (mstst[l, i] <= 1) next
-      for (cont_l in 1:mstst[l, i]) {
-        order <- c(sampleP(i, l, N))
-        xOi <- v(take(order, l)) - v(take(order, l - 1))
-        Shes[l, i] <- Shes[l, i] + xOi
+
+  # calculate samples for stage 2 and correct them, so they do not exceed n samples
+  m_il <- m * s_squared / sum(s_squared)
+  m_st <- m_il - m_exp
+  sum_negatives <- sum(m_st[m_st < 0])
+  m_st[m_st < 0] <- 0
+  m_st <- floor(m_st + m_st / sum(m_st) * sum_negatives)
+  m_remaining <- m - sum(m_exp) - sum(m_st)
+  corrVec <- sample(c(rep(1, m_remaining), rep(0, n^2 - m_remaining)))
+  m_st <- m_st + corrVec
+
+  for (i in 1:n) {
+    N_without_i <- N[N != i]
+    for (l in 1:n) {
+      j <- 0
+      while (j < m_st[i, l]) {
+        j <- j + 1
+        S <- sample(N_without_i, size = l - 1)
+        xOi <- v(append(S, i)) - v(S)
+        Sh[i, l] <- Sh[i, l] + xOi
       }
     }
   }
 
-  Shes <- Shes / (mstst + mExpIl)
-  Sh <- colSums(Shes) / n
-}
-
-sampleP <- function(i, l, N) {
-  sawithout <- sample(N[-i], l - 1)
-  return(append(sawithout, i, after = l - 1))
+  Sh <- Sh / (m_exp + m_st)
+  Sh <- rowMeans(Sh)
+  Sh
 }

@@ -4,17 +4,14 @@
 \alias{twoStageStApproShapleyOptCor}
 \title{Two Stage St Appro Shapley Opt Cor}
 \usage{
-twoStageStApproShapleyOptCor(n, v, min_sample_size)
+twoStageStApproShapleyOptCor(n, v, m)
 }
 \arguments{
 \item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
 \item{v}{function: The characteristic function.}
 
-\item{min_sample_size}{The amount of samples that should be taken.
-Based on the variances of each stratum it is likely to happen, that more
-samples are used than specified in \code{min_sample_size}. These samples are proportionally
-adjusted.}
+\item{m}{integer: The number of samples.}
 }
 \value{
 A list of Shapley values of every player.
@@ -27,7 +24,7 @@ sample size per strata based on each stratums variance samples size adjusted.
 twoStageStApproShapleyOptCor is a sampling procedure to estimate the Shapley value for cooperative games.
 In the first stage, the optimal allocation is calculated and executed in the second stage. It may occur that
 more samples would be used than specified. If this is the case, the algorithm adjusts the samples proportionally
-to the given sample size. The Algorithm twoStageStApproShapleyOptCor does not correct the sample size.
+to the given sample size. The algorithm twoStageStApproShapleyOpt does not correct the sample size.
 Modified according to: "Improving polynomial estimation of the Shapley value by stratified
 random sampling with optimum allocation" (J. Castro Et al., 2017)
 }
@@ -48,5 +45,7 @@ print(twoStageStApproShapleyOptCor(3, gloveGameForSampling(1:2, 3:3), 1000))
 CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 182
 }
 \author{
-Matthias SchÃ¶ner
+Matthias Schöner
+
+Tim Pollmann
 }
