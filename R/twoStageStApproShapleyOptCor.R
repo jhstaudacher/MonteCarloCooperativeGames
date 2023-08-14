@@ -35,8 +35,8 @@ twoStageStApproShapleyOptCor <- function(n, v, m) {
   check_v(v)
   check_m(m)
   check_natural_number(n)
-  if (m < 2 * n^2) {
-    stop("The provided min_sample_size results in a sample size per stratum which is smaller than one. Please increase the min_sample_size.")
+  if (m < 4 * n^2) {
+    stop("The provided sample size results is too small. Please increase the sample size to at least m = 4 * n^2")
   }
 
   N <- 1:n
