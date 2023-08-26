@@ -11,7 +11,7 @@ Authors@R: c(person("Jochen", "Staudacher", role = c("aut","cre", "cph"),
 			person("Mithunan", "Mehanathan", role = c("aut", "cph")),
 			person("Matthias", "Schöner", role = c("aut", "cph")),
 			person("Robin", "Liebermann", role = c("aut", "cph")),
-			person("Tim", "Pollman", role = c("aut", "cph")))
+			person("Tim", "Pollmann", role = c("aut", "cph")))
 Maintainer: Jochen Staudacher <jochen.staudacher@hs-kempten.de>
 Description: Monte Carlo Cooperative Games is a R package for simulating arbitrary cooperative games and 
     approximating the Shapley and related values of them.
