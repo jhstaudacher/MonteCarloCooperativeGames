@@ -38,5 +38,5 @@ print(twoStageApproBanzhafOwen(1, 2, 2, gloveGameForSampling(1:2, 3:3), list(c(1
 Saavedra-Nieves, A. et al. (2020) "Statistics and game theory: Estimating coalitional values in R software ", Operations Research Letters 49 pp. 208-221
 }
 \author{
-Matthias Schöner
+Matthias Schoener \href{https://orcid.org/0009-0003-4007-4362}{0009-0003-4007-4362}
 }

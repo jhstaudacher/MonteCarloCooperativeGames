@@ -47,5 +47,5 @@ print(stApproOwenAndBanzhafOwen(
 Saavedra-Nieves, A. et al. (2022) "On stratified sampling for estimating coalitional values", Annals of Operations Research 320 pp. 5
 }
 \author{
-Matthias Schöner
+Matthias Schoener \href{https://orcid.org/0009-0003-4007-4362}{0009-0003-4007-4362}
 }

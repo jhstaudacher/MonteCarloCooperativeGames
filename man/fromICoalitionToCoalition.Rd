@@ -21,5 +21,5 @@ Access possible coalitions of players through index.
 Based on: "Statistics and game theory: Estimating coalitional values in R software" (Alejandro Saavedra-Nieves, 2020)
 }
 \author{
-Matthias Schöner
+Matthias Schoener \href{https://orcid.org/0009-0003-4007-4362}{0009-0003-4007-4362}
 }

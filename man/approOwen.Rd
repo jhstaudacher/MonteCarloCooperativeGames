@@ -35,5 +35,5 @@ print(approOwen(3, 100, gloveGameForSampling(1:2, 3:3), list(c(1, 2), (3))))
 Alejandro Saavedra-Nieves, M. G.-J., Ignacio García-Jurado. (2018). Estimation of the Owen Value Basedon Sampling. In E. Gil, E. Gil, J. Gil, & M. Á. Gil (Eds.), The Mathematics of the Uncertain. doi:10.1007/978-3-319-73848-2
 }
 \author{
-Matthias Schöner
+Matthias Schoener \href{https://orcid.org/0009-0003-4007-4362}{0009-0003-4007-4362}
 }
