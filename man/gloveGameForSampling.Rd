@@ -28,7 +28,7 @@ David Ulrich
 
 Matthias Schoener \href{https://orcid.org/0009-0003-4007-4362}{0009-0003-4007-4362}
 
-Tim Pollmann
+Tim Pollmann \href{https://orcid.org/0009-0008-4627-7925}{0009-0008-4627-7925}
 
 Elias Wucher
 

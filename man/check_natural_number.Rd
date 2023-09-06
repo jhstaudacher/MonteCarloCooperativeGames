@@ -18,5 +18,5 @@ datatype will not be checked. It is will only checked if the value of the
 parameter is greater than 0 and not a decimal number.
 }
 \author{
-Tim Pollmann
+Tim Pollmann \href{https://orcid.org/0009-0008-4627-7925}{0009-0008-4627-7925}
 }

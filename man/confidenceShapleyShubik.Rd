@@ -51,5 +51,5 @@ for (i in 1:length(weights)) {
 Bachrach, Y. et al. (2010) "Approximating power indices: theoretical and empirical analysis", Auton Agent Multi-Agent Syst 20, pp. 105-122
 }
 \author{
-Tim Pollmann
+Tim Pollmann \href{https://orcid.org/0009-0008-4627-7925}{0009-0008-4627-7925}
 }

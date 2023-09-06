@@ -19,5 +19,5 @@ Get predecessors of \code{i} in \code{O}.
 Returns a vector of all predecessors of player \code{i} in order \code{O}.
 }
 \author{
-Tim Pollmann
+Tim Pollmann \href{https://orcid.org/0009-0008-4627-7925}{0009-0008-4627-7925}
 }
