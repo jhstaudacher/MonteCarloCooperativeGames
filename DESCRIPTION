@@ -2,16 +2,39 @@ Package: MonteCarloCooperativeGames
 Type: Package
 Title: Monte Carlo Simulations for Cooperative Games
 Version: 1.0.0
-Authors@R: c(person("Jochen", "Staudacher", role = c("aut","cre", "cph"),
-                     email = "jochen.staudacher@hs-kempten.de"),
-			person("Alexander", "Rießbeck", role = c("aut", "cph")),
-			person("David", "Ulrich", role = c("aut", "cph")),
-			person("Elias", "Wucher", role = c("aut", "cph")),
-			person("Julian", "Musch", role = c("aut", "cph")),
-			person("Mithunan", "Mehanathan", role = c("aut", "cph")),
-			person("Matthias", "Schöner", role = c("aut", "cph")),
-			person("Robin", "Liebermann", role = c("aut", "cph")),
-			person("Tim", "Pollmann", role = c("aut", "cph")))
+Authors@R: 
+    c(person(given = "Jochen",
+             family = "Staudacher",
+             role = c("aut", "cre", "cph"),
+             email = "jochen.staudacher@hs-kempten.de",
+             comment = c(ORCID = "0000-0002-0619-4606")),
+      person(given = "Robin",
+             family = "Liebermann",
+             role =  c("aut", "cph")),
+      person(given = "Mithunan",
+             family = "Mehanathan",
+             role =  c("aut", "cph")),
+      person(given = "Julian",
+             family = "Musch",
+             role =  c("aut", "cph")),
+      person(given = "Tim",
+	         family = "Pollmann",
+             role =  c("aut", "cph"),
+             comment =  c(ORCID ="0009-0008-4627-7925")),
+      person(given = "Alexander",
+             family = "Rießbeck",
+             role =  c("aut", "cph")),
+      person(given = "Matthias",
+             family = "Schöner",
+             role =  c("aut", "cph"),
+             comment = c(ORCID = "0009-0003-4007-4362")),
+      person(given = "Elias",
+             family = "Wucher",
+             role =  c("aut", "cph")),
+      person(given = "David",
+             family = "Ulrich",
+             role =  c("aut", "cph"))
+	)
 Maintainer: Jochen Staudacher <jochen.staudacher@hs-kempten.de>
 Description: Monte Carlo Cooperative Games is a R package for simulating arbitrary cooperative games and 
     approximating the Shapley and related values of them.
