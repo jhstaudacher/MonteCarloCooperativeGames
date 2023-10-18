@@ -1,7 +1,7 @@
 #' @name simpleRandomSamplingWithReplacementAntithetic
-#' @title A antithetic sampling procedure to estimate the Banzhaf value.
+#' @title A antithetic sampling procedure to estimate the Banzhaf value
 #' @description simpleRandomSamplingWithReplacementAntithetic is a sampling methodology to estimate the
-#' Banzhaf value for a specified player ```i``` and a specified TU game by antithetic sampling.
+#' Banzhaf value for a specified player ```i``` for a specified TU game by antithetic sampling.
 #' @details
 #' This algorithm approximates the Banzhaf value for a given player ```i``` by random
 #' antithetic sampling. It is based on "Statistics and game theory: Estimating coalitional
@@ -15,7 +15,6 @@
 #' @template param/v
 #' @template return/Bz_i
 #' @template cites/STAUDACHER_POLLMANN_2023
-#' @templateVar STAUDACHER_POLLMANN_2023_P PLACEHOLDER PAGES
 #' @export
 #' @examples
 #' simpleRandomSamplingWithReplacementAntithetic(1, 3, 200, gloveGameForSampling(1:2, 3:3))

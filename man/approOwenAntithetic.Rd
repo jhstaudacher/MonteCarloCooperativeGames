@@ -2,7 +2,7 @@
 % Please edit documentation in R/approOwenAntithetic.R
 \name{approOwenAntithetic}
 \alias{approOwenAntithetic}
-\title{An antithetic sampling procedure to estimate the Owen value.}
+\title{An antithetic sampling procedure to estimate the Owen value}
 \usage{
 approOwenAntithetic(i, m, v, P)
 }
@@ -20,7 +20,7 @@ Owen value of player \code{i}.
 }
 \description{
 approOwenAntithetic is a sampling methodology to estimate the
-Owen value for a given player \code{i} and a specified TU game with a system of
+Owen value for a given player \code{i} for a specified TU game with a system of
 a priori unions by antithetic sampling.
 }
 \details{
@@ -33,7 +33,7 @@ Pollmann (2023).
 approOwenAntithetic(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)))
 }
 \references{
-Staudacher, J. and Pollmann, T. (2023) "Approximating cooperative games using antithetic sampling",  AppliedMath PLACEHOLDER VERSION PLACEHOLDER PAGES
+Staudacher, J. and Pollmann, T. (2023) "Approximating cooperative games using antithetic sampling",  AppliedMath
 }
 \author{
 Tim Pollmann \href{https://orcid.org/0009-0008-4627-7925}{0009-0008-4627-7925}

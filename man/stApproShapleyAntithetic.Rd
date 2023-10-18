@@ -2,7 +2,7 @@
 % Please edit documentation in R/stApproShapleyAntithetic.R
 \name{stApproShapleyAntithetic}
 \alias{stApproShapleyAntithetic}
-\title{A stratified antithetic sampling procedure to estimate the Shapley value.}
+\title{A stratified antithetic sampling procedure to estimate the Shapley value}
 \usage{
 stApproShapleyAntithetic(i, n, m, v)
 }
@@ -33,7 +33,7 @@ The base algorithm can also be found in this package under the name \code{stAppr
 stApproShapleyAntithetic(1, 3, 200, gloveGameForSampling(1:2, 3:3))
 }
 \references{
-Staudacher, J. and Pollmann, T. (2023) "Approximating cooperative games using antithetic sampling",  AppliedMath PLACEHOLDER VERSION PLACEHOLDER PAGES
+Staudacher, J. and Pollmann, T. (2023) "Approximating cooperative games using antithetic sampling",  AppliedMath
 }
 \author{
 Tim Pollmann \href{https://orcid.org/0009-0008-4627-7925}{0009-0008-4627-7925}

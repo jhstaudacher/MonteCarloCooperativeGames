@@ -1,5 +1,5 @@
 #' @name approShapleyAntithetic
-#' @title A antithetic sampling procedure to estimate the Shapley value.
+#' @title A antithetic sampling procedure to estimate the Shapley value
 #' @description approShapleyAntithetic is a sampling methodology to estimate the
 #' Shapley value for all players for a given TU game by antithetic sampling.
 #' @details
@@ -12,9 +12,8 @@
 #' @template param/n
 #' @template param/m
 #' @template param/v
-#' @template return/Sh_i
+#' @template return/Sh
 #' @template cites/STAUDACHER_POLLMANN_2023
-#' @templateVar STAUDACHER_POLLMANN_2023_P PLACEHOLDER PAGES
 #' @export
 #' @examples
 #' approShapleyAntithetic(3, 200, gloveGameForSampling(1:2, 3:3))

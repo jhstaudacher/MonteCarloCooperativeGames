@@ -1,7 +1,7 @@
 #' @name approOwenAntithetic
-#' @title An antithetic sampling procedure to estimate the Owen value.
+#' @title An antithetic sampling procedure to estimate the Owen value
 #' @description approOwenAntithetic is a sampling methodology to estimate the
-#' Owen value for a given player ```i``` and a specified TU game with a system of
+#' Owen value for a given player ```i``` for a specified TU game with a system of
 #' a priori unions by antithetic sampling.
 #' @details
 #' This algorithm approximates the Owen value for one player by random antithetic
@@ -15,7 +15,6 @@
 #' @template param/P
 #' @template return/Owen_i
 #' @template cites/STAUDACHER_POLLMANN_2023
-#' @templateVar STAUDACHER_POLLMANN_2023_P PLACEHOLDER PAGES
 #' @export
 #' @examples
 #' approOwenAntithetic(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)))

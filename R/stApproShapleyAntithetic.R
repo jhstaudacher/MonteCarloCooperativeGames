@@ -1,5 +1,5 @@
 #' @name stApproShapleyAntithetic
-#' @title A stratified antithetic sampling procedure to estimate the Shapley value.
+#' @title A stratified antithetic sampling procedure to estimate the Shapley value
 #' @description stApproShapleyAntithetic is a sampling methodology to estimate the
 #' Shapley value for all players for a given TU game by stratified antithetic sampling.
 #' @details
@@ -15,7 +15,6 @@
 #' @template param/v
 #' @template return/Sh_i
 #' @template cites/STAUDACHER_POLLMANN_2023
-#' @templateVar STAUDACHER_POLLMANN_2023_P PLACEHOLDER PAGES
 #' @export
 #' @examples
 #' stApproShapleyAntithetic(1, 3, 200, gloveGameForSampling(1:2, 3:3))

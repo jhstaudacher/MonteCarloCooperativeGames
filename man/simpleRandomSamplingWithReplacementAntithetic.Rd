@@ -2,7 +2,7 @@
 % Please edit documentation in R/simpleRandomSamplingWithReplacementAntithetic.R
 \name{simpleRandomSamplingWithReplacementAntithetic}
 \alias{simpleRandomSamplingWithReplacementAntithetic}
-\title{A antithetic sampling procedure to estimate the Banzhaf value.}
+\title{A antithetic sampling procedure to estimate the Banzhaf value}
 \usage{
 simpleRandomSamplingWithReplacementAntithetic(i, n, m, v)
 }
@@ -20,7 +20,7 @@ Banzhaf value of player \code{i}.
 }
 \description{
 simpleRandomSamplingWithReplacementAntithetic is a sampling methodology to estimate the
-Banzhaf value for a specified player \code{i} and a specified TU game by antithetic sampling.
+Banzhaf value for a specified player \code{i} for a specified TU game by antithetic sampling.
 }
 \details{
 This algorithm approximates the Banzhaf value for a given player \code{i} by random
@@ -33,7 +33,7 @@ under the name \code{simpleRandomSamplingWithReplacement}.
 simpleRandomSamplingWithReplacementAntithetic(1, 3, 200, gloveGameForSampling(1:2, 3:3))
 }
 \references{
-Staudacher, J. and Pollmann, T. (2023) "Approximating cooperative games using antithetic sampling",  AppliedMath PLACEHOLDER VERSION PLACEHOLDER PAGES
+Staudacher, J. and Pollmann, T. (2023) "Approximating cooperative games using antithetic sampling",  AppliedMath
 }
 \author{
 Tim Pollmann \href{https://orcid.org/0009-0008-4627-7925}{0009-0008-4627-7925}
