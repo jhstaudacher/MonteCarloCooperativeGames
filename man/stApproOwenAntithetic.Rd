@@ -2,7 +2,7 @@
 % Please edit documentation in R/stApproOwenAntithetic.R
 \name{stApproOwenAntithetic}
 \alias{stApproOwenAntithetic}
-\title{A stratified antithetic sampling procedure to estimate coalitional values.}
+\title{A stratified antithetic sampling procedure to estimate the Owen value.}
 \usage{
 stApproOwenAntithetic(i, m, v, P)
 }
@@ -16,20 +16,23 @@ stApproOwenAntithetic(i, m, v, P)
 \item{P}{list: A priori unions.}
 }
 \value{
-Approximation of the Owen value based on stratified antithetic sampling.
+Owen value of player \code{i}.
 }
 \description{
-stApproOwenAntithetic is a sampling methodology to estimate coalitional values, in particular the
-Owen value for a specified TU game with a system of a priori unions, based on stratified and antithetic sampling.
+stApproOwenAntithetic is a sampling methodology to estimate the
+Owen value for a given player \code{i} and a specified TU game with a system of
+a priori unions by stratified combined antithetic sampling.
 }
 \details{
-The algorithm combines stratified with antithetic sampling. The base algorithm used
-for the extension to antithetic sampling is based on the algorithm proposed by
-A. Saavedra-Nieves (2022). This algorithm can be found under the name \code{stApproOwenAndBanzhafOwen}
-in this package.
+This algorithm approximates the Owen value for one player by stratified
+antithetic sampling.
+It is based on "On stratified sampling for estimating coalitional
+values" by A. Saavedra-Nieves (2022) and was extended to make use of antithetic
+sampling by Staudacher and Pollmann (2023). The base algorithm can also be found in this package
+under the name \code{stApproOwenAndBanzhafOwen}.
 }
 \examples{
-stApproOwenAntithetic(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3))))
+stApproOwenAntithetic(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)))
 }
 \references{
 Staudacher, J. and Pollmann, T. (2023) "Approximating cooperative games using antithetic sampling",  AppliedMath PLACEHOLDER VERSION PLACEHOLDER PAGES
