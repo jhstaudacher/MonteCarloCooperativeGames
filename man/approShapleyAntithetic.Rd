@@ -18,10 +18,10 @@ Estimated Shapley value of player \code{i}.
 }
 \description{
 approShapleyAntithetic is a sampling methodology to estimate the
-Banzhaf value for all players for a given TU game by antithetic sampling.
+Shapley value for all players for a given TU game by antithetic sampling.
 }
 \details{
-This algorithm approximates the Banzhaf value for all players by random
+This algorithm approximates the Shapley value for all players by random
 antithetic sampling. It is based on "Polynomial calculation of the Shapley value based on sampling"
 by Javier Castro Et al. (2008) and was extended to make use of antithetic
 sampling by Staudacher and Pollmann (2023). The base algorithm can also be found in this package
