@@ -16,7 +16,7 @@ systematicSampling(i, n, m, v)
 \item{v}{function: The characteristic function.}
 }
 \value{
-The Banzhaf value of the specified player.
+Banzhaf value of player \code{i}.
 }
 \description{
 Systematic sampling is a method to estimate the Banzhaf-Owen

@@ -17,7 +17,7 @@
 #' @template param/n
 #' @template param/mBigz
 #' @template param/v
-#' @template return/Banzhaf
+#' @template return/Bz_i
 #' @template cites/SAAVEDRA_NIEVES_ET_AL_2020
 #' @templateVar SAAVEDRA_NIEVES_ET_AL_2020_P pp. 132
 #' @import gmp
