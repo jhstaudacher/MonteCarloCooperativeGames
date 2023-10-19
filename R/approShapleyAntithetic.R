@@ -18,6 +18,9 @@
 #' @examples
 #' approShapleyAntithetic(3, 200, gloveGameForSampling(1:2, 3:3))
 approShapleyAntithetic <- function(n, m, v) {
+  check_m_n(m, n)
+  check_v(v)
+
   N <- 1:n
   m_per_O <- ceiling(m / n)
 

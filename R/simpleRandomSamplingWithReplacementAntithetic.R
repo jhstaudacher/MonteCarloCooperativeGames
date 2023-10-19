@@ -19,6 +19,10 @@
 #' @examples
 #' simpleRandomSamplingWithReplacementAntithetic(1, 3, 200, gloveGameForSampling(1:2, 3:3))
 simpleRandomSamplingWithReplacementAntithetic <- function(i, n, m, v) {
+  check_n_i(n, i)
+  check_m(m)
+  check_v(v)
+
   N <- 1:n
   Bz_i <- 0
 

@@ -20,6 +20,11 @@
 #' @examples
 #' approOwenAntithetic(3, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)))
 approOwenAntithetic <- function(n, m, v, P) {
+  check_natural_number(n)
+  check_v(v)
+  check_m(m)
+  check_P(P)
+
   N <- 1:n
   m_per_i <- ceiling(m / n)
   Ow <- rep(0, n)

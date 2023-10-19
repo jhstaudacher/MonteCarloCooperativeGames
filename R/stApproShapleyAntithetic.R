@@ -22,6 +22,10 @@
 #' @examples
 #' stApproShapleyAntithetic(1, 3, 200, gloveGameForSampling(1:2, 3:3))
 stApproShapleyAntithetic <- function(i, n, m, v) {
+  check_n_i(n, i)
+  check_m(m)
+  check_v(v)
+
   N <- 1:n
   N_without_i <- N[N != i]
   n_strata <- ceiling(n / 2)

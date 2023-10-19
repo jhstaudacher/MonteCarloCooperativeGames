@@ -24,6 +24,14 @@
 #' @examples
 #' stApproOwenAntithetic(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)))
 stApproOwenAntithetic <- function(i, m, v, P) {
+  N <- unlist(P)
+  n <- length(N)
+
+  check_n_i(n, i)
+  check_P(P)
+  check_m(m)
+  check_v(v)
+
   p <- length(P)
   P_i_idx <- 0
   for (j in 1:p) {
@@ -36,8 +44,6 @@ stApproOwenAntithetic <- function(i, m, v, P) {
   P_i_without_i <- P_i[!P_i %in% i]
   p_i <- length(P_i)
   P_without_P_i <- P[-P_i_idx]
-  N <- unlist(P)
-  n <- length(N)
   N_without_i <- N[!N %in% i]
 
   W <- matrix(
