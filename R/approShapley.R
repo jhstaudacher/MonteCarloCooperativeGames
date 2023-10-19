@@ -39,7 +39,7 @@
 approShapley <- function(n, m, v) {
   using_bigz <- is.bigz(m)
 
-  check_m_n(m, n, factorial(n), using_bigz)
+  check_m_n(m, n, NULL, using_bigz)
   check_v(v)
 
   N <- 1:n
