@@ -2,12 +2,12 @@
 % Please edit documentation in R/approOwenAntithetic.R
 \name{approOwenAntithetic}
 \alias{approOwenAntithetic}
-\title{An antithetic sampling procedure to estimate the Owen value}
+\title{Owen value approximation by antithetic sampling}
 \usage{
-approOwenAntithetic(i, m, v, P)
+approOwenAntithetic(n, m, v, P)
 }
 \arguments{
-\item{i}{integer: The player \code{i}.}
+\item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
 \item{m}{integer: The number of samples.}
 
@@ -16,21 +16,22 @@ approOwenAntithetic(i, m, v, P)
 \item{P}{list: A priori unions.}
 }
 \value{
-Owen value of player \code{i}.
+A list of Owen values of every player.
 }
 \description{
-approOwenAntithetic is a sampling methodology to estimate the
-Owen value for a given player \code{i} for a specified TU game with a system of
-a priori unions by antithetic sampling.
+\code{approOwenAntithetic} is a sampling algorithm to estimate the
+Owen value for all players for a specified TU game with a system of
+a priori unions by using antithetic sampling.
 }
 \details{
-This algorithm approximates the Owen value for one player by random antithetic
+This algorithm approximates the Owen value for all players by random antithetic
 sampling. It is based on "Estimation of the Owen Value Based on Sampling" by Alejandro
 Saavedra-Nieves et al. (2018) and was extended to make use of antithetic sampling by Staudacher and
-Pollmann (2023).
+Pollmann (2023). The base algorithm can also be found in this package
+under the name \code{approOwen}.
 }
 \examples{
-approOwenAntithetic(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)))
+approOwenAntithetic(3, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)))
 }
 \references{
 Staudacher, J. and Pollmann, T. (2023) "Approximating cooperative games using antithetic sampling",  AppliedMath

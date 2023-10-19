@@ -2,7 +2,7 @@
 % Please edit documentation in R/approShapleyAntithetic.R
 \name{approShapleyAntithetic}
 \alias{approShapleyAntithetic}
-\title{A antithetic sampling procedure to estimate the Shapley value}
+\title{Shapley value approximation by antithetic sampling}
 \usage{
 approShapleyAntithetic(n, m, v)
 }
@@ -17,8 +17,8 @@ approShapleyAntithetic(n, m, v)
 A list of Shapley values of every player.
 }
 \description{
-approShapleyAntithetic is a sampling methodology to estimate the
-Shapley value for all players for a given TU game by antithetic sampling.
+\code{approShapleyAntithetic} is a sampling methodology to estimate the
+Shapley value for all players for a given TU game by using antithetic sampling.
 }
 \details{
 This algorithm approximates the Shapley value for all players by random

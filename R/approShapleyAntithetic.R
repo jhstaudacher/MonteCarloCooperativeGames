@@ -1,7 +1,7 @@
 #' @name approShapleyAntithetic
-#' @title A antithetic sampling procedure to estimate the Shapley value
-#' @description approShapleyAntithetic is a sampling methodology to estimate the
-#' Shapley value for all players for a given TU game by antithetic sampling.
+#' @title Shapley value approximation by antithetic sampling
+#' @description ```approShapleyAntithetic``` is a sampling methodology to estimate the
+#' Shapley value for all players for a given TU game by using antithetic sampling.
 #' @details
 #' This algorithm approximates the Shapley value for all players by random
 #' antithetic sampling. It is based on "Polynomial calculation of the Shapley value based on sampling"

@@ -1,46 +1,37 @@
 #' @name approOwenAntithetic
-#' @title An antithetic sampling procedure to estimate the Owen value
-#' @description approOwenAntithetic is a sampling methodology to estimate the
-#' Owen value for a given player ```i``` for a specified TU game with a system of
-#' a priori unions by antithetic sampling.
+#' @title Owen value approximation by antithetic sampling
+#' @description ```approOwenAntithetic``` is a sampling algorithm to estimate the
+#' Owen value for all players for a specified TU game with a system of
+#' a priori unions by using antithetic sampling.
 #' @details
-#' This algorithm approximates the Owen value for one player by random antithetic
+#' This algorithm approximates the Owen value for all players by random antithetic
 #' sampling. It is based on "Estimation of the Owen Value Based on Sampling" by Alejandro
 #' Saavedra-Nieves et al. (2018) and was extended to make use of antithetic sampling by Staudacher and
-#' Pollmann (2023).
+#' Pollmann (2023). The base algorithm can also be found in this package
+#' under the name ```approOwen```.
 #' @template author/TP
-#' @template param/i
+#' @template param/n
 #' @template param/m
 #' @template param/v
 #' @template param/P
-#' @template return/Owen_i
+#' @template return/Owen
 #' @template cites/STAUDACHER_POLLMANN_2023
 #' @export
 #' @examples
-#' approOwenAntithetic(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)))
-approOwenAntithetic <- function(i, m, v, P) {
-  p <- length(P)
-  P_i_idx <- 0
-  for (j in 1:p) {
-    if (i %in% P[[j]]) {
-      P_i_idx <- j
-      break
+#' approOwenAntithetic(3, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)))
+approOwenAntithetic <- function(n, m, v, P) {
+  N <- 1:n
+  m_per_i <- ceiling(m / n)
+  Ow <- rep(0, n)
+
+  for (j in 1:ceiling(m_per_i / 2)) {
+    O <- sampleOrderP(P)
+    for (i in N) {
+      N_without_i <- N[!N %in% i]
+      S <- pre(O, i)
+      S_as <- N_without_i[!N_without_i %in% S]
+      Ow[i] <- Ow[i] + (v(append(S, i)) - v(S) + v(append(S_as, i)) - v(S_as)) / (m_per_i + m_per_i %% 2)
     }
   }
-  P_i <- P[[P_i_idx]]
-  P_i_without_i <- P_i[!P_i %in% i]
-  p_i <- length(P_i)
-  P_without_P_i <- P[-P_i_idx]
-  N <- unlist(P)
-  N_without_i <- N[!N %in% i]
-
-  O_i <- 0
-  for (j in 1:ceiling(m / 2)) {
-    R <- sample(P_without_P_i, sample(0:(p - 1), 1))
-    Q <- sample(P_i_without_i, sample(0:(p_i - 1), 1))
-    S <- unlist(append(R, Q))
-    S_as <- N_without_i[!N_without_i %in% S]
-    O_i <- O_i + (v(append(S, i)) - v(S) + v(append(S_as, i)) - v(S_as)) / (m + m %% 2)
-  }
-  O_i
+  Ow
 }

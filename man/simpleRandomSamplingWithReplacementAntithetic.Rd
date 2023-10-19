@@ -2,7 +2,7 @@
 % Please edit documentation in R/simpleRandomSamplingWithReplacementAntithetic.R
 \name{simpleRandomSamplingWithReplacementAntithetic}
 \alias{simpleRandomSamplingWithReplacementAntithetic}
-\title{A antithetic sampling procedure to estimate the Banzhaf value}
+\title{Banzhaf value approximation by antithetic sampling}
 \usage{
 simpleRandomSamplingWithReplacementAntithetic(i, n, m, v)
 }
@@ -19,8 +19,8 @@ simpleRandomSamplingWithReplacementAntithetic(i, n, m, v)
 Banzhaf value of player \code{i}.
 }
 \description{
-simpleRandomSamplingWithReplacementAntithetic is a sampling methodology to estimate the
-Banzhaf value for a specified player \code{i} for a specified TU game by antithetic sampling.
+\code{simpleRandomSamplingWithReplacementAntithetic} is a sampling algorithm to estimate the
+Banzhaf value for a specified player \code{i} for a specified TU game by using antithetic sampling.
 }
 \details{
 This algorithm approximates the Banzhaf value for a given player \code{i} by random

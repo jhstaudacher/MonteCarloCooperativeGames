@@ -2,7 +2,7 @@
 % Please edit documentation in R/stApproOwenAntithetic.R
 \name{stApproOwenAntithetic}
 \alias{stApproOwenAntithetic}
-\title{A stratified antithetic sampling procedure to estimate the Owen value}
+\title{Owen value approximation by stratified antithetic sampling}
 \usage{
 stApproOwenAntithetic(i, m, v, P)
 }
@@ -19,9 +19,9 @@ stApproOwenAntithetic(i, m, v, P)
 Owen value of player \code{i}.
 }
 \description{
-stApproOwenAntithetic is a sampling methodology to estimate the
+\code{stApproOwenAntithetic} is a sampling algorithm to estimate the
 Owen value for a given player \code{i} for a specified TU game with a system of
-a priori unions by stratified antithetic sampling.
+a priori unions by using stratified antithetic sampling.
 }
 \details{
 This algorithm approximates the Owen value for one player by stratified
@@ -29,6 +29,10 @@ antithetic sampling. It is based on "On stratified sampling for estimating coali
 values" by A. Saavedra-Nieves (2022) and was extended to make use of antithetic
 sampling by Staudacher and Pollmann (2023). The base algorithm can also be found in this package
 under the name \code{stApproOwenAndBanzhafOwen}.
+Note that the sample allocation over the strata is proportional to the weights of the strata.
+We refer to Staudacher and Pollmann (2023) for more details, especially regarding an edge
+case that occurs when the number precoalitions and the number of players in player
+i's union are both odd.
 }
 \examples{
 stApproOwenAntithetic(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)))

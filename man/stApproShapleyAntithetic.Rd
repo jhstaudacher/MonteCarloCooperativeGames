@@ -2,7 +2,7 @@
 % Please edit documentation in R/stApproShapleyAntithetic.R
 \name{stApproShapleyAntithetic}
 \alias{stApproShapleyAntithetic}
-\title{A stratified antithetic sampling procedure to estimate the Shapley value}
+\title{Shapley value approximation by stratified antithetic sampling}
 \usage{
 stApproShapleyAntithetic(i, n, m, v)
 }
@@ -19,8 +19,8 @@ stApproShapleyAntithetic(i, n, m, v)
 Estimated Shapley value of player \code{i}.
 }
 \description{
-stApproShapleyAntithetic is a sampling methodology to estimate the
-Shapley value for all players for a given TU game by stratified antithetic sampling.
+\code{stApproShapleyAntithetic} is a sampling algorithm to estimate the
+Shapley value for all players for a given TU game by using stratified antithetic sampling.
 }
 \details{
 This algorithm approximates the Shapley value for all players by stratified
@@ -28,6 +28,9 @@ antithetic sampling. It is based on "Improving polynomial estimation of the Shap
 stratified random sampling with optimum allocation" by Castro et al. (2017)
 and was extended to make use of antithetic sampling by Staudacher and Pollmann (2023).
 The base algorithm can also be found in this package under the name \code{stApproShapley}.
+Note that the sample allocation over the strata is proportional to the weights of the strata.
+We refer to Staudacher and Pollmann (2023) for more details, especially regarding an edge
+case that occurs when the number of players \code{n} is odd.
 }
 \examples{
 stApproShapleyAntithetic(1, 3, 200, gloveGameForSampling(1:2, 3:3))

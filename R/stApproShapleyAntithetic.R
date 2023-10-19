@@ -1,13 +1,16 @@
 #' @name stApproShapleyAntithetic
-#' @title A stratified antithetic sampling procedure to estimate the Shapley value
-#' @description stApproShapleyAntithetic is a sampling methodology to estimate the
-#' Shapley value for all players for a given TU game by stratified antithetic sampling.
+#' @title Shapley value approximation by stratified antithetic sampling
+#' @description ```stApproShapleyAntithetic``` is a sampling algorithm to estimate the
+#' Shapley value for all players for a given TU game by using stratified antithetic sampling.
 #' @details
 #' This algorithm approximates the Shapley value for all players by stratified
 #' antithetic sampling. It is based on "Improving polynomial estimation of the Shapley value by
 #' stratified random sampling with optimum allocation" by Castro et al. (2017)
 #' and was extended to make use of antithetic sampling by Staudacher and Pollmann (2023).
 #' The base algorithm can also be found in this package under the name ```stApproShapley```.
+#' Note that the sample allocation over the strata is proportional to the weights of the strata.
+#' We refer to Staudacher and Pollmann (2023) for more details, especially regarding an edge
+#' case that occurs when the number of players ```n``` is odd.
 #' @template author/TP
 #' @template param/i
 #' @template param/n
