@@ -7,7 +7,10 @@
 #' antithetic sampling. It is based on "Improving polynomial estimation of the Shapley value by
 #' stratified random sampling with optimum allocation" by Castro et al. (2017)
 #' and was extended to make use of antithetic sampling by Staudacher and Pollmann (2023).
-#' The base algorithm can also be found in this package under the name ```stApproShapley```.
+#' The base algorithm can also be found in this package under the name ```stApproShapley```. Please note that
+#' in contrast to the original algorithm, this algorithm only estimates the Shapley
+#' value for one player at a time. To calculate the value for all players like the original algorithm,
+#' this algorithm needs to wrapped in a for-loop.
 #' Note that the sample allocation over the strata is proportional to the weights of the strata.
 #' We refer to Staudacher and Pollmann (2023) for more details, especially regarding an edge
 #' case that occurs when the number of players ```n``` is odd.

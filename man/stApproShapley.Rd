@@ -4,53 +4,28 @@
 \alias{stApproShapley}
 \title{Stratified Appro Shapley}
 \usage{
-stApproShapley(i, n, v, m)
+stApproShapley(n, v, m)
 }
 \arguments{
-\item{i}{integer: The player \code{i}.}
-
 \item{n}{integer: Indicates the cardinality of the set of players \code{N} (The number of players).}
 
 \item{v}{function: The characteristic function.}
 
-\item{m}{integer or bigz: the number of samples.}
+\item{m}{integer: The number of samples.}
 }
 \value{
-Estimated Shapley value of player \code{i}.
+A list of Shapley values of every player.
 }
 \description{
 Monte Carlo Simulation for calculating the Shapley value with stratification.
 }
 \details{
 This function uses stratification to approximate the Shapley value. A stratum
-is created for the given player at each possible position. In each of these
-strata there will be m / n (or m / n + 1) sampled orders. In each of these
-orders the marginal contribution of each player in the current order will be
-calculated to estimate the real Shapley value.
-Note that it is possible that the provided sample size is not divisible by
-the number of positions the player can occur in. In that case the remaining
-samples m \%\% n will be randomly distributed over the strata, so some strata
-will have the sample size m / n and others the size m / n + 1.
-Based on the paper "Improving polynomial estimation of the Shapley value by
-stratified random sampling with optimum allocation" by Castro et al. from
-2017.
-
-This algorithm supports BigQ from GMP.
+is created for each player at each possible position. The estimated Shapley value
+is the mean over the estimated Shapley values of all strata.
 }
 \examples{
-stApproShapley(1, 10, gloveGameForSampling(1:5, 6:10), 1000)
-\donttest{
-# sample an airport game as described in section 6.3 of the underlying paper
-costs <- buildAirportCostVector(list(
-  c(1, 8), c(2, 12), c(3, 6), c(4, 14), c(5, 8), c(6, 9),
-  c(7, 13), c(8, 10), c(9, 10), c(10, 10)
-))
-v <- airportGameForSampling(costs)
-Sh <- rep(0, length(costs))
-for (i in 1:length(costs)) {
-  Sh[i] <- stApproShapley(i, length(costs), v, 5000)
-}
-}
+stApproShapley(10, gloveGameForSampling(1:5, 6:10), 1000)
 }
 \references{
 CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 183
