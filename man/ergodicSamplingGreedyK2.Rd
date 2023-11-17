@@ -15,7 +15,7 @@ ergodicSamplingGreedyK2(i, n, v, m, m1)
 
 \item{m}{integer: The number of samples.}
 
-\item{m1}{Number of sampled permutations use to find a suitable transformation}
+\item{m1}{Number of sampled permutations used to find a suitable transformation}
 }
 \value{
 Estimated Shapley value of player \code{i}.
@@ -25,7 +25,7 @@ Approximates the Shapley value by ergodic sampling with the GreedyK2 algorithm.
 }
 \details{
 Approximates the Shapley value by ergodic sampling. The GreedyK2 algorithm proposed by
-Illes and Kerenyi (2022) is used to find the transformation, that generates samples
+Illes and Kerenyi (2022) is used to find a transformation, that generates samples
 with negative covariance.
 }
 \examples{

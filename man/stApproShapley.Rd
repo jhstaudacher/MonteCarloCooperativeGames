@@ -2,7 +2,7 @@
 % Please edit documentation in R/stApproShapley.R
 \name{stApproShapley}
 \alias{stApproShapley}
-\title{Stratified Appro Shapley}
+\title{Stratified ApproShapley}
 \usage{
 stApproShapley(n, v, m)
 }

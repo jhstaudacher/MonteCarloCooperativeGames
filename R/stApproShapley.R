@@ -1,5 +1,5 @@
 #' @name stApproShapley
-#' @title Stratified Appro Shapley
+#' @title Stratified ApproShapley
 #' @description
 #' Monte Carlo Simulation for calculating the Shapley value with stratification.
 #' @details

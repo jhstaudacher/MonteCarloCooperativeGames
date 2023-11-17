@@ -22,13 +22,11 @@ sample size per stratum is based on each stratums estimated variance.
 }
 \details{
 \code{twoStageStApproShapleyOptCorAntithetic} is a sampling procedure to estimate the Shapley value for cooperative games.
-In the first stage, the optimal allocation is calculated and executed in the second stage. It may occur that
-more samples would be used than specified. If this is the case, the algorithm adjusts the samples proportionally
-to the given sample size. The algorithm \code{twoStageStApproShapleyOpt} does not correct the sample size.
+In the first stage, the optimal allocation is calculated and executed in the second stage. Using
+the original algorithm \code{twoStageStApproShapleyOpt} from Castro et al. (2017), it may occur that
+more samples than specified are used. If this is the case, this algorithm here adjusts the sample sizes proportionally.
 Furthermore, in comparison to the original \code{twoStageStApproShapleyOpt}, this algorithm
-was extended to make use of antithetic sampling.
-Modified according to: "Improving polynomial estimation of the Shapley value by stratified
-random sampling with optimum allocation" (J. Castro Et al., 2017)
+was extended to make use of antithetic sampling by Staudacher and Pollmann (2023).
 }
 \examples{
 # sample a airport game with 100 players
@@ -44,7 +42,7 @@ print(Sh)
 print(twoStageStApproShapleyOptCorAntithetic(3, gloveGameForSampling(1:2, 3:3), 1000))
 }
 \references{
-CASTRO, J. et al. (2017) "Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation", Computers and Operations Research 82, pp. 182
+Staudacher, J. and Pollmann, T. (2023) "Approximating cooperative games using antithetic sampling",  AppliedMath
 }
 \author{
 Tim Pollmann \href{https://orcid.org/0009-0008-4627-7925}{0009-0008-4627-7925}

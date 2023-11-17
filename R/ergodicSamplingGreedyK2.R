@@ -4,14 +4,14 @@
 #' Approximates the Shapley value by ergodic sampling with the GreedyK2 algorithm.
 #' @details
 #' Approximates the Shapley value by ergodic sampling. The GreedyK2 algorithm proposed by
-#' Illes and Kerenyi (2022) is used to find the transformation, that generates samples
+#' Illes and Kerenyi (2022) is used to find a transformation, that generates samples
 #' with negative covariance.
 #' @template author/TP
 #' @template param/i
 #' @template param/n
 #' @template param/v
 #' @template param/m
-#' @param m1 Number of sampled permutations use to find a suitable transformation
+#' @param m1 Number of sampled permutations used to find a suitable transformation
 #' @template return/Sh_i
 #' @export
 #' @importFrom stats cov

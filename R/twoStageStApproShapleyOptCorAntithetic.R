@@ -5,20 +5,17 @@
 #' sample size per stratum is based on each stratums estimated variance.
 #' @details
 #' ```twoStageStApproShapleyOptCorAntithetic``` is a sampling procedure to estimate the Shapley value for cooperative games.
-#' In the first stage, the optimal allocation is calculated and executed in the second stage. It may occur that
-#' more samples would be used than specified. If this is the case, the algorithm adjusts the samples proportionally
-#' to the given sample size. The algorithm ```twoStageStApproShapleyOpt``` does not correct the sample size.
+#' In the first stage, the optimal allocation is calculated and executed in the second stage. Using
+#' the original algorithm ```twoStageStApproShapleyOpt``` from Castro et al. (2017), it may occur that
+#' more samples than specified are used. If this is the case, this algorithm here adjusts the sample sizes proportionally.
 #' Furthermore, in comparison to the original ```twoStageStApproShapleyOpt```, this algorithm
-#' was extended to make use of antithetic sampling.
-#' Modified according to: "Improving polynomial estimation of the Shapley value by stratified
-#' random sampling with optimum allocation" (J. Castro Et al., 2017)
+#' was extended to make use of antithetic sampling by Staudacher and Pollmann (2023).
 #' @template author/TP
 #' @template param/n
 #' @template param/v
 #' @template param/m
 #' @template return/Sh
-#' @template cites/CASTRO_ET_AL_2017
-#' @templateVar CASTRO_ET_AL_2017_P pp. 182
+#' @template cites/STAUDACHER_POLLMANN_2023
 #' @export
 #' @examples
 #' # sample a airport game with 100 players
