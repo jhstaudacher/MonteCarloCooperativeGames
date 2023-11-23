@@ -1,13 +1,13 @@
 #' @name twoStageStApproShapleyOptCor
-#' @title Two Stage St Appro Shapley Opt Cor
+#' @title Two Stage Stratified ApproShapley with Optimum Allocation (Corrected)
 #' @description
-#' Calculates the shapley value for each player with stratification and
-#' sample size per strata based on each stratums variance samples size adjusted.
+#' Calculates the Shapley value for each player by using stratification. The
+#' sample size per stratum is based on each stratums estimated variance.
 #' @details
-#' twoStageStApproShapleyOptCor is a sampling procedure to estimate the Shapley value for cooperative games.
-#' In the first stage, the optimal allocation is calculated and executed in the second stage. It may occur that
-#' more samples would be used than specified. If this is the case, the algorithm adjusts the samples proportionally
-#' to the given sample size. The algorithm twoStageStApproShapleyOpt does not correct the sample size.
+#' ```twoStageStApproShapleyOptCor``` is a sampling procedure to estimate the Shapley value for cooperative games.
+#' In the first stage, the optimal allocation is calculated and executed in the second stage. Using
+#' the original algorithm ```twoStageStApproShapleyOpt``` from Castro et al. (2017), it may occur that
+#' more samples than specified are used. If this is the case, this algorithm here adjusts the sample sizes proportionally.
 #' Modified according to: "Improving polynomial estimation of the Shapley value by stratified
 #' random sampling with optimum allocation" (J. Castro Et al., 2017)
 #' @template author/MS
@@ -40,41 +40,40 @@ twoStageStApproShapleyOptCor <- function(n, v, m) {
   }
 
   N <- 1:n
-  s_squared <- matrix(rep(0, n^2), nrow = n, ncol = n)
+  S_Squared <- matrix(rep(0, n^2), nrow = n, ncol = n)
   Sh <- matrix(rep(0, n^2), nrow = n, ncol = n)
-  m_exp <- matrix(rep(m %/% (2 * n^2), n^2), nrow = n, ncol = n)
+  M_exp <- matrix(rep(ceiling(m / (2 * n^2)), n^2), nrow = n, ncol = n)
 
   for (i in 1:n) {
     N_without_i <- N[N != i]
     for (l in 1:n) {
       sum_quad_l <- 0
       j <- 0
-      while (j < m_exp[i, l]) {
+      while (j < M_exp[i, l]) {
         j <- j + 1
+
         S <- sample(N_without_i, size = l - 1)
         x <- v(append(S, i)) - v(S)
         Sh[i, l] <- Sh[i, l] + x
         sum_quad_l <- sum_quad_l + x^2
       }
-      s_squared[i, l] <- (sum_quad_l - (Sh[i, l]^2 / m_exp[i, l])) / (m_exp[i, l] - 1)
+      S_Squared[i, l] <- (sum_quad_l - (Sh[i, l]^2 / M_exp[i, l])) / (M_exp[i, l] - 1)
     }
   }
 
-  # calculate samples for stage 2 and correct them, so they do not exceed n samples
-  m_il <- m * s_squared / sum(s_squared)
-  m_st <- m_il - m_exp
-  sum_negatives <- sum(m_st[m_st < 0])
-  m_st[m_st < 0] <- 0
-  m_st <- floor(m_st + m_st / sum(m_st) * sum_negatives)
-  m_remaining <- m - sum(m_exp) - sum(m_st)
-  corrVec <- sample(c(rep(1, m_remaining), rep(0, n^2 - m_remaining)))
-  m_st <- m_st + corrVec
+  M <- ceiling(m * S_Squared / sum(S_Squared))
+  M_st <- M - M_exp
+  while (sum(M_st < 0)) {
+    M_st[M_st < 0] <- 0
+    m_diff <- sum(M_st) + sum(M_exp) - m
+    M_st[M_st > 0] <- M_st[M_st > 0] - ceiling(m_diff * S_Squared[M_st > 0] / sum(S_Squared))
+  }
 
   for (i in 1:n) {
     N_without_i <- N[N != i]
     for (l in 1:n) {
       j <- 0
-      while (j < m_st[i, l]) {
+      while (j < M_st[i, l]) {
         j <- j + 1
         S <- sample(N_without_i, size = l - 1)
         xOi <- v(append(S, i)) - v(S)
@@ -83,7 +82,7 @@ twoStageStApproShapleyOptCor <- function(n, v, m) {
     }
   }
 
-  Sh <- Sh / (m_exp + m_st)
+  Sh <- Sh / (M_exp + M_st)
   Sh <- rowMeans(Sh)
   Sh
 }

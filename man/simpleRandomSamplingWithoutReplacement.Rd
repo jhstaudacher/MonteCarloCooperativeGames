@@ -16,7 +16,7 @@ simpleRandomSamplingWithoutReplacement(i, n, m, v)
 \item{v}{function: The characteristic function.}
 }
 \value{
-The Banzhaf value of the specified player.
+Banzhaf value of player \code{i}.
 }
 \description{
 Simple random sampling without replacement is a method to
