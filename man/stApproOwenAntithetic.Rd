@@ -38,7 +38,7 @@ i's union are both odd.
 stApproOwenAntithetic(1, 1000, gloveGameForSampling(1:2, 3:3), list(c(1, 2), c(3)))
 }
 \references{
-Staudacher, J. and Pollmann, T. (2023) "Approximating cooperative games using antithetic sampling",  AppliedMath
+Staudacher, J. and Pollmann, T. (2023) "Assessing antithetic sampling for the Shapley, Banzhaf and Owen values", Preprint. Submitted to AppliedMath. Under Review.
 }
 \author{
 Tim Pollmann \href{https://orcid.org/0009-0008-4627-7925}{0009-0008-4627-7925}
