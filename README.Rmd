@@ -71,7 +71,7 @@ or
 Build Pane: Check
 
 ### Loading the code
-Running code directly can cause problems, because R Studio just sends the code to the console and defines it in the global environment. This is not well suited for package development, because as the package gets more and more complicated, manually defining all required functions becomes unsustainable. Instead, use the following command to load the code.:
+Running code directly can cause problems, because RStudio just sends the code to the console and defines it in the global environment. This is not well suited for package development, because as the package gets more and more complicated, manually defining all required functions becomes unsustainable. Instead, use the following command to load the code.:
 
 Use this command to reload package
 Console:

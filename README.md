@@ -6,21 +6,6 @@
 Monte Carlo For Coop Games is a R package for simulating arbitrary
 cooperative games and approximating the Shapley value of them.
 
-# Project status
-
-| Name of algorithm                                                 | Paper                                                                                                                                                       | Functions                                                                                                                                                   | Responsible |     |
-|-------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|-----|
-| The algorithm based on simple random sampling without replacement | “Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves” Algorithm 2 Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 3.1”     | “Prototype: Simple_random_sampling_without_replacement.R Paket: simpleRandomSamplingWithoutReplacement.R Function: simpleRandomSamplingWithoutReplacement() |             |     |
-| The algorithm based on simple random sampling with replacement    | “Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves” Algorithm 1                                                                               | Prototype: Simple_random_sampling_with_replacement.R Packet: simpleRandomSamplingWithReplacement.R                                                          |             |     |
-| The algorithm based on two-stage sampling                         | “Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves” Algorithm 4 <br> Sampling methods to estimate the Banzhaf–Owen value (2021) Algorithm 4.1 | Prototype: ? Packet: twoStageApproBanzhafOwen.R                                                                                                             |             |     |
-| Systematic sampling                                               | “Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves” Algorithm 3                                                                               | Packet: systematicSampling.R                                                                                                                                |             |     |
-| Estimation in parallel                                            | “Statistics and Game Theory (2021) von Alejandro Saavedra-Nieves” Algorithm 5                                                                               | Not implemented! Task for future performance improvements                                                                                                   |             |     |
-| A stratified sampling procedure to estimate coalitional values    | “On stratified sampling for estimating coalitional values Procedure 3.1”                                                                                    | ?                                                                                                                                                           |             |     |
-| Approximating power indices by sampling (ConfidenceBanzhaf)       | “Approximating power indices: theoretical and empirical analysis” Algorithm 1                                                                               | Packet: ConfidenceBanzhaff                                                                                                                                  |             |     |
-| Two-Stage-St-ApproShapley-opt                                     | “Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation” Its described on page 182                      | Packet: twoStageStApproShapleyOpt.R                                                                                                                         |             |     |
-| Two-Stage-St-ApproShapley-eff                                     | “Improving polynomial estimation of the Shapley value by stratified random sampling with optimum allocation” Its described on page 183                      | Packet: twoStageStApproShapleyEff.R                                                                                                                         |             |     |
-| Appro the Shapley value                                           | “Polynomial calculation of the Shapley value based on sampling Algorithm” ApproShapley                                                                      | Packet: approShapley.R                                                                                                                                      |             |     |
-
 ## Getting started with development
 
 Install the devtools and other necessary packages
@@ -46,21 +31,19 @@ devtools::dev_sitrep()
 
 ## Development workflow
 
-- Run `check()` often and fix any errors, warnings and notes.
-- Be extremely careful with top level code in a package. It is ONLY run
-  when the package is build, **NEVER** again. Mainly use them for static
-  variables. Any R code outside of a function is suspicious and should
-  be carefully reviewed.
-- Using `library`, `source` and `require` in a package is **forbidden**.
-- Sub folders in the R directory are not supported.
+-   Run `check()` often and fix any errors, warnings and notes.
+-   Be extremely careful with top level code in a package. It is ONLY
+    run when the package is build, **NEVER** again. Mainly use them for
+    static variables. Any R code outside of a function is suspicious and
+    should be carefully reviewed.
+-   Using `library`, `source` and `require` in a package is
+    **forbidden**.
+-   Sub folders in the R directory are not supported.
 
 ### General workflow
 
-<figure>
-<img src="https://r-pkgs.org/diagrams/workflow.png"
-title="General development workflow" alt="General dev workflow" />
-<figcaption aria-hidden="true">General dev workflow</figcaption>
-</figure>
+![General dev
+workflow](https://r-pkgs.org/diagrams/workflow.png "General development workflow")
 
 Run the following command in each new R session to load the devtools.
 
@@ -93,9 +76,9 @@ R Studio: Build/Check Package or Build Pane: Check
 
 ### Loading the code
 
-Running code directly can cause problems, because R Studio just sends
-the code to the console and defines it in the global environment. This
-is not well suited for package development, because as the package gets
+Running code directly can cause problems, because RStudio just sends the
+code to the console and defines it in the global environment. This is
+not well suited for package development, because as the package gets
 more and more complicated, manually defining all required functions
 becomes unsustainable. Instead, use the following command to load the
 code.:
@@ -145,26 +128,26 @@ R Studio: Build/Test Package or Build Pane: Test
 
 ### Writing tests
 
-- Each test file should be located in the `tests/testthat/`folder and
-  should be named `test-FILENAME_OF_FUNCIONS_TO_TEST`.
-- The actual result can be compared with the expected result with the
-  functions that start with `expect_`.
-- Write tests for input that is expected in typical use and for input
-  that represend edge cases and may throw errors.
-  - You can test for errors with `expect_error`
-  - You can test for equality, with some reasonable amount of numeric
-    tolerance with `expect_equal()`. Use `expect_identical()` for no
-    tolerance.
-- Top-Level code is completly **forbidden** in tests.
-  - `library()`, `attach()` is forbidden.
-  - It is highly discouraged to write/read filed in tests. If so, make
-    absolutely sure to clean them up.
-  - `options()` and `par()`are also highly discouraged. If so, consider
-    using the `withr`package.
-- Each test should be entirly independant of all other tests. They
-  should not assume any preexisting environment.
-- Use `skip_if(today_is_a_monday())` and `skip_on_os("windows")` to
-  conditunally skip tests.
+-   Each test file should be located in the `tests/testthat/`folder and
+    should be named `test-FILENAME_OF_FUNCIONS_TO_TEST`.
+-   The actual result can be compared with the expected result with the
+    functions that start with `expect_`.
+-   Write tests for input that is expected in typical use and for input
+    that represend edge cases and may throw errors.
+    -   You can test for errors with `expect_error`
+    -   You can test for equality, with some reasonable amount of
+        numeric tolerance with `expect_equal()`. Use
+        `expect_identical()` for no tolerance.
+-   Top-Level code is completly **forbidden** in tests.
+    -   `library()`, `attach()` is forbidden.
+    -   It is highly discouraged to write/read filed in tests. If so,
+        make absolutely sure to clean them up.
+    -   `options()` and `par()`are also highly discouraged. If so,
+        consider using the `withr`package.
+-   Each test should be entirly independant of all other tests. They
+    should not assume any preexisting environment.
+-   Use `skip_if(today_is_a_monday())` and `skip_on_os("windows")` to
+    conditunally skip tests.
 
 ### Test converage
 
@@ -196,81 +179,87 @@ Preview the documentation of any function by running:
 
 ### Roxygen comments
 
-- Start any roxygen comment with `#'` (hash and single quote)  
-- Use `\code{CODE_HERE}` for inline code
-- Use `\link{function_name}` to link to other function documentation.
-- Required and Optional tags in this order: (These are very opinionated
-  rules to keep the documentation tidy and consistent):
-  - `@name` (Required): The function name
-  - `@title` (Required): Explain the function in as few words as
-    possible. Avoid any non necessary words. If sufficiend use: Function
-    name with all abbreviations expanded and with spaces.
-  - `@description` (Required): Explain what the function does from a
-    user perspective.
-  - `@details` (Required if exported): Explain how the algorithm works
-    internally and any other useful information. Anything that is not
-    required to use the function but still useful. If required, this can
-    be organized with the `@section Section_Name:` tag
-  - Author (Required): The person/persons that wrote the functions. Use
-    `#' @template author/PERSON_FILENAME`.
-  - Arguments (Required): Document **all** arguments the function uses.
-    Look through the `man-roxygen/params` folder to check if there is
-    already a param in the package with the same usage. If so add
-    `@template param/ARGUMENT_NAME`. If there is none, create a new file
-    in the `man-roxygen/params` folder. Explain thoroughly what the
-    argument does and what it is used for. Use the following syntax in
-    the file:
-    `#' @params PARAMETER_NAME Here is a very detailed explanation of what this argument does.`.
-    If the parameter is specific to only one function then you can also
-    use
-    `@param PARAMETER_NAME Here is a very detailed explanation of what this argument does.`
-  - Returns (Required): Look through the `man-roxygen/returns` folder to
-    check if a return type is already documented there. Because the
-    return type can vary wildly, it isn’t required to use roxygen
-    templates, if you expect no other function will return data with the
-    same shape and meaning.
-    - If you decided to use a roxygen template return documentation use
-      `#' @template return/RETURN_FILE_NAME` as the comment.
-    - If you decide to use a standalone comment, describe the shape
-      (scaler, vector, matrix, …), size and meaning of the output.
-    - If the functions returns nothing, use `@returns None`, but think
-      about if this function is well designed if it returns nothing.
-  - `@export`: Add if the functions should be used from outside.
-  - `@importFrom` (Required): If you use functionality from another
-    package (even the base package) declare them with `@importFrom`.
-    Also do not forget to add the package in the `DESCRIPTION` file
-    under the `Imports` (or for development dependencies `Suggests`)
-    section. `check()` will also complain if you forget this.
-  - References (Required): If the algorithm is based on a paper, you
-    **must** cite all sources. To cite, check the
-    `man-roxygen/cites`folder is the paper is already present there. If
-    not create a new file.
-    - **For new files**:
-    - Use the last name of the author in upper case, `ET_AL` if there
-      are more than one contributor and the year it was published as the
-      file name.
-    - Use the following syntax in the file:
-      `#' @references <Authors> <Published Year>, <Paper Title>, <Published in> <%=FILE_NAME_P%>,`.
-      The last part is a placeholder for the page number.
-    - **For the roxygen comment**:
-    - Use: `#' @template cites/FILE_NAME` and
-      `#' @templateVar FILE_NAME_P pp. PAGE_NUMBER_OR_RANGE`
-  - `@examples` (Required on exported functions): Provide one or
-    multiple examples of how the function can be used.
-    - On non exported functions, write tests instead.
-    - They should be as short as possible, while still using the
-      function in a realistic and authentic way. They must run
-      **without** errors and sideeffects (change the environment,
-      working directory, write files, …). You should just be able to
-      copy and run them.
-    - Add comments to the examples as well.
-    - If you provide multiple examples, break them up with a comment
-      line (e.g. `# --------------`).
-    - Do not use edge cases as examples. Make tests out of them instead.
-    - Do not use excessive sample sizes. Running the examples should be
-      almost instantaneous and can not take more than 3 seconds. If this
-      is not possible add the `\dontrun` attribute.
-    - `check()` also runs these examples.
+-   Start any roxygen comment with `#'` (hash and single quote)  
+-   Use `\code{CODE_HERE}` for inline code
+-   Use `\link{function_name}` to link to other function documentation.
+-   Required and Optional tags in this order: (These are very
+    opinionated rules to keep the documentation tidy and consistent):
+    -   `@name` (Required): The function name
+    -   `@title` (Required): Explain the function in as few words as
+        possible. Avoid any non necessary words. If sufficiend use:
+        Function name with all abbreviations expanded and with spaces.
+    -   `@description` (Required): Explain what the function does from a
+        user perspective.
+    -   `@details` (Required if exported): Explain how the algorithm
+        works internally and any other useful information. Anything that
+        is not required to use the function but still useful. If
+        required, this can be organized with the
+        `@section Section_Name:` tag
+    -   Author (Required): The person/persons that wrote the functions.
+        Use `#' @template author/PERSON_FILENAME`.
+    -   Arguments (Required): Document **all** arguments the function
+        uses. Look through the `man-roxygen/params` folder to check if
+        there is already a param in the package with the same usage. If
+        so add `@template param/ARGUMENT_NAME`. If there is none, create
+        a new file in the `man-roxygen/params` folder. Explain
+        thoroughly what the argument does and what it is used for. Use
+        the following syntax in the file:
+        `#' @params PARAMETER_NAME Here is a very detailed explanation of what this argument does.`.
+        If the parameter is specific to only one function then you can
+        also use
+        `@param PARAMETER_NAME Here is a very detailed explanation of what this argument does.`
+    -   Returns (Required): Look through the `man-roxygen/returns`
+        folder to check if a return type is already documented there.
+        Because the return type can vary wildly, it isn’t required to
+        use roxygen templates, if you expect no other function will
+        return data with the same shape and meaning.
+        -   If you decided to use a roxygen template return
+            documentation use `#' @template return/RETURN_FILE_NAME` as
+            the comment.
+        -   If you decide to use a standalone comment, describe the
+            shape (scaler, vector, matrix, …), size and meaning of the
+            output.
+        -   If the functions returns nothing, use `@returns None`, but
+            think about if this function is well designed if it returns
+            nothing.
+    -   `@export`: Add if the functions should be used from outside.
+    -   `@importFrom` (Required): If you use functionality from another
+        package (even the base package) declare them with `@importFrom`.
+        Also do not forget to add the package in the `DESCRIPTION` file
+        under the `Imports` (or for development dependencies `Suggests`)
+        section. `check()` will also complain if you forget this.
+    -   References (Required): If the algorithm is based on a paper, you
+        **must** cite all sources. To cite, check the
+        `man-roxygen/cites`folder is the paper is already present there.
+        If not create a new file.
+        -   **For new files**:
+        -   Use the last name of the author in upper case, `ET_AL` if
+            there are more than one contributor and the year it was
+            published as the file name.
+        -   Use the following syntax in the file:
+            `#' @references <Authors> <Published Year>, <Paper Title>, <Published in> <%=FILE_NAME_P%>,`.
+            The last part is a placeholder for the page number.
+        -   **For the roxygen comment**:
+        -   Use: `#' @template cites/FILE_NAME` and
+            `#' @templateVar FILE_NAME_P pp. PAGE_NUMBER_OR_RANGE`
+    -   `@examples` (Required on exported functions): Provide one or
+        multiple examples of how the function can be used.
+        -   On non exported functions, write tests instead.
+        -   They should be as short as possible, while still using the
+            function in a realistic and authentic way. They must run
+            **without** errors and sideeffects (change the environment,
+            working directory, write files, …). You should just be able
+            to copy and run them.
+        -   Add comments to the examples as well.
+        -   If you provide multiple examples, break them up with a
+            comment line (e.g. `# --------------`).
+        -   Do not use edge cases as examples. Make tests out of them
+            instead.
+        -   Do not use excessive sample sizes. Running the examples
+            should be almost instantaneous and can not take more than 3
+            seconds. If this is not possible add the `\dontrun`
+            attribute.
+        -   `check()` also runs these examples.
 
 ### Vignette
 
@@ -323,7 +312,7 @@ For Parameters i, n, m, w use check_positive_numbers(), i only use one
 method, because they all have the same restrictions For the
 characteristic function use check_v(). Here i don’t check if the
 function has just one parameter, because i havtn’t found a way to do
-this. To check the parameters i und n use check_n_i(). Use it if you use
-both parameters. To check the priori unions use check_P(). To check the
-parameters i and P use function check_P_i(). Use it if you use both
+this. To check the parameters i und n use check_n\_i(). Use it if you
+use both parameters. To check the priori unions use check_P(). To check
+the parameters i and P use function check_P\_i(). Use it if you use both
 parameters.
