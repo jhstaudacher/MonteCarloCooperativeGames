@@ -3,7 +3,7 @@
 
 # Monte Carlo For Coop Games
 
-Monte Carlo For Coop Games is a R package for simulating arbitrary
+MontCarloCooperativeGames is an R package for simulating arbitrary
 cooperative games and approximating the Shapley value of them.
 
 ## Getting started with development
