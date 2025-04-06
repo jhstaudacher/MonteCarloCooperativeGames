@@ -3,8 +3,9 @@
 
 # MonteCarloCooperativeGames
 
-MontCarloCooperativeGames is an R package for simulating arbitrary
-cooperative games and approximating the Shapley value of them.
+MonteCarloCooperativeGames is an R package for simulating large
+cooperative games and approximating the Shapley value and related
+point-valued solution concepts.
 
 ## Getting started with development
 
