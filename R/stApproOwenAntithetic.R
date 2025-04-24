@@ -51,7 +51,7 @@ stApproOwenAntithetic <- function(i, m, v, P) {
     nrow = p,
     ncol = ceiling(p_i / 2)
   )
-  M <- M <- ceiling(m * W)
+  M <- ceiling(m * W)
 
   if (p_i %% 2 == 1 && p %% 2 == 1) {
     M[(p - 1) / 2 + 1, (p_i - 1) / 2 + 1] <- ceiling(M[(p - 1) / 2 + 1, (p_i - 1) / 2 + 1] / 2)
